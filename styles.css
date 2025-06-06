@@ -151,21 +151,6 @@ a {
     color: #666;
     font-family: Lato;
 }
-.marquee {
-    font-family: 'IBM Plex Sans';
-    font-size: 40px;
-    padding-top: 20px;
-    font-style: italic;
-    color: rgb(170, 0, 222);
-    background-color: yellowgreen;
-    height: 100px;
-    border: 7px dotted yellow;
-    animation: marqueeanim 1s infinite;
-}
-@keyframes marqueeanim {
-    from {color: rgb(170, 0, 222);}
-    to {color: rgb(0, 0, 0)}
-}
 
 /* Animations */
 .square-to-circle {
@@ -234,35 +219,4 @@ a {
         background-position: center;
         transform: rotate(0deg);
     }
-}
-
-.gearsimple {
-    width: 90px;
-    height: 90px;
-    background-color: violet;
-    border-radius: 90px;
-    border: 20px dashed rgb(127, 23, 255);
-    animation: gearsimple 4s .83s infinite linear;
-}
-@keyframes gearsimple {
-    0% { background: rgb(204, 121, 255); transform: rotate(0deg); }
-    25% { background: rgb(246, 176, 246); transform: rotate(90deg); }
-    50% { background: rgb(234, 201, 255); transform: rotate(180deg); }
-    75% { background: lightgrey; transform: rotate(270deg); }
-    100% { background: rgb(204, 121, 255); transform: rotate(360deg); }
-}
-.gearcomplex {
-    width: 90px;
-    height: 90px;
-    background-color: violet;
-    border-radius: 90px;
-    border: 10px dashed rgb(127, 23, 255);
-    animation: gearcomplex 4s .83s infinite linear;
-}
-@keyframes gearcomplex {
-    0% { background: rgb(204, 121, 255); transform: rotate(0deg);}
-    25% { background: rgb(246, 176, 246); transform: rotate(90deg);}
-    50% { background: rgb(234, 201, 255); transform: rotate(180deg);}
-    75% { background: lightgrey; transform: rotate(270deg);}
-    100% { background: rgb(204, 121, 255); transform: rotate(360deg);}
 }
