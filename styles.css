@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: Lato, sans-serif;
     overflow-x: hidden;
-    background-color: rgb(127, 23, 255);
+    background-color: black;
 }
 a {
     text-decoration: none;
@@ -171,12 +171,12 @@ a {
 .square-to-circle {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle at center, rgb(210, 137, 255) 70%, rgba(210, 137, 255, 0) 100%), 
+    background: radial-gradient(circle at center, rgb(210, 137, 255) 70%, rgba(210, 137, 255, 0) 100%),  
     url('pngtree-black-halftone-dots-overlay-background-png-image_8625004.png');
     background-blend-mode: overlay soft-light;
     background-size: cover;
     background-position: center;
-    border: 30px dashed rgb(127, 23, 255);    
+    border: 30px dashed black;
     animation: square-to-circle 3.5s 0.83s infinite cubic-bezier(1,.015,.295,1.225);
 }
 @keyframes square-to-circle {
