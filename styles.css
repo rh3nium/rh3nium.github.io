@@ -38,6 +38,7 @@ a {
     text-align: center;
     display: inline-block;
     font-family: 'IBM Plex Sans';
+    font-size: 16px;
 }
 .dropdown {
     position: relative;
@@ -51,6 +52,7 @@ a {
     width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1001;
+    font-size: 16px;
 }
 .dropdown-content a {
     font-family: "Lato";
@@ -61,14 +63,17 @@ a {
     text-decoration: none;
     display: block;
     text-align: left;
+    font-size: 16px;
 }
 .dropdown-content a:hover {
     font-family: "Lato";
     background-color: #555;
+    font-size: 16px;
 }
 .dropdown:hover .dropdown-content {
     font-family: "Lato";
     display: block;
+    font-size: 16px;
 }
 .social-icons {
     margin-right: 20px;
@@ -97,6 +102,7 @@ a {
     justify-content: center;
     align-items: center;
     height: 200px;
+    font-size: 14px;
 }
 .content-section .content h1 {
     font-family: 'IBM Plex Sans';
@@ -171,7 +177,7 @@ a {
     background-size: cover;
     background-position: center;
     border: 30px dashed rgb(127, 23, 255);    
-    animation: square-to-circle 4s 0.83s infinite cubic-bezier(1,.015,.295,1.225);
+    animation: square-to-circle 3.5s 0.83s infinite cubic-bezier(1,.015,.295,1.225);
 }
 @keyframes square-to-circle {
     0% { 
