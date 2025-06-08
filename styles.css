@@ -5,9 +5,9 @@
 }
 body {
     margin: 0;
-    font-family: Titillium Web, sans-serif;
+    font-family: "Titillium Web", sans-serif;
     overflow-x: hidden;
-    background-color: black;
+    background-color: rgb(50, 10, 143);
 }
 a {
     text-decoration: none;
@@ -37,25 +37,22 @@ a {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    font-family: "Titillium Web", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
 }
 .dropdown {
     position: relative;
     display: inline-block;
 }
 .dropdown-content {
-    font-family: "Titillium Web", sans-serif;
     display: none;
     position: absolute;
     background-color: rgb(51, 51, 51);
     width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1001;
-    font-size: 16px;
+    font-size: 20px;
 }
 .dropdown-content a {
-    font-family: "Titillium Web", sans-serif;
     color: white;
     padding: 10px 50px;
     padding-left: 20px;
@@ -63,17 +60,15 @@ a {
     text-decoration: none;
     display: block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
 }
 .dropdown-content a:hover {
-    font-family: Titillium Web, sans-serif;
     background-color: #555;
-    font-size: 16px;
+    font-size: 20px;
 }
 .dropdown:hover .dropdown-content {
-    font-family: Titillium Web, sans-serif;
     display: block;
-    font-size: 16px;
+    font-size: 20px;
 }
 .social-icons {
     margin-right: 20px;
@@ -93,7 +88,6 @@ a {
     padding: 0;
 }
 .content-section .content {
-    font-family: Titillium Web, sans-serif;
     position: relative;
     z-index: 2;
     padding-top: 160px;
@@ -103,10 +97,9 @@ a {
     justify-content: center;
     align-items: center;
     height: 200px;
-    font-size: 14px;
+    font-size: 18px;
 }
 .content-section .content h1 {
-    font-family: Titillium Web, sans-serif;
     font-weight: 700;
     font-size: 36px;
     margin: 0;
@@ -145,12 +138,10 @@ a {
 .gallery-item h3 {
     margin-top: 10px;
     font-size: 20px;
-    font-family: "Titillium Web", sans-serif;
 }
 .gallery-item p {
     font-size: 16px;
     color: #666;
-    font-family: Lato;
 }
 
 /* Animations */
@@ -162,7 +153,7 @@ a {
     background-blend-mode: overlay soft-light;
     background-size: cover;
     background-position: center;
-    border: 30px dashed black;
+    border: 30px dashed rgb(50, 10, 143);
     animation: square-to-circle 3.5s 0.83s infinite cubic-bezier(1,.015,.295,1.225);
 }
 @keyframes square-to-circle {
