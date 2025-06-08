@@ -3,35 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+  <title>Rh3nium | projects with Sparkles</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* Basic page styling */
     body {
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background: #111;
+      color: white;
     }
 
+    /* Header styling */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #222;
+    }
+    .header h1 {
+      margin: 0;
+      font-weight: 700;
+      color: #eee;
+      cursor: pointer;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .menu a:hover {
+      color: #cfc;
+    }
+    .social-icons a {
+      color: white;
+      margin-left: 1rem;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #cfc;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 2rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    /* Container holding the two sparkle texts side by side */
+    .sparkle-containers-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Common sparkle text container style */
     .container {
       position: relative;
+      user-select: none;
+      padding: 0 1rem;
+      /* fix width so both align nicely */
+      width: 350px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* First sparkle text style */
+    #text-container-anton {
       font-family: 'Anton', sans-serif;
-      font-size: 6rem;
+      font-size: 4rem;
       color: silver;
       -webkit-text-stroke: 2px silver;
       text-stroke: 2px silver;
-      user-select: none;
-      padding: 0 1rem;
       text-shadow: 2px 2px 2px rgba(48, 0, 64, 0.6); /* dark purple shadow */
     }
 
+    /* Second sparkle text style */
+    #text-container-pinyon {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 4rem;
+      color: silver;
+      -webkit-text-stroke: 2px silver;
+      text-stroke: 2px silver;
+      text-shadow: 2px 2px 8px rgba(48, 0, 64, 0.6); /* dark purple shadow */
+    }
+
+    /* Shared sparkle styles */
     .sparkles-text {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       pointer-events: none;
       overflow: visible;
+      z-index: 2;
     }
 
     .sparkle {
@@ -42,6 +123,7 @@
       opacity: 0.7;
       animation: glitter 1s infinite ease-in-out;
       transform-origin: center;
+      z-index: 2;
     }
 
     @keyframes glitter {
@@ -54,20 +136,86 @@
         transform: scale(1.8);
       }
     }
+
+    /* The square to circle element from your original */
+    .square-to-circle {
+      width: 100px;
+      height: 100px;
+      background: #4caf50;
+      border-radius: 0;
+      margin: 3rem auto;
+      animation: squareToCircle 4s ease-in-out infinite alternate;
+    }
+    @keyframes squareToCircle {
+      0% {
+        border-radius: 0;
+        background: #4caf50;
+      }
+      100% {
+        border-radius: 50%;
+        background: #81c784;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .sparkle-containers-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .container {
+        width: 90vw;
+        font-size: 3rem;
+        height: 100px;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="header">
+    <a href="index.html"><h1>Rh3nium</h1></a>
+    <div class="menu">
+      <a href="uav.html">Surveillance</a>
+      <a href="robots.html">Robotics</a>
+      <a href="ugv.html">UGV</a>
+      <a href="uav.html">UAV</a>
+      <a href="throwables">Throwables</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+      <a href="https://x.com/rh3nium_" target="_blank" class="fab fa-twitter"></a>
+      <a href="https://www.youtube.com/@rrh3nium" target="_blank" class="fab fa-youtube"></a>
+    </div>
+  </div>
 
-  <div class="container" id="text-container">
-    Pretty Parsed
-    <div class="sparkles-text" id="sparkles-text-container"></div>
+  <div class="content-section">
+    <div class="content">
+      <h1>All</h1>
+    </div>
+  </div>
+
+  <center><div class="square-to-circle"></div></center>
+
+  <!-- Sparkle containers wrapper -->
+  <div class="sparkle-containers-wrapper">
+    <!-- First sparkle text -->
+    <div class="container" id="text-container-anton">
+      Pretty Parsed
+      <div class="sparkles-text" id="sparkles-text-container-anton"></div>
+    </div>
+
+    <!-- Second sparkle text -->
+    <div class="container" id="text-container-pinyon">
+      Pretty Parsed
+      <div class="sparkles-text" id="sparkles-text-container-pinyon"></div>
+    </div>
   </div>
 
   <script>
-    const sparklesText = document.getElementById('sparkles-text-container');
-
-    const sparkleCountText = 7200;
-    for (let i = 0; i < sparkleCountText; i++) {
+    // Create sparkles for the Anton font container
+    const sparklesAnton = document.getElementById('sparkles-text-container-anton');
+    const sparkleCountAnton = 2400;  // You can reduce for performance if needed
+    for (let i = 0; i < sparkleCountAnton; i++) {
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
       sparkle.style.width = sparkle.style.height = (Math.random() * 1 + 0.3) + 'px';
@@ -75,96 +223,23 @@
       sparkle.style.left = Math.random() * 100 + '%';
       sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
       sparkle.style.animationDuration = (Math.random() * 0.5 + 0.4) + 's';
-      sparklesText.appendChild(sparkle);
-    }
-  </script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ultra Sparkly Silver Text</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
-    body {
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      sparklesAnton.appendChild(sparkle);
     }
 
-    .container {
-      position: relative;
-      font-family: 'Pinyon Script', sans-serif;
-      font-size: 6rem;
-      color: silver;
-      -webkit-text-stroke: 2px silver;
-      text-stroke: 2px silver;
-      user-select: none;
-      padding: 0 1rem;
-      text-shadow: 2px 2px 8px rgba(48, 0, 64, 0.6); /* dark purple shadow */
-    }
-
-    .sparkles-text {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      overflow: visible;
-    }
-
-    .sparkle {
-      position: absolute;
-      border-radius: 50%;
-      background: white;
-      filter: drop-shadow(0 0 1.5px white);
-      opacity: 0.7;
-      animation: glitter 1s infinite ease-in-out;
-      transform-origin: center;
-    }
-
-    @keyframes glitter {
-      0%, 100% {
-        opacity: 0.8;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.1;
-        transform: scale(1.8);
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container" id="text-container">
-    Pretty Parsed
-    <div class="sparkles-text" id="sparkles-text-container"></div>
-  </div>
-
-  <script>
-    const sparklesText = document.getElementById('sparkles-text-container');
-
-    // 7200 sparkles (3x the previous 2400)
-    const sparkleCountText = 7200;
-    for (let i = 0; i < sparkleCountText; i++) {
+    // Create sparkles for the Pinyon Script font container
+    const sparklesPinyon = document.getElementById('sparkles-text-container-pinyon');
+    const sparkleCountPinyon = 2400;  // Same count here, adjust as desired
+    for (let i = 0; i < sparkleCountPinyon; i++) {
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
-      sparkle.style.width = sparkle.style.height = (Math.random() * 1 + 0.3) + 'px'; // same size range as before
+      sparkle.style.width = sparkle.style.height = (Math.random() * 1 + 0.3) + 'px';
       sparkle.style.top = Math.random() * 100 + '%';
       sparkle.style.left = Math.random() * 100 + '%';
       sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
       sparkle.style.animationDuration = (Math.random() * 0.5 + 0.4) + 's';
-      sparklesText.appendChild(sparkle);
+      sparklesPinyon.appendChild(sparkle);
     }
   </script>
 
 </body>
 </html>
-
