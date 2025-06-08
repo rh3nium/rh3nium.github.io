@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    body {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      position: relative;
+      font-family: 'Anton', sans-serif;
+      font-size: 6rem;
+      color: silver;
+      -webkit-text-stroke: 2px silver;
+      text-stroke: 2px silver;
+      user-select: none;
+      padding: 0 1rem;
+      text-shadow: 2px 2px 2px rgba(48, 0, 64, 0.6); /* dark purple shadow */
+    }
+
+    .sparkles-text {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      filter: drop-shadow(0 0 1.5px white);
+      opacity: 0.7;
+      animation: glitter 1s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @keyframes glitter {
+      0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.1;
+        transform: scale(1.8);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="text-container">
+    Pretty Parsed
+    <div class="sparkles-text" id="sparkles-text-container"></div>
+  </div>
+
+  <script>
+    const sparklesText = document.getElementById('sparkles-text-container');
+
+    const sparkleCountText = 7200;
+    for (let i = 0; i < sparkleCountText; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.width = sparkle.style.height = (Math.random() * 1 + 0.3) + 'px';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
+      sparkle.style.animationDuration = (Math.random() * 0.5 + 0.4) + 's';
+      sparklesText.appendChild(sparkle);
+    }
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ultra Sparkly Silver Text</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+    body {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      position: relative;
+      font-family: 'Pinyon Script', sans-serif;
+      font-size: 6rem;
+      color: silver;
+      -webkit-text-stroke: 2px silver;
+      text-stroke: 2px silver;
+      user-select: none;
+      padding: 0 1rem;
+      text-shadow: 2px 2px 8px rgba(48, 0, 64, 0.6); /* dark purple shadow */
+    }
+
+    .sparkles-text {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      filter: drop-shadow(0 0 1.5px white);
+      opacity: 0.7;
+      animation: glitter 1s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @keyframes glitter {
+      0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.1;
+        transform: scale(1.8);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="text-container">
+    Pretty Parsed
+    <div class="sparkles-text" id="sparkles-text-container"></div>
+  </div>
+
+  <script>
+    const sparklesText = document.getElementById('sparkles-text-container');
+
+    // 7200 sparkles (3x the previous 2400)
+    const sparkleCountText = 7200;
+    for (let i = 0; i < sparkleCountText; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.width = sparkle.style.height = (Math.random() * 1 + 0.3) + 'px'; // same size range as before
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
+      sparkle.style.animationDuration = (Math.random() * 0.5 + 0.4) + 's';
+      sparklesText.appendChild(sparkle);
+    }
+  </script>
+
+</body>
+</html>
+
