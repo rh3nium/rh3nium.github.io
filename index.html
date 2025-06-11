@@ -24,6 +24,13 @@
         font-family: 'Syne Mono', monospace;
     }
 
+    h2 {
+        font-weight: 700;
+        font-size: 60px;
+        color: white;
+        font-family: 'Syne Mono', monospace;
+    }
+
     .header a {
         text-decoration: none;
     }
@@ -35,6 +42,7 @@
         margin-top: 10px;
         gap: 20px;
         font-size: 24px;
+        font-weight: 700;
     }
 
     .menu a { 
@@ -104,7 +112,7 @@
     }
 
     .glitch::before {
-      color: #ff00ff;
+      color: rgb(195, 0, 255);
       animation: glitchTop 2s infinite linear alternate-reverse;
     }
 
@@ -240,6 +248,49 @@
   border-color: #ff0000;
 }
 
+.center-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #111;
+  border-radius: 15px;
+  padding: 20px 30px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px red;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.center-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px red;
+}
+
+.center-box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.text-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: white;
+}
+
+.text-content p {
+  margin: 0;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.small-glitch {
+  font-size: 40px;
+}
+
   </style>
 </head>
 
@@ -266,6 +317,16 @@
     <a href="https://x.com/rh3nium_" target="_blank" class="fab fa-x"></a>
     <a href="https://www.youtube.com/@rrh3nium" target="_blank" class="fab fa-youtube"></a>
   </div>
+  
+<div class="center-box">
+  <img src="img.png" alt="Sample" />
+  <div class="text-content">
+    <div class="glitch-wrapper">
+      <div class="glitch small-glitch" data-text="Hi, I'm Riya" aria-hidden="true">Hi, I'm Riya</div>
+    </div>
+    <p>embedded systems & tactical tech</p>
+  </div>
+</div>
 
   <script>
     const sparkleContainer = document.getElementById('sparkleContainer');
