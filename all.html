@@ -8,13 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #000;
-      color: white;
-      margin: 0;
-      font-family: 'Titillium Web', sans-serif;
-      overflow: hidden;
-    }
+    
+body {
+  background-image: url('bg.png');
+  background-size: cover; 
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed;  
+  
+  color: white;
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+  overflow: hidden;
+  height: 100vh;       
+}
     
     .header h1 {
         font-weight: 700;
@@ -224,9 +231,10 @@
 }
 
 .repo-card h3 {
+  font-family: 'Syne Mono', monospace;
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 25px;
+  font-size: 26px;
   font-weight: 600;
 }
 
