@@ -161,7 +161,7 @@ h2 {
 }
 
 .glitch2::after {
-  color: red;
+  color: orange;
   animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
 
