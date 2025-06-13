@@ -140,7 +140,7 @@ h2 {
   font-family: 'Syne Mono', monospace;
   font-size: 100px;
   letter-spacing: 2px;
-  color: white;
+  color: yellow;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
   z-index: 2;
