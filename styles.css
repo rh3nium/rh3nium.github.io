@@ -70,6 +70,8 @@ h2 {
   font-size: 35px;
   color: white;
   text-decoration: none;
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
 }
 
 .social-icons a:hover {
