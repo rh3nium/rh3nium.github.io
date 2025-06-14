@@ -138,8 +138,8 @@ h2 {
 
 .glitch2 {
   font-family: 'Syne Mono', monospace;
-  font-size: 85px;
-  letter-spacing: 2px;
+  font-size: 70px;
+  letter-spacing: 3px;
   color: yellow;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
