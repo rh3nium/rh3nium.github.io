@@ -34,7 +34,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 10px;
   gap: 20px;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 700;
 }
 
@@ -42,7 +42,7 @@ h2 {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 23px;
   transition: color 0.3s ease;
 }
 
@@ -138,7 +138,7 @@ h2 {
 
 .glitch2 {
   font-family: 'Syne Mono', monospace;
-  font-size: 100px;
+  font-size: 85px;
   letter-spacing: 2px;
   color: yellow;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -172,7 +172,7 @@ h2 {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: 80%;
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -183,7 +183,7 @@ h2 {
   position: absolute;
   top: -100%;
   left: 0;
-  width: 100%;
+  width: 80%;
   height: 200%;
   background: repeating-linear-gradient(
     to bottom,
