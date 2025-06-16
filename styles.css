@@ -265,21 +265,21 @@ h2 {
   border-radius: 10px;
   object-fit: cover;
   margin-right: 20px;
+  flex: 1;
 }
 .center-box p {
   font-size: 22px;
+  flex: 1;
 }
 .text-content h2 {
   margin: 0 0 8px 0;
   font-size: 24px;
   color: white;
-  flex: 1;
 }
 .text-content p {
   margin: 0;
   font-size: 18px;
   color: #ccc;
-  flex: 1;
 }
 .small-glitch {
   font-size: 40px;
