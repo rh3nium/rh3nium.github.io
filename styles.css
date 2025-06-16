@@ -1,325 +1,195 @@
+/* Base Styles */
 body {
-  background-image: url('bg.png');
-  background-size: cover; 
-  background-position: center;  
-  background-repeat: no-repeat; 
-  background-attachment: fixed;
-  color: white;
-  margin: 0;
   font-family: 'Titillium Web', sans-serif;
-}
-
-.header h1 {
-  font-weight: 800;
-  font-size: 75px;
-  color: white;
+  background-color: #0e0e0e;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  font-family: 'Syne Mono', monospace;
 }
 
-h2 {
-  font-weight: 700;
-  font-size: 60px;
-  color: white;
-  font-family: 'Syne Mono', monospace;
-}
-
-.header a {
-  text-decoration: none;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  gap: 20px;
-  font-size: 23px;
-  font-weight: 700;
-}
-
-.menu a { 
-  text-decoration: none;
-  color: #fff;
-  font-weight: 400;
-  font-size: 23px;
-  transition: color 0.3s ease;
-}
-
-.menu a:hover {
-  color: #ff0000;
-}
-
-.menu span {
-  color: #fff;
-  font-weight: 300;
-}
-
-.social-icons {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  z-index: 10;
-}
-
-.social-icons a {
-  font-size: 35px;
-  color: white;
-  text-decoration: none;
-  background-color: rgb(39, 39, 39);
-  border-radius: 10px;
-}
-
-.social-icons a:hover {
-  color: #ff0000;
-}
-
+/* Header Glitch Effect */
 .glitch-wrapper {
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 40px;
   position: relative;
-  margin-bottom: 15px;
-  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .glitch {
-  font-family: 'Syne Mono', monospace;
-  font-size: 100px;
-  letter-spacing: 2px;
+  position: relative;
   color: white;
-  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  position: relative;
-  z-index: 2;
 }
 
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-  clip-path: inset(0 0 100% 0);
+.small-glitch {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.glitch::before {
-  color: rgb(140, 0, 255);
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  color: #00fff2;
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-  0% { clip-path: inset(0 0 100% 0); }
-  10% { clip-path: inset(0 0 75% 0); }
-  20% { clip-path: inset(10% 0 65% 0); }
-  40% { clip-path: inset(20% 0 50% 0); }
-  60% { clip-path: inset(30% 0 30% 0); }
-  80% { clip-path: inset(40% 0 20% 0); }
-  100% { clip-path: inset(50% 0 0% 0); }
-}
-
-@keyframes glitchBottom {
-  0% { clip-path: inset(50% 0 0% 0); }
-  20% { clip-path: inset(30% 0 20% 0); }
-  40% { clip-path: inset(20% 0 30% 0); }
-  60% { clip-path: inset(10% 0 50% 0); }
-  80% { clip-path: inset(5% 0 60% 0); }
-  100% { clip-path: inset(0% 0 100% 0); }
-}
-
-/* Glitch 2*/
-
-.glitch2 {
-  font-family: 'Syne Mono', monospace;
-  font-size: 70px;
-  letter-spacing: 3px;
-  color: yellow;
-  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  position: relative;
-  z-index: 2;
-}
-
-.glitch2::before,
-.glitch2::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-  clip-path: inset(0 0 100% 0);
-}
-
-.glitch2::before {
-  color: yellow;
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch2::after {
-  color: orange;
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-
+/* Scanline Effect (Optional) */
 .scanline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 80%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: scanline 2s linear infinite;
 }
 
-.scanline::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 80%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    rgba(255, 0, 0, 0.1) 1px,
-    transparent 2px
-  );
-  animation: scan 2s linear infinite;
+@keyframes scanline {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
 }
 
-@keyframes scan {
-  0% { top: -100%; }
-  100% { top: 0%; }
-}
-
+/* Sparkle Effect */
 .sparkle-container {
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  overflow: hidden;
 }
 
 .sparkle {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: red;
-  opacity: 0;
+  background-color: #fff;
   border-radius: 50%;
-  animation: flicker 1s infinite ease-in-out;
+  animation: sparkle 2s infinite ease-in-out;
+  opacity: 0.8;
 }
 
-@keyframes flicker {
-  0%, 100% { opacity: 0; }
-  10%, 90% { opacity: 1; }
+@keyframes sparkle {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 1; }
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.repo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  padding: 30px;
-  max-width: 1800px;
-  margin: auto;
-}
-
-.repo-card {
-  background-color: #111;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;
-  border: 1px solid #444;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 20px;
-  box-shadow: 0 0 10px red;
-}
-
-.repo-card h3 {
-  font-family: 'Syne Mono', monospace;
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 26px;
+/* Navigation Menu */
+.menu {
+  margin-top: 10px;
   font-weight: 600;
 }
 
-.repo-card p {
+.menu a {
+  text-decoration: none;
+  color: #f0f0f0;
+  margin: 0 10px;
+}
+
+.menu span {
+  color: #888;
+}
+
+/* Social Icons */
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #f0f0f0;
   font-size: 20px;
-  color: #ccc;
+  transition: color 0.3s;
 }
 
-.repo-card:hover {
-  color: #ff0000;
-  border-color: #ff0000;
+.social-icons a:hover {
+  color: #00ffff;
 }
 
+/* Center Content Layout */
 .center-box {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #111;
-  border-radius: 15px;
-  padding: 20px 30px;
-  max-width: 600px;
-  margin: 40px auto;
-  box-shadow: 0 0 15px red;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.center-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px red;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 20px;
+  flex-wrap: wrap;
 }
 
 .center-box img {
-  width: 100px;
-  height: 100px;
+  max-width: 300px;
+  height: auto;
   border-radius: 10px;
-  object-fit: cover;
-  margin-right: 20px;
 }
 
-.center-box p {
-  font-size: 22px;
+/* Right Text Section */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+  text-align: left;
 }
 
-.text-content h2 {
-  margin: 0 0 8px 0;
-  font-size: 24px;
+/* Text Content */
+.text-content p {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Badge Styling */
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.badge-container a {
+  margin: 4px 4px 0 0;
+}
+
+/* Repo Cards */
+.repo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 20px;
+}
+
+.repo-card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  width: 260px;
+  transition: transform 0.3s, background-color 0.3s;
+  text-decoration: none;
   color: white;
 }
 
-.text-content p {
-  margin: 0;
-  font-size: 18px;
-  color: #ccc;
+.repo-card:hover {
+  transform: scale(1.03);
+  background-color: #333;
 }
 
-.small-glitch {
-  font-size: 40px;
+.repo-card h3 {
+  margin: 0 0 10px 0;
+  color: #00ffff;
+}
+
+.repo-card p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .center-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .badge-container {
+    justify-content: center;
+  }
 }
