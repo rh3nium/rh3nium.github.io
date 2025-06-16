@@ -276,7 +276,7 @@ h2 {
   position: absolute;
   width: 0;
   height: 0;
-  filter: drop-shadow(0 0 1px white);
+  filter: drop-shadow(3 3 5px white);
   animation: pulse 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
