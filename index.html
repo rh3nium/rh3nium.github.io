@@ -39,11 +39,12 @@
   
 <!-- Triangle Animation -->
 <div class="hero-flex-container">
-  <div class="canvas" id="canvas"></div>
+  
+  <div class="canvasred" id="canvasred"></div>
 
   <center>
   <div class="center-box">
-    <img src="imagehomesc.png" alt="Sample" />
+    <img src="/home/riya-halbhavi/Desktop/imghome.png" alt="Sample" />
     <div class="right-section">
       <div class="text-content">
         <div class="glitch-wrapper">
@@ -55,18 +56,21 @@
     </div>
   </div>
   </center>
+  
+  <div class="canvasblack" id="canvasblack"></div>
+  
 </div>
 
   <!-- Triangle Animation Script -->
   <script>
-    const canvas = document.getElementById('canvas');
+    const canvas = document.getElementById('canvasred');
     const canvasSize = 200;
     const center = canvasSize / 2;
     const scaleFactor = 1.1;
 
     for (let i = 0; i < 25; i++) {
       const tri = document.createElement('div');
-      tri.className = 'triangle';
+      tri.className = 'trianglered';
 
       const base = Math.floor(Math.random() * 14) + 10;
       const height = Math.floor(Math.random() * 12) + 14;
@@ -90,6 +94,41 @@
       tri.style.top = '50%';
 
       canvas.appendChild(tri);
+    }
+  </script>
+
+  <script>
+    const canvas2 = document.getElementById('canvasblack');
+    const canvasSize2 = 200;
+    const center2 = canvasSize2 / 2;
+    const scaleFactor2 = 1.1;
+
+    for (let i = 0; i < 25; i++) {
+      const tri2 = document.createElement('div');
+      tri2.className = 'triangleblack';
+
+      const base2 = Math.floor(Math.random() * 18) + 13;
+      const height2 = Math.floor(Math.random() * 15) + 8;
+
+      tri2.style.borderLeft = `${base2 / 2}px solid transparent`;
+      tri2.style.borderRight = `${base2 / 2}px solid transparent`;
+      tri2.style.borderBottom = `${height2}px solid black`;
+
+      const maxOffsetX2 = center2 - (base2 / 2) * scaleFactor2;
+      const maxOffsetY2 = center2 - height2 * scaleFactor2;
+
+      const offsetX2 = Math.random() * (maxOffsetX2 * 2) - maxOffsetX2;
+      const offsetY2 = Math.random() * (maxOffsetY2 * 2) - maxOffsetY2;
+      const rotation2 = Math.floor(Math.random() * 360);
+
+      tri2.style.setProperty('--x', `${offsetX2}px`);
+      tri2.style.setProperty('--y', `${offsetY2}px`);
+      tri2.style.setProperty('--r', `${rotation2}deg`);
+
+      tri2.style.left = '50%';
+      tri2.style.top = '50%';
+
+      canvas2.appendChild(tri2);
     }
   </script>
 
