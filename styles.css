@@ -271,6 +271,7 @@ h2 {
   width: 240px;
   height: 240px;
   position: relative;
+  background-color: transparent;
 }
 .triangle {
   position: absolute;
