@@ -270,6 +270,8 @@ h2 {
 .center-box p {
   font-size: 22px;
   flex: 1;
+  max-width: 380px; /* ✅ ADDED */
+  word-wrap: break-word;
 }
 .text-content h2 {
   margin: 0 0 8px 0;
