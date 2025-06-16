@@ -261,7 +261,7 @@ h2 {
 }
 .center-box img {
   width: 120px;
-  height: 333px;
+  height: auto;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 20px;
