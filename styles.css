@@ -257,3 +257,30 @@ h2 {
 .small-glitch {
   font-size: 40px;
 }
+.canvas {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #111;
+  overflow: hidden;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px white);
+  animation: pulse 5s ease-in-out infinite;
+  transition: border-bottom-color 0.4s ease;
+}
+.triangle:hover {
+  border-bottom-color: white;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+  }
+}
