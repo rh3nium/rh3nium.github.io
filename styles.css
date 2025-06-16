@@ -266,21 +266,47 @@ h2 {
   gap: 25px;
 }
 
-.canvas {
+.canvasred {
   width: 240px;
   height: 240px;
   position: relative;
   background-color: transparent;
 }
-.triangle {
+.canvasblack {
+  width: 240px;
+  height: 240px;
+  position: relative;
+  background-color: transparent;
+}
+
+.trianglered {
   position: absolute;
   width: 0;
   height: 0;
-  filter: drop-shadow(3 3 5px white);
-  animation: pulse 5s ease-in-out infinite;
+  filter: drop-shadow(1 1 2px white);
+  animation: pulse1 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
-@keyframes pulse {
+
+.triangleblack {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(4 4 4px red);
+  animation: pulse2 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+
+@keyframes pulse1 {
+  0%, 100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+  }
+}
+
+@keyframes pulse2 {
   0%, 100% {
     transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
   }
