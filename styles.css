@@ -257,24 +257,28 @@ h2 {
 .small-glitch {
   font-size: 40px;
 }
-.canvas {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: #111;
-  overflow: hidden;
+
+.hero-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
+.canvas {
+  width: 240px;
+  height: 240px;
+  position: relative;
+}
 .triangle {
   position: absolute;
   width: 0;
   height: 0;
   filter: drop-shadow(0 0 1px white);
   animation: pulse 5s ease-in-out infinite;
-  transition: border-bottom-color 0.4s ease;
-}
-.triangle:hover {
-  border-bottom-color: white;
+  transition: color 0.4s ease;
 }
 @keyframes pulse {
   0%, 100% {
