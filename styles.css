@@ -261,7 +261,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 15px;
   flex-wrap: wrap;
   gap: 25px;
 }
