@@ -264,7 +264,7 @@ h2 {
   align-items: center;
   margin-top: 30px;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 25px;
 }
 
 .canvas {
