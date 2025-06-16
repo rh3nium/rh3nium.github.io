@@ -62,19 +62,60 @@
     <a href="https://instagram.com/rh3nium_" target="_blank" class="fab fa-instagram"></a>
     <a href="https://www.youtube.com/@rrh3nium" target="_blank" class="fab fa-youtube"></a>
   </div>
+  
+    <!-- Triangle Animation -->
+  <div class="canvas" id="canvas"></div>
 
-  <div class="center-box">
-    <img src="imagehomesc.png" alt="Sample" />
-    <div class="right-section">
-      <div class="text-content">
-        <div class="glitch-wrapper">
-          <div class="glitch small-glitch" data-text="Hey, I'm Riya" aria-hidden="true">Hey, I'm Riya</div>
-          <div class="scanline"></div>
+    <div class="center-box">
+      <img src="imagehomesc.png" alt="Sample" />
+      <div class="right-section">
+        <div class="text-content">
+          <div class="glitch-wrapper">
+            <div class="glitch small-glitch" data-text="Hey, I'm Riya" aria-hidden="true">Hey, I'm Riya</div>
+            <div class="scanline"></div>
+          </div>
+          <p>Into AIML, computer vision, embedded systems, robotics & mechatronics, and their applications in defense/tactical tech</p>
         </div>
-        <p>Into AIML, computer vision, embedded systems, robotics & mechatronics, and their applications in defense/tactical tech</p>
       </div>
     </div>
+
   </div>
+
+  <!-- Triangle Animation Script -->
+  <script>
+    const canvas = document.getElementById('canvas');
+    const canvasSize = 200;
+    const center = canvasSize / 2;
+    const scaleFactor = 1.1;
+
+    for (let i = 0; i < 25; i++) {
+      const tri = document.createElement('div');
+      tri.className = 'triangle';
+
+      const base = Math.floor(Math.random() * 14) + 10;
+      const height = Math.floor(Math.random() * 12) + 14;
+
+      tri.style.borderLeft = `${base / 2}px solid transparent`;
+      tri.style.borderRight = `${base / 2}px solid transparent`;
+      tri.style.borderBottom = `${height}px solid red`;
+
+      const maxOffsetX = center - (base / 2) * scaleFactor;
+      const maxOffsetY = center - height * scaleFactor;
+
+      const offsetX = Math.random() * (maxOffsetX * 2) - maxOffsetX;
+      const offsetY = Math.random() * (maxOffsetY * 2) - maxOffsetY;
+      const rotation = Math.floor(Math.random() * 360);
+
+      tri.style.setProperty('--x', `${offsetX}px`);
+      tri.style.setProperty('--y', `${offsetY}px`);
+      tri.style.setProperty('--r', `${rotation}deg`);
+
+      tri.style.left = '50%';
+      tri.style.top = '50%';
+
+      canvas.appendChild(tri);
+    }
+  </script>
 
   <script>
     const sparkleContainer = document.getElementById('sparkleContainer');
