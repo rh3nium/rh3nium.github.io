@@ -273,11 +273,13 @@ h2 {
   margin: 0 0 8px 0;
   font-size: 24px;
   color: white;
+  flex: 1;
 }
 .text-content p {
   margin: 0;
   font-size: 18px;
   color: #ccc;
+  flex: 1;
 }
 .small-glitch {
   font-size: 40px;
