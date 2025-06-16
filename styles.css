@@ -231,7 +231,7 @@ h2 {
   font-family: 'Syne Mono', monospace;
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
 }
 .repo-card p {
@@ -270,17 +270,17 @@ h2 {
 .center-box p {
   font-size: 22px;
   flex: 1;
-  max-width: 380px; /* ✅ ADDED */
+  max-width: 380px;
   word-wrap: break-word;
 }
 .text-content h2 {
   margin: 0 0 8px 0;
-  font-size: 24px;
+  font-size: 26px;
   color: white;
 }
 .text-content p {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #ccc;
 }
 .small-glitch {
