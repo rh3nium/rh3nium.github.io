@@ -116,34 +116,6 @@ h2 {
   80% { clip-path: inset(5% 0 60% 0); }
   100% { clip-path: inset(0% 0 100% 0); }
 }
-/* Glitch 2*/
-.glitch2 {
-  font-family: 'Syne Mono', monospace;
-  font-size: 70px;
-  letter-spacing: 3px;
-  color: yellow;
-  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  position: relative;
-  z-index: 2;
-}
-.glitch2::before,
-.glitch2::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-  clip-path: inset(0 0 100% 0);
-}
-.glitch2::before {
-  color: yellow;
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-.glitch2::after {
-  color: orange;
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
 .scanline {
   position: absolute;
   top: 0;
