@@ -6,7 +6,6 @@ body {
   background-attachment: fixed;
   color: white;
   margin: 0;
-  font-family: 'Titillium Web', sans-serif;
 }
 h1 {
   font-weight: 800;
@@ -32,6 +31,7 @@ h2 {
   gap: 20px;
   font-size: 23px;
   font-weight: 700;
+  font-family: 'Titillium Web', sans-serif;
 }
 .menu a {
   text-decoration: none;
@@ -204,10 +204,12 @@ h2 {
   margin-bottom: 8px;
   font-size: 24px;
   font-weight: 600;
+  font-family: 'Titillium Web', sans-serif;
 }
 .repo-card p {
   font-size: 20px;
   color: #ccc;
+  font-family: 'Titillium Web', sans-serif;
 }
 .repo-card:hover {
   color: #ff0000;
@@ -237,10 +239,11 @@ h2 {
   margin-right: 20px;
 }
 .center-box p {
-  font-size: 22px;
+  font-size: 20px;
   flex: 1;
   max-width: 380px;
   word-wrap: break-word;
+  font-family: "Overpass Mono", monospace;
 }
 .text-content h2 {
   margin: 0 0 8px 0;
