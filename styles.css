@@ -94,7 +94,7 @@ h2 {
   clip-path: inset(0 0 100% 0);
 }
 .glitch::before {
-  color: yellow;
+  color: white;
   animation: glitchTop 2s infinite linear alternate-reverse;
 }
 .glitch::after {
