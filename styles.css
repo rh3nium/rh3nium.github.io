@@ -197,7 +197,7 @@ h2 {
   border-radius: 10px;
   transition: all 0.3s ease;
   display: inline-block;
-  margin-bottom: 15px;
+  margin: 15px;
   width: 100%;
   box-shadow: 0 0 10px red;
   box-sizing: border-box;
