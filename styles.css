@@ -185,7 +185,7 @@ h2 {
   column-gap: 15px;
   padding: 30px;
   max-width: 1800px;
-  margin: 15px;
+  margin: auto;
 }
 
 .repo-card {
