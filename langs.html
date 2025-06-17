@@ -3,9 +3,9 @@
 <head> 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rh3nium | Riya Halbhavi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Rh3nium | languages</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
@@ -77,103 +77,106 @@
       sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
       sparkleContainer.appendChild(sparkle);
     }
-
-    async function fetchFolders(repo, targetDiv) {
-      const apiUrl = `https://api.github.com/repos/${repo}/contents`;
-      try {
-        const res = await fetch(apiUrl);
-        if (!res.ok) throw new Error('GitHub API error');
-        const data = await res.json();
-        const foldersData = data.filter(item => item.type === 'dir');
-
-        const orderAttr = targetDiv.getAttribute('data-order');
-        let folders = [];
-
-        if (orderAttr) {
-          const folderOrder = orderAttr.split(',').map(f => f.trim());
-          folders = folderOrder
-            .map(name => foldersData.find(item => item.name === name))
-            .filter(Boolean);
-        } else {
-          folders = foldersData;
-        }
-
-        const ul = document.createElement('ul');
-
-        folders.forEach(folder => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = folder.html_url;
-          a.target = "_blank";
-          a.innerHTML = `<i class="fas fa-folder"></i>${folder.name}`;
-          li.appendChild(a);
-
-          if (folder.name === 'Examples') {
-            li.classList.add('break-before'); // Add spacing before Examples
-          }
-
-          ul.appendChild(li);
-        });
-
-        targetDiv.appendChild(ul);
-      } catch (err) {
-        targetDiv.innerHTML = "<p style='color: darkred;'>Error fetching folders.</p>";
-        console.error(`Failed to load repo ${repo}:`, err);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.folder-list').forEach(div => {
-        const repo = div.dataset.repo;
-        fetchFolders(repo, div);
-      });
-    });
   </script>
 
+  <!-- Repo Grid -->
   <div class="repo-grid">
+
+    <!-- C Repo -->
     <div class="repo-card">
       <a href="https://github.com/rh3nium/C" target="_blank">
         <h3>C</h3>
         <p>General purpose programming language - programs and examples.</p>
       </a>
-      <div class="folder-list" data-repo="rh3nium/C"
-        data-order="Input and Output Functions,Operators,Variables,Type Conversion,Strings,Arrays,Looping Statements,Conditional Statements,Jumping Statements,Functions,Pointers,Structures,Memory Allocation,File Handling,Preprocessor Directives and Macros,Examples">
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Input%20and%20Output%20Functions"><i class="fas fa-folder"></i>Input and Output Functions</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Operators"><i class="fas fa-folder"></i>Operators</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Variables"><i class="fas fa-folder"></i>Variables</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Type%20Conversion"><i class="fas fa-folder"></i>Type Conversion</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Strings"><i class="fas fa-folder"></i>Strings</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Arrays"><i class="fas fa-folder"></i>Arrays</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Looping%20Statements"><i class="fas fa-folder"></i>Looping Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Conditional%20Statements"><i class="fas fa-folder"></i>Conditional Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Jumping%20Statements"><i class="fas fa-folder"></i>Jumping Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Functions"><i class="fas fa-folder"></i>Functions</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Pointers"><i class="fas fa-folder"></i>Pointers</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Structures"><i class="fas fa-folder"></i>Structures</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Memory%20Allocation"><i class="fas fa-folder"></i>Memory Allocation</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/File%20Handling"><i class="fas fa-folder"></i>File Handling</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Preprocessor%20Directives%20and%20Macros"><i class="fas fa-folder"></i>Preprocessor Directives and Macros</a></li>
+          <li class="break-before"><a href="https://github.com/rh3nium/C/tree/main/Examples"><i class="fas fa-folder"></i>Examples</a></li>
+        </ul>
       </div>
     </div>
+
+    <!-- Python Repo -->
     <div class="repo-card">
       <a href="https://github.com/rh3nium/Python" target="_blank">
         <h3>Python</h3>
         <p>High-level, interpreted, object-oriented programming language programs with examples.</p>
       </a>
-      <div class="folder-list" data-repo="rh3nium/Python"
-        data-order="Fundamentals,OOP,DataScience,Scripts,Projects"></div>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Fundamentals"><i class="fas fa-folder"></i>Fundamentals</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/OOP"><i class="fas fa-folder"></i>OOP</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/DataScience"><i class="fas fa-folder"></i>DataScience</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Scripts"><i class="fas fa-folder"></i>Scripts</a></li>
+          <li class="break-before"><a href="https://github.com/rh3nium/Python/tree/main/Projects"><i class="fas fa-folder"></i>Projects</a></li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Bash Repo -->
     <div class="repo-card">
       <a href="https://github.com/rh3nium/Bash" target="_blank">
         <h3>Bash</h3>
         <p>Essential Bash - Command-line interpreter/UNIX Shell programs you can run.</p>
       </a>
-      <div class="folder-list" data-repo="rh3nium/Bash"
-        data-order="Basics,Networking,Scripting,Automation"></div>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Bash/tree/main/Basics"><i class="fas fa-folder"></i>Basics</a></li>
+          <li><a href="https://github.com/rh3nium/Bash/tree/main/Networking"><i class="fas fa-folder"></i>Networking</a></li>
+          <li><a href="https://github.com/rh3nium/Bash/tree/main/Scripting"><i class="fas fa-folder"></i>Scripting</a></li>
+          <li class="break-before"><a href="https://github.com/rh3nium/Bash/tree/main/Automation"><i class="fas fa-folder"></i>Automation</a></li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Web Development Repo -->
     <div class="repo-card">
       <a href="https://github.com/rh3nium/Web-Development" target="_blank">
         <h3>Web Development</h3>
         <p>HTML, CSS, JavaScript, PHP Programs and Examples.</p>
       </a>
-      <div class="folder-list" data-repo="rh3nium/Web-Development"
-        data-order="HTML,CSS,JS,Projects,Extras"></div>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Web-Development/tree/main/HTML"><i class="fas fa-folder"></i>HTML</a></li>
+          <li><a href="https://github.com/rh3nium/Web-Development/tree/main/CSS"><i class="fas fa-folder"></i>CSS</a></li>
+          <li><a href="https://github.com/rh3nium/Web-Development/tree/main/JS"><i class="fas fa-folder"></i>JS</a></li>
+          <li><a href="https://github.com/rh3nium/Web-Development/tree/main/Projects"><i class="fas fa-folder"></i>Projects</a></li>
+          <li class="break-before"><a href="https://github.com/rh3nium/Web-Development/tree/main/Extras"><i class="fas fa-folder"></i>Extras</a></li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Macro Programming Repo -->
     <div class="repo-card">
       <a href="https://github.com/rh3nium/Macro-Programming" target="_blank">
         <h3>Macro Programming</h3>
         <p>Visual Basic for Applications (VBA), Google Apps Script program examples.</p>
       </a>
-      <div class="folder-list" data-repo="rh3nium/Macro-Programming"
-        data-order="Excel,GoogleApps,VBA,Automation"></div>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Macro-Programming/tree/main/Excel"><i class="fas fa-folder"></i>Excel</a></li>
+          <li><a href="https://github.com/rh3nium/Macro-Programming/tree/main/GoogleApps"><i class="fas fa-folder"></i>GoogleApps</a></li>
+          <li><a href="https://github.com/rh3nium/Macro-Programming/tree/main/VBA"><i class="fas fa-folder"></i>VBA</a></li>
+          <li class="break-before"><a href="https://github.com/rh3nium/Macro-Programming/tree/main/Automation"><i class="fas fa-folder"></i>Automation</a></li>
+        </ul>
+      </div>
     </div>
+
   </div>
 
 </body>
 </html>
-
