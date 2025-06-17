@@ -135,41 +135,6 @@
       canvas2.appendChild(tri2);
     }
   </script>
-
-  <script>
-    const canvas3 = document.getElementById('canvaswhite');
-    const canvasSize3 = 200;
-    const center3 = canvasSize3 / 2;
-    const scaleFactor3 = 1.1;
-
-    for (let i = 0; i < 25; i++) {
-      const tri3 = document.createElement('div');
-      tri3.className = 'trianglewhite';
-
-      const base3 = Math.floor(Math.random() * 18) + 13;
-      const height3 = Math.floor(Math.random() * 15) + 8;
-
-      tri3.style.borderLeft = `${base3 / 2}px solid transparent`;
-      tri3.style.borderRight = `${base3 / 2}px solid transparent`;
-      tri3.style.borderBottom = `${height3}px solid white`;
-
-      const maxOffsetX3 = center3 - (base3 / 2) * scaleFactor3;
-      const maxOffsetY3 = center3 - height3 * scaleFactor3;
-
-      const offsetX3 = Math.random() * (maxOffsetX3 * 2) - maxOffsetX3;
-      const offsetY3 = Math.random() * (maxOffsetY3 * 2) - maxOffsetY3;
-      const rotation3 = Math.floor(Math.random() * 360);
-
-      tri3.style.setProperty('--x', `${offsetX3}px`);
-      tri3.style.setProperty('--y', `${offsetY3}px`);
-      tri3.style.setProperty('--r', `${rotation3}deg`);
-
-      tri3.style.left = '50%';
-      tri3.style.top = '50%';
-
-      canvas3.appendChild(tri3);
-    }
-  </script>
   
   <script>
     const sparkleContainer = document.getElementById('sparkleContainer');
@@ -233,6 +198,41 @@
   <div class="canvasred" id="canvasred"></div>
 
 </div>
+
+  <script>
+    const canvas3 = document.getElementById('canvaswhite');
+    const canvasSize3 = 200;
+    const center3 = canvasSize3 / 2;
+    const scaleFactor3 = 1.1;
+
+    for (let i = 0; i < 25; i++) {
+      const tri3 = document.createElement('div');
+      tri3.className = 'trianglewhite';
+
+      const base3 = Math.floor(Math.random() * 18) + 13;
+      const height3 = Math.floor(Math.random() * 15) + 8;
+
+      tri3.style.borderLeft = `${base3 / 2}px solid transparent`;
+      tri3.style.borderRight = `${base3 / 2}px solid transparent`;
+      tri3.style.borderBottom = `${height3}px solid white`;
+
+      const maxOffsetX3 = center3 - (base3 / 2) * scaleFactor3;
+      const maxOffsetY3 = center3 - height3 * scaleFactor3;
+
+      const offsetX3 = Math.random() * (maxOffsetX3 * 2) - maxOffsetX3;
+      const offsetY3 = Math.random() * (maxOffsetY3 * 2) - maxOffsetY3;
+      const rotation3 = Math.floor(Math.random() * 360);
+
+      tri3.style.setProperty('--x', `${offsetX3}px`);
+      tri3.style.setProperty('--y', `${offsetY3}px`);
+      tri3.style.setProperty('--r', `${rotation3}deg`);
+
+      tri3.style.left = '50%';
+      tri3.style.top = '50%';
+
+      canvas3.appendChild(tri3);
+    }
+  </script>
   
 </body>
 </html>
