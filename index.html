@@ -233,6 +233,41 @@
       canvas3.appendChild(tri3);
     }
   </script>
+
+  <script>
+    const canvas4 = document.getElementById('canvasred2');
+    const canvasSize4 = 200;
+    const center4 = canvasSize4 / 2;
+    const scaleFactor4 = 1.1;
+
+    for (let i = 0; i < 25; i++) {
+      const tri4 = document.createElement('div');
+      tri4.className = 'trianglered2';
+
+      const base4 = Math.floor(Math.random() * 14) + 10;
+      const height4 = Math.floor(Math.random() * 12) + 14;
+
+      tri4.style.borderLeft = `${base4 / 2}px solid transparent`;
+      tri4.style.borderRight = `${base4 / 2}px solid transparent`;
+      tri4.style.borderBottom = `${height4}px solid red`;
+
+      const maxOffsetX4 = center4 - (base4 / 2) * scaleFactor4;
+      const maxOffsetY4 = center4 - height4 * scaleFactor4;
+
+      const offsetX4 = Math.random() * (maxOffsetX4 * 2) - maxOffsetX4;
+      const offsetY4 = Math.random() * (maxOffsetY4 * 2) - maxOffsetY4;
+      const rotation4 = Math.floor(Math.random() * 360);
+
+      tri4.style.setProperty('--x', `${offsetX4}px`);
+      tri4.style.setProperty('--y', `${offsetY4}px`);
+      tri4.style.setProperty('--r', `${rotation4}deg`);
+
+      tri4.style.left = '50%';
+      tri4.style.top = '50%';
+
+      canvas4.appendChild(tri4);
+    }
+  </script>
   
 </body>
 </html>
