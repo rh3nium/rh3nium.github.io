@@ -331,3 +331,12 @@ h2 {
     transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
   }
 }
+
+@keyframes pulse3 {
+  0%, 100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+  }
+}
