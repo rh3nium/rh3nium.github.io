@@ -299,7 +299,7 @@ h2 {
   position: absolute;
   width: 0;
   height: 0;
-  filter: drop-shadow(0 0 1px white);
+  filter: drop-shadow(0 0 1px black);
   animation: pulse1 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
@@ -323,7 +323,7 @@ h2 {
   position: absolute;
   width: 0;
   height: 0;
-  filter: drop-shadow(0 0 1px black);
+  filter: drop-shadow(0 0 1px white);
   animation: pulse2 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
