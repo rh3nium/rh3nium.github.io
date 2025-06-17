@@ -144,14 +144,14 @@
 
     for (let i = 0; i < 25; i++) {
       const tri3 = document.createElement('div');
-      tri3.className = 'triangleblack';
+      tri3.className = 'trianglewhite';
 
       const base3 = Math.floor(Math.random() * 18) + 13;
       const height3 = Math.floor(Math.random() * 15) + 8;
 
       tri3.style.borderLeft = `${base3 / 2}px solid transparent`;
       tri3.style.borderRight = `${base3 / 2}px solid transparent`;
-      tri3.style.borderBottom = `${height3}px solid black`;
+      tri3.style.borderBottom = `${height3}px solid white`;
 
       const maxOffsetX3 = center3 - (base3 / 2) * scaleFactor3;
       const maxOffsetY3 = center3 - height3 * scaleFactor3;
