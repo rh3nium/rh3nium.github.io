@@ -92,11 +92,11 @@ h2 {
   clip-path: inset(0 0 100% 0);
 }
 .glitch::before {
-  color: rgb(140, 0, 255);
+  color: yellow;
   animation: glitchTop 2s infinite linear alternate-reverse;
 }
 .glitch::after {
-  color: yellow;
+  color: aqua;
   animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
 @keyframes glitchTop {
@@ -294,7 +294,6 @@ h2 {
   position: relative;
   background-color: transparent;
 }
-
 .trianglered {
   position: absolute;
   width: 0;
@@ -338,15 +337,6 @@ h2 {
 }
 
 @keyframes pulse2 {
-  0%, 100% {
-    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-  }
-  50% {
-    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
-  }
-}
-
-@keyframes pulse3 {
   0%, 100% {
     transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
   }
