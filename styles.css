@@ -215,7 +215,6 @@ h2 {
 }
 .center-box {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
   background-color: #111;
   border-radius: 15px;
