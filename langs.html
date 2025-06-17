@@ -3,20 +3,46 @@
 <head> 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rh3nium | Riya halbhavi</title>
+  <title>Rh3nium | Riya Halbhavi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="/favicon1.png" type="image/png">
+
+  <style>
+    .folder-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .folder-list li {
+      font-family: 'Overpass Mono', monospace;
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 0.4rem;
+    }
+    .folder-list a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    .folder-list a:hover {
+      color: red;
+    }
+    .folder-list i {
+      margin-right: 0.4em;
+      color: #ffcc66;
+    }
+    .folder-list li.break-before {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,7 +55,7 @@
       </div>
     </a>
   </div>
-  
+
   <div class="menu">
     <a href="index.html">Home</a><span>|</span>
     <a href="projects.html">Projects</a><span>|</span>
@@ -40,7 +66,7 @@
     <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
     <a href="https://instagram.com/rh3nium_" target="_blank" class="fab fa-instagram"></a>
   </div>
-  
+
   <script>
     const sparkleContainer = document.getElementById('sparkleContainer');
     for (let i = 0; i < 500; i++) {
@@ -51,34 +77,103 @@
       sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
       sparkleContainer.appendChild(sparkle);
     }
+
+    async function fetchFolders(repo, targetDiv) {
+      const apiUrl = `https://api.github.com/repos/${repo}/contents`;
+      try {
+        const res = await fetch(apiUrl);
+        if (!res.ok) throw new Error('GitHub API error');
+        const data = await res.json();
+        const foldersData = data.filter(item => item.type === 'dir');
+
+        const orderAttr = targetDiv.getAttribute('data-order');
+        let folders = [];
+
+        if (orderAttr) {
+          const folderOrder = orderAttr.split(',').map(f => f.trim());
+          folders = folderOrder
+            .map(name => foldersData.find(item => item.name === name))
+            .filter(Boolean);
+        } else {
+          folders = foldersData;
+        }
+
+        const ul = document.createElement('ul');
+
+        folders.forEach(folder => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = folder.html_url;
+          a.target = "_blank";
+          a.innerHTML = `<i class="fas fa-folder"></i>${folder.name}`;
+          li.appendChild(a);
+
+          if (folder.name === 'Examples') {
+            li.classList.add('break-before'); // Add spacing before Examples
+          }
+
+          ul.appendChild(li);
+        });
+
+        targetDiv.appendChild(ul);
+      } catch (err) {
+        targetDiv.innerHTML = "<p style='color: darkred;'>Error fetching folders.</p>";
+        console.error(`Failed to load repo ${repo}:`, err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.folder-list').forEach(div => {
+        const repo = div.dataset.repo;
+        fetchFolders(repo, div);
+      });
+    });
   </script>
 
   <div class="repo-grid">
-    <a href="https://github.com/rh3nium/C" target="_blank" class="repo-card">
-      <h3>C</h3>
-      <p>General purpose programming language - programs and examples.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Python" target="_blank" class="repo-card">
-      <h3>Python</h3>
-      <p>High-level, interpreted, object-oriented programming language programs with examples.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Bash" target="_blank" class="repo-card">
-      <h3>Bash</h3>
-      <p>Essential Bash - Command-line interpreter/UNIX Shell programs you can run.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Web-Development" target="_blank" class="repo-card">
-      <h3>Web Development</h3>
-      <p>HTML, CSS, JavaScript, PHP Programs and Examples.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Macro-Programming" target="_blank" class="repo-card">
-      <h3>Macro Programming</h3>
-      <p>Visual Basic for Applications (VBA), Google Apps Script program examples.</p>
-    </a>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/C" target="_blank">
+        <h3>C</h3>
+        <p>General purpose programming language - programs and examples.</p>
+      </a>
+      <div class="folder-list" data-repo="rh3nium/C"
+        data-order="Input and Output Functions,Operators,Variables,Type Conversion,Strings,Arrays,Looping Statements,Conditional Statements,Jumping Statements,Functions,Pointers,Structures,Memory Allocation,File Handling,Preprocessor Directives and Macros,Examples">
+      </div>
+    </div>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/Python" target="_blank">
+        <h3>Python</h3>
+        <p>High-level, interpreted, object-oriented programming language programs with examples.</p>
+      </a>
+      <div class="folder-list" data-repo="rh3nium/Python"
+        data-order="Fundamentals,OOP,DataScience,Scripts,Projects"></div>
+    </div>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/Bash" target="_blank">
+        <h3>Bash</h3>
+        <p>Essential Bash - Command-line interpreter/UNIX Shell programs you can run.</p>
+      </a>
+      <div class="folder-list" data-repo="rh3nium/Bash"
+        data-order="Basics,Networking,Scripting,Automation"></div>
+    </div>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/Web-Development" target="_blank">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript, PHP Programs and Examples.</p>
+      </a>
+      <div class="folder-list" data-repo="rh3nium/Web-Development"
+        data-order="HTML,CSS,JS,Projects,Extras"></div>
+    </div>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/Macro-Programming" target="_blank">
+        <h3>Macro Programming</h3>
+        <p>Visual Basic for Applications (VBA), Google Apps Script program examples.</p>
+      </a>
+      <div class="folder-list" data-repo="rh3nium/Macro-Programming"
+        data-order="Excel,GoogleApps,VBA,Automation"></div>
+    </div>
   </div>
-2" id="canvasred2"></div>
 
-</div>
-
-  
 </body>
 </html>
+
