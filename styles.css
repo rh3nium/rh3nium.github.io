@@ -8,11 +8,13 @@ body {
   margin: 0;
 }
 h1 {
-  font-weight: 800;
-  font-size: 75px;
-  color: yellow;
-  text-align: center;
   font-family: 'Syne Mono', monospace;
+  font-size: 100px;
+  letter-spacing: 2px;
+  color: yellow;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+  position: relative;
+  z-index: 2;
 }
 h2 {
   font-weight: 700;
