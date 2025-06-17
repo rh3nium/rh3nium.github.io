@@ -96,7 +96,7 @@ h2 {
   animation: glitchTop 2s infinite linear alternate-reverse;
 }
 .glitch::after {
-  color: #00fff2;
+  color: yellow;
   animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
 @keyframes glitchTop {
