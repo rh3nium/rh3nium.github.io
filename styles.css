@@ -180,8 +180,9 @@ h2 {
   border: 0;
 }
 .repo-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
   gap: 15px;
   padding: 30px;
   max-width: 1800px;
@@ -197,6 +198,7 @@ h2 {
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: auto;
   justify-content: space-between;
   margin: 20px;
   box-shadow: 0 0 10px red;
@@ -204,18 +206,25 @@ h2 {
 .repo-card h3 {
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 600;
   font-family: 'Overpass Mono', monospace;
+  color: white;
 }
 .repo-card p {
   font-size: 20px;
   color: #ccc;
   font-family: 'Titillium Web', sans-serif;
+  margin-bottom: 25px;
 }
 .repo-card:hover {
-  color: #ff0000;
   border-color: #ff0000;
+}
+.repo-card:hover h3 {
+  color: #ff0000;
+}
+.repo-card a {
+  text-decoration: none;
 }
 .center-box {
   display: flex;
@@ -300,7 +309,7 @@ h2 {
   position: absolute;
   width: 0;
   height: 0;
-  filter: drop-shadow(0 0 1px red);
+  filter: drop-shadow(0 0 1px black);
   animation: pulse1 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
