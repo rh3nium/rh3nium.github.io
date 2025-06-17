@@ -288,6 +288,12 @@ h2 {
   position: relative;
   background-color: transparent;
 }
+.canvasred2 {
+  width: 240px;
+  height: 240px;
+  position: relative;
+  background-color: transparent;
+}
 
 .trianglered {
   position: absolute;
@@ -310,6 +316,14 @@ h2 {
   width: 0;
   height: 0;
   filter: drop-shadow(0 0 1px red);
+  animation: pulse2 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+.trianglered2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px black);
   animation: pulse2 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
