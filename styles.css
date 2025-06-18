@@ -185,7 +185,7 @@ h2 {
   column-gap: 15px;
   padding: 30px;
   max-width: 1800px;
-  margin: auto;
+  margin: 15px;
 }
 
 .repo-card {
@@ -263,13 +263,14 @@ h2 {
   font-size: 26px;
   color: white;
 }
-.text-content p {
+p {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #ccc;
+  font-family: 'Titillium Web', sans-serif;
 }
 .small-glitch {
-  font-size: 39px;
+  font-size: 36px;
 }
 
 .hero-flex-container {
