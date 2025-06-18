@@ -17,6 +17,26 @@
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="/favicon1.png" type="image/png">
+
+  <style>
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.responsive-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 1200px;
+  object-fit: cover;
+}
+  </style>
+
 </head>
 
 <body>
@@ -133,24 +153,14 @@
     }
   </script>
 
-  <div class="repo-grid">
-    <a href="https://github.com/rh3nium/C" target="_blank" class="repo-card">
-      <h3>C</h3>
-      <p>General purpose programming language - programs and examples.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Python" target="_blank" class="repo-card">
-      <h3>Python</h3>
-      <p>High-level, interpreted, object-oriented programming language programs with examples.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Bash" target="_blank" class="repo-card">
-      <h3>Bash</h3>
-      <p>Essential Bash - Command-line interpreter/UNIX Shell programs you can run.</p>
-    </a>
-    <a href="https://github.com/rh3nium/Web-Development" target="_blank" class="repo-card">
-      <h3>Web Development</h3>
-      <p>HTML, CSS, JavaScript, PHP Programs and Examples.</p>
-    </a>
-  </div>
+
+<div class="video-container">
+  <video autoplay muted loop playsinline class="responsive-video">
+    <source src="videos/SOTS.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 
 <div class="hero-flex-container">
   
