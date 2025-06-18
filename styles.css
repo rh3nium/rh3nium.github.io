@@ -31,7 +31,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 10px;
   gap: 20px;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 700;
   font-family: 'Titillium Web', sans-serif;
 }
@@ -39,7 +39,7 @@ h2 {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
-  font-size: 19px;
+  font-size: 20px;
   transition: color 0.3s ease;
 }
 .menu a:hover {
