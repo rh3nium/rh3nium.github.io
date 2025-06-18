@@ -76,12 +76,13 @@ h2 {
 }
 .glitch {
   font-family: 'Syne Mono', monospace;
-  font-size: 100px;
+  font-size: 60px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
   z-index: 2;
+  margin-top: 10px;
 }
 .glitch::before,
 .glitch::after {
@@ -253,6 +254,7 @@ h2 {
   font-size: 18px;
   flex: 1;
   max-width: 380px;
+  color: white;
   word-wrap: break-word;
   font-family: "Overpass Mono", monospace;
   text-align: left;
@@ -266,11 +268,12 @@ h2 {
 p {
   margin: 0;
   font-size: 20px;
-  color: #ccc;
+  color: white;
   font-family: 'Titillium Web', sans-serif;
 }
 .small-glitch {
-  font-size: 36px;
+  font-size: 30px;
+  text-align: left;
 }
 
 .hero-flex-container {
