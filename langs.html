@@ -51,7 +51,6 @@
     <a href="index.html">
       <div class="glitch-wrapper">
         <div class="glitch" data-text="" aria-hidden="true">Rh3nium</div>
-        <div class="sparkle-container" id="sparkleContainer"></div>
       </div>
     </a>
   </div>
@@ -66,18 +65,6 @@
     <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
     <a href="https://instagram.com/rh3nium_" target="_blank" class="fab fa-instagram"></a>
   </div>
-
-  <script>
-    const sparkleContainer = document.getElementById('sparkleContainer');
-    for (let i = 0; i < 500; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('sparkle');
-      sparkle.style.top = Math.random() * 100 + '%';
-      sparkle.style.left = Math.random() * 100 + '%';
-      sparkle.style.animationDelay = (Math.random() * 1.5) + 's';
-      sparkleContainer.appendChild(sparkle);
-    }
-  </script>
 
   <!-- Repo Grid -->
   <div class="repo-grid">
