@@ -8,7 +8,7 @@ body {
   margin: 0;
 }
 h1 {
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Syne Mono', monospace;https://github.com/rh3nium/rh3nium.github.io/edit/main/styles.css
   font-size: 80px;
   letter-spacing: 2px;
   color: white;
@@ -31,7 +31,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 10px;
   gap: 20px;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   font-family: 'Titillium Web', sans-serif;
 }
@@ -39,7 +39,7 @@ h2 {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 19px;
   transition: color 0.3s ease;
 }
 .menu a:hover {
@@ -76,7 +76,7 @@ h2 {
 }
 .glitch {
   font-family: 'Syne Mono', monospace;
-  font-size: 45px;
+  font-size: 40px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
