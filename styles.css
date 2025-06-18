@@ -274,7 +274,7 @@ p {
 .small-glitch {
   font-size: 30px;
   text-align: left;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Overpass Mono', monospace;
 }
 
 .hero-flex-container {
