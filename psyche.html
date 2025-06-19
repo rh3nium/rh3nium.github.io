@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glitch Marquee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Titillium+Web&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+      overflow: hidden;
+      font-family: 'Overpass Mono', monospace;
+    }
+
+    .marquee-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .word {
+      position: absolute;
+      white-space: nowrap;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px currentColor;
+      animation: floatWord linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes floatWord {
+      0% {
+        transform: translateY(var(--start)) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(var(--end)) translateX(0);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee-container" id="marquee"></div>
+
+  <script>
+    const words = [
+      'flux', 'bitcruncher', 'kernel', 'stack', 'node',
+      'parse', 'crawler', 'onion', 'neuro', 'null',
+      'limerence', 'umbra', 'jeeva', 'raaz', 'junoon'
+    ];
+
+    const colors = ['red', 'cyan', 'white'];
+    const fonts = ['"Overpass Mono", monospace', '"Titillium Web", sans-serif'];
+
+    const container = document.getElementById('marquee');
+
+    function createWord() {
+      const word = document.createElement('div');
+      word.classList.add('word');
+      word.textContent = words[Math.floor(Math.random() * words.length)];
+      word.style.color = colors[Math.floor(Math.random() * colors.length)];
+      word.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+
+      // Random size between 1.2rem and 2.2rem
+      const size = (Math.random() < 0.2) 
+        ? `${1.8 + Math.random() * 0.4}rem` // 20% chance to be bigger
+        : `${1.2 + Math.random() * 0.3}rem`;
+      word.style.fontSize = size;
+
+      const direction = Math.random() > 0.5 ? 'up' : 'down';
+      const x = Math.random() * window.innerWidth;
+      const duration = 4 + Math.random() * 6;
+
+      word.style.left = `${x}px`;
+      word.style.animationDuration = `${duration}s`;
+
+      if (direction === 'up') {
+        word.style.setProperty('--start', '100vh');
+        word.style.setProperty('--end', '-2em');
+      } else {
+        word.style.setProperty('--start', '-2em');
+        word.style.setProperty('--end', '100vh');
+      }
+
+      container.appendChild(word);
+
+      setTimeout(() => container.removeChild(word), duration * 1000);
+    }
+
+    setInterval(createWord, 300);
+  </script>
+</body>
+</html>
