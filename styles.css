@@ -15,6 +15,7 @@ body {
   width: 100%;
   background: black;
   z-index: 9999;
+  border-bottom: 1px solid red;
   padding-bottom: 5px
 }
 h1 {
