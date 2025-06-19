@@ -33,17 +33,66 @@
       opacity: 0.85;
     }
 
+    .glitch {
+      animation: glitch 1s infinite steps(2, end), floatWord linear infinite;
+      color: white;
+      position: relative;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      color: cyan;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      mix-blend-mode: screen;
+    }
+
+    .glitch::before {
+      top: -1px;
+      left: 2px;
+      text-shadow: -1px 0 red;
+      animation: glitchShift 0.3s infinite alternate;
+    }
+
+    .glitch::after {
+      top: 1px;
+      left: -2px;
+      text-shadow: 1px 0 blue;
+      animation: glitchShift 0.4s infinite alternate-reverse;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -1px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes glitchShift {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(10% 0 10% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
+    }
+
     @keyframes floatWord {
       0% {
         transform: translateY(var(--start)) translateX(0);
         opacity: 0;
       }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
       100% {
         transform: translateY(var(--end)) translateX(0);
         opacity: 0;
@@ -68,14 +117,21 @@
 
     function createWord() {
       const word = document.createElement('div');
+      const text = words[Math.floor(Math.random() * words.length)];
       word.classList.add('word');
-      word.textContent = words[Math.floor(Math.random() * words.length)];
+      word.textContent = text;
+
+      const isGlitch = Math.random() < 0.3; // 30% chance to glitch
+      if (isGlitch) {
+        word.classList.add('glitch');
+        word.setAttribute('data-text', text);
+      }
+
       word.style.color = colors[Math.floor(Math.random() * colors.length)];
       word.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
 
-      // Random size between 1.2rem and 2.2rem
       const size = (Math.random() < 0.2) 
-        ? `${1.8 + Math.random() * 0.8}rem` // 20% chance to be bigger
+        ? `${1.8 + Math.random() * 0.8}rem`
         : `${1.2 + Math.random() * 0.4}rem`;
       word.style.fontSize = size;
 
