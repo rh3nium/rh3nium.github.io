@@ -16,7 +16,7 @@ body {
   background: black;
   z-index: 9999;
   border-bottom: 1px solid red;
-  padding-bottom: 5px
+  padding-bottom: 10px;
 }
 h1 {
   font-family: 'Syne Mono', monospace;
