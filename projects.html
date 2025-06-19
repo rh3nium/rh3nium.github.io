@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rh3nium | Riya halbhavi</title>
+  <title>Rh3nium | projects</title>
   <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
@@ -17,46 +17,62 @@
   <link rel="icon" href="/icon1.png" type="image/png">
 
   <style>
-.content-layout {
+    
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.project-card {
+  background-color: #111;
+  border: 1px solid #333;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 10px;
 }
 
-.left-block {
-  max-width: 350px;
-  padding-left: 0.5rem;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
 }
 
-.side-img {
-  width: 70%;
-  height: auto;
-  justify-content: center;
+.project-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  height: 100%;
 }
 
-.text-content {
-  font-size: 14px;
-  margin-top: 0.5rem;
-  font-family: 'Overpass Mono', monospace;
-}
-
-.right-block {
-  max-width: 1000px;
-  margin-right: 5px;
-}
-
-.responsive-video {
+.project-card img {
   width: 100%;
-  max-width: 1000px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
-  </style>
 
+.project-card h3 {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: 'Overpass Mono', monospace;
+  color: white;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover h3 {
+  color: red;
+}
+
+.project-card p {
+  margin: 0 1rem 1.5rem;
+  font-size: 19px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #ccc;
+}
+  </style>
 </head>
 
 <body>
@@ -82,108 +98,28 @@
   </div>
 </div>
 
-<br><br>
+<br>
 
-<body style="margin: 0; padding: 0;">
-
-<div class="marquee-container" id="marquee" onclick="window.open('psyche.html', '_blank')"></div>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: black;
-      font-family: 'Overpass Mono', monospace;
-    }
-
-    .marquee-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-
-    .word {
-      position: absolute;
-      white-space: nowrap;
-      font-weight: bold;
-      text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px currentColor;
-      animation: floatWord linear infinite;
-      opacity: 0.85;
-    }
-
-    @keyframes floatWord {
-      0% {
-        transform: translateY(var(--start)) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(var(--end)) translateX(0);
-        opacity: 0;
-      }
-    }
-  </style>
-
-  <script>
-    const words = [
-      'flux', 'truth', 'dislike', 'courage', 'burn',
-      'love', 'reassurance', 'belief', 'liking', 'balance',
-      'peace', 'patience', 'thriving', 'desire', 'passion'
-    ];
-
-    const colors = ['red', 'cyan', 'white'];
-    const fonts = ['"Overpass Mono", monospace', '"Titillium Web", sans-serif'];
-
-    const container = document.getElementById('marquee');
-
-    function createWord() {
-      const word = document.createElement('div');
-      word.classList.add('word');
-      word.textContent = words[Math.floor(Math.random() * words.length)];
-      word.style.color = colors[Math.floor(Math.random() * colors.length)];
-      word.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-
-      // Random font size — ~20% chance to be larger
-      const size = (Math.random() < 0.2) 
-        ? `${1.8 + Math.random() * 0.8}rem`
-        : `${1.2 + Math.random() * 0.4}rem`;
-      word.style.fontSize = size;
-
-      const direction = Math.random() > 0.5 ? 'up' : 'down';
-      const x = Math.random() * window.innerWidth;
-      const duration = 4 + Math.random() * 6;
-
-      word.style.left = `${x}px`;
-      word.style.animationDuration = `${duration}s`;
-
-      if (direction === 'up') {
-        word.style.setProperty('--start', '100vh');
-        word.style.setProperty('--end', '-2em');
-      } else {
-        word.style.setProperty('--start', '-2em');
-        word.style.setProperty('--end', '100vh');
-      }
-
-      container.appendChild(word);
-
-      setTimeout(() => container.removeChild(word), duration * 1000);
-    }
-
-    setInterval(createWord, 300);
-  </script>
+<!-- Project Grid -->
+<div class="project-grid">
+  <div class="project-card">
+    <img src="SOTS.png">
+    <h3>Shadows On The Sands</h3>
+    <p>Mystery/Thriller single-player game set in a beachside restaurant in Panaji, Goa, India.</p>
+  </div>
+  <div class="project-card">
+    <h3>Shadows On The Sands</h3>
+    <p>Cyberpunk grunge visual novel game exploring identity and rebellion in a dystopian world. Made with Ren'Py and custom assets.</p>
+  </div>
+  <div class="project-card">
+    <h3>Offline Coding App (Hackathon)</h3>
+    <p>React Native app to teach coding to girls and students in offline, low-connectivity regions. Built in a 24-hour hackathon.</p>
+  </div>
+  <div class="project-card">
+    <h3>Portfolio Site</h3>
+    <p>Cyberpunk-themed animated portfolio site featuring triangle effects, glitch fonts, and embedded game previews.</p>
+  </div>
+</div>
 
 </body>
 </html>
