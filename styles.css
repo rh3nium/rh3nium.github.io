@@ -1,24 +1,24 @@
 body {
-  background-color: black;
+  background-image: url('bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
   margin: 0;
+  padding-top: 105px;
 }
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: black;
-  z-index: 1000;
-  padding: 10px 0;
-  box-shadow: 0 0 10px red;
+  background: black;
+  z-index: 9999;
 }
+
 h1 {
-  font-family: 'Syne Mono', monospace;https://github.com/rh3nium/rh3nium.github.io/edit/main/styles.css
+  font-family: 'Syne Mono', monospace;
   font-size: 80px;
   letter-spacing: 2px;
   color: white;
@@ -43,21 +43,25 @@ h2 {
   gap: 20px;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Titillium Web', sans-serif;
+  background-attachment: fixed;
+  font-family: 'Overpass Mono', monospace;
 }
 .menu a {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
   font-size: 20px;
+  background-attachment: fixed;
   transition: color 0.3s ease;
 }
 .menu a:hover {
   color: #ff0000;
+  background-attachment: fixed;
 }
 .menu span {
   color: #fff;
   font-weight: 300;
+  background-attachment: fixed;
 }
 .social-icons {
   position: fixed;
@@ -86,7 +90,7 @@ h2 {
 }
 .glitch {
   font-family: 'Syne Mono', monospace;
-  font-size: 40px;
+  font-size: 45px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -245,13 +249,13 @@ h2 {
   padding: 20px 30px;
   max-width: 600px;
   margin: 40px auto;
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 15px white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 .center-box:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 25px red;
+  box-shadow: 0 0 25px white;
 }
 .center-box img {
   height: 300px;
@@ -279,12 +283,11 @@ p {
   margin: 0;
   font-size: 20px;
   color: white;
-  font-family: 'Overpass Mono', monospace;', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 .small-glitch {
-  font-size: 29px;
+  font-size: 30px;
   text-align: left;
-  font-family: 'Overpass Mono', monospace;
 }
 
 .hero-flex-container {
@@ -309,14 +312,14 @@ p {
   background-color: transparent;
 }
 .canvaswhite {
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 240px;
   position: relative;
   background-color: transparent;
 }
 .canvasred2 {
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 240px;
   position: relative;
   background-color: transparent;
 }
