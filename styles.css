@@ -15,8 +15,8 @@ body {
   width: 100%;
   background: black;
   z-index: 9999;
+  padding-bottom: 5px
 }
-
 h1 {
   font-family: 'Syne Mono', monospace;
   font-size: 80px;
