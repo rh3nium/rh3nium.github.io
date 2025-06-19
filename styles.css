@@ -6,7 +6,7 @@ body {
   background-attachment: fixed;
   color: white;
   margin: 0;
-  padding-top: 105px;
+  padding-top: 80px;
 }
 .topbar {
   position: fixed;
@@ -15,9 +15,10 @@ body {
   width: 100%;
   background: black;
   z-index: 9999;
-  border-bottom: 1px solid red;
   padding-bottom: 10px;
+  border-bottom: 1px solid red;
 }
+
 h1 {
   font-family: 'Syne Mono', monospace;
   font-size: 80px;
@@ -42,7 +43,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 10px;
   gap: 20px;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   background-attachment: fixed;
   font-family: 'Overpass Mono', monospace;
@@ -51,7 +52,7 @@ h2 {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 19px;
   background-attachment: fixed;
   transition: color 0.3s ease;
 }
@@ -91,7 +92,7 @@ h2 {
 }
 .glitch {
   font-family: 'Syne Mono', monospace;
-  font-size: 40px;
+  font-size: 35px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -287,7 +288,7 @@ p {
   font-family: 'Titillium Web', sans-serif;
 }
 .small-glitch {
-  font-size: 29px;
+  font-size: 30px;
   text-align: left;
 }
 
