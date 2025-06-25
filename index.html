@@ -87,7 +87,7 @@
 
 <!-- Terminal Typing Box -->
 <div style="display: flex; justify-content: center;">
-  <div id="terminal" style="font-family: 'Overpass Mono', monospace; font-size: 20px; color: #ffffff; background: black; padding: 10px 15px; width: 300px; border-radius: 4px; box-shadow: 0 0 15px #ff0000;">
+  <div id="terminal" style="font-family: 'Overpass Mono', monospace; font-size: 20px; color: #00ffff; background: black; padding: 10px 15px; width: 300px; border-radius: 4px; box-shadow: 0 0 15px #00ffff;">
     <span id="typed"></span><span id="cursor" style="display:inline-block; width:10px;">█</span>
   </div>
 </div>
@@ -145,21 +145,21 @@
     </div>
   </div>
 
-  <!-- Right Block: Animation -->
-<div class="right-block">
-  <div id="psyche-container" class="responsive-video" style="background: black; position: relative; overflow: hidden; border-radius: 8px;"></div>
-
-  <p style="margin-top: 6px; font-size: 19px;">
-    <span style="color: red; font-family: Overpass Mono, monospace;">Psyche.exe</span>
-    <span style="color: white; font-family: Titillium Web, sans-serif;"><i>css animation</i></span>
-  </p>
+  <!-- Right Block: Video -->
+  <div class="right-block">
+    <a href="https://rh3niumriya.itch.io/shadows-on-the-sands" target="_blank">
+      <video autoplay muted loop playsinline class="responsive-video">
+        <source src="videos/SOTS.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+    <p style="margin-top: 6px; font-size: 19px;"><span style="color: red; font-family: Overpass Mono, monospace;">Shadows On The Sands</span> <span style="color: white; font-family: Titillium Web, sans-serif;"><i>game</i></span></p>
+  </div>
 </div>
 
 </div>
 
-</div>
-
-<center><hr style="border: none; height: 1px; background: red; box-shadow: 0 0 8px red, 0 0 16px red; margin-top: 25px; margin-bottom: 10px; margin-left: 100px; margin-right: 100px; width: 80%;"></center>
+<center><hr style="border: none; height: 2px; background: red; box-shadow: 0 0 8px red, 0 0 16px red; margin-top: 25px; margin-bottom: 10px; margin-left: 100px; margin-right: 100px; width: 80%;"></center>
 
 <!-- SECOND CENTER BOX (unchanged) -->
 <div class="hero-flex-container"> 
@@ -168,7 +168,7 @@
     <div class="center-box">
         <div class="text-content">
           <div class="glitch-wrapper">
-            <div class="glitch small-glitch" data-text="" aria-hidden="true">I'm Riya</div>
+            <div class="glitch small-glitch" data-text="" aria-hidden="true">Hey, I'm Riya</div>
           </div>
           <p>My projects focus on <span style="color: aqua;">embedded systems</span>, <span style="color: aqua;">AIML</span>, <span style="color: aqua;">computer vision</span>, <span style="color: aqua;">robotics</span> & <span style="color: aqua;">mechatronics</span>, and their applications in defense/tactical tech. I'm also into interactive media.</p><br>
           <p>I'm also a vehicle enthusiast<br>and like books and movies.</p><br>
@@ -326,18 +326,6 @@
 
     canvas4.appendChild(tri4);
   }
-</script>
-
-<script>
-  // Load psyche.html content into the container div
-  fetch('psyche.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('psyche-container').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading psyche.html:', error);
-    });
 </script>
 
 </body>
