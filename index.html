@@ -145,16 +145,16 @@
     </div>
   </div>
 
-  <!-- Right Block: Video -->
-  <div class="right-block">
-    <a href="https://rh3niumriya.itch.io/shadows-on-the-sands" target="_blank">
-      <video autoplay muted loop playsinline class="responsive-video">
-        <source src="videos/SOTS.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </a>
-    <p style="margin-top: 6px; font-size: 19px;"><span style="color: red; font-family: Overpass Mono, monospace;">Shadows On The Sands</span> <span style="color: white; font-family: Titillium Web, sans-serif;"><i>game</i></span></p>
-  </div>
+  <!-- Right Block: Animation -->
+<div class="right-block">
+  <div id="psyche-container" class="responsive-video" style="background: black; position: relative; overflow: hidden; border-radius: 8px;"></div>
+
+  <p style="margin-top: 6px; font-size: 19px;">
+    <span style="color: red; font-family: Overpass Mono, monospace;">Psyche.exe</span>
+    <span style="color: white; font-family: Titillium Web, sans-serif;"><i>css animation</i></span>
+  </p>
+</div>
+
 </div>
 
 </div>
@@ -326,6 +326,18 @@
 
     canvas4.appendChild(tri4);
   }
+</script>
+
+<script>
+  // Load psyche.html content into the container div
+  fetch('psyche.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('psyche-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error loading psyche.html:', error);
+    });
 </script>
 
 </body>
