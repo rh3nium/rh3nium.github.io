@@ -249,19 +249,7 @@ h2 {
   background-color: #111;
   border-radius: 15px;
   padding: 20px 30px;
-  max-width: 600px;
-  margin: 40px auto;
-  box-shadow: 0 0 15px white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-.center-boxwhite {
-  display: flex;
-  justify-content: flex-start;
-  background-color: black;
-  border-radius: 15px;
-  padding: 20px 30px;
-  max-width: 600px;
+  max-width: 620px;
   margin: 40px auto;
   box-shadow: 0 0 15px white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
