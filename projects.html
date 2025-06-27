@@ -18,7 +18,7 @@
 
   <style>
 
-#cursor-trail-container {
+#cursor-trail-container2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +26,7 @@
   z-index: 10000;
 }
 
-.trianglewhite2 {
+.trianglewhite3 {
   position: absolute;
   width: 0;
   height: 0;
@@ -177,23 +177,23 @@ a {
 </div>
 
 <script>
-  const trailContainer = document.getElementById('cursor-trail-container');
+  const trailContainer2 = document.getElementById('cursor-trail-container2');
 
   document.addEventListener('mousemove', (e) => {
-    const triangle = document.createElement('div');
-    triangle.className = 'trianglewhite2';
-    triangle.style.left = `${e.clientX}px`;
-    triangle.style.top = `${e.clientY}px`;
+    const triangle2 = document.createElement('div');
+    triangle2.className = 'trianglewhite3';
+    triangle2.style.left = `${e.clientX}px`;
+    triangle2.style.top = `${e.clientY}px`;
 
-    trailContainer.appendChild(triangle);
+    trailContainer2.appendChild(triangle2);
 
     // Fade out and remove after a short time
     setTimeout(() => {
-      triangle.style.opacity = '0';
+      triangle2.style.opacity = '0';
     }, 100);
 
     setTimeout(() => {
-      triangle.remove();
+      triangle2.remove();
     }, 1000);
   });
 </script>
