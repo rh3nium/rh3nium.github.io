@@ -1,7 +1,6 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Projects focusing on AIML, embedded systems, robotics, mechatronics, tactical tech, and interactive/game dev.">
@@ -57,11 +56,35 @@
   object-fit: cover;
   display: block;
 }
+
+#cursor-trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.trianglewhite2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+  filter: drop-shadow(0 0 2px red);
+  animation: pulse2 2s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
   </style>
 
 </head>
 
 <body>
+
+<div id="cursor-trail-container"></div>
 
 <div class="topbar">
   <div class="header">
@@ -95,9 +118,9 @@
           <div class="glitch-wrapper">
             <div class="glitch small-glitch" data-text="" aria-hidden="true">Hey, I'm Riya</div>
           </div>
-          <p>I'm an engineer and a WIP (work in progress)</p><br>
+          <p>I'm a maker and a WIP (work in progress).</p>
           <p>My projects focus on <span style="color: aqua;">embedded systems</span>, <span style="color: aqua;">AIML</span>, <span style="color: aqua;">computer vision</span>, <span style="color: aqua;">robotics</span> & <span style="color: aqua;">mechatronics</span>, and their applications in defense/tactical tech. I'm also into interactive media.</p><br>
-          <p>I'm also a vehicle enthusiast and like books and movies.</p><br>
+          <p>I'm also a vehicle enthusiast<br>and like books and movies.</p><br>
           <p>Let's connect!</p>
         </div>
       <div class="right-section">
@@ -110,6 +133,7 @@
 
 <br><br><br>
 
+
 <div style="background-color: white; height: 180px; display: flex; flex-direction: column; justify-content: space-around;">
   <marquee style="color: black; margin: 25px;">
     <p style="font-family: Overpass Mono, monospace; font-size: 22px; color: red; margin: 0; text-align: center;">
@@ -121,7 +145,35 @@
   </p>
 </div>
 
+
+<div class="hero-flex-container">
   
+<div class="content-layout">
+  <!-- Left Block -->
+  <div class="left-block">
+    <img src="cube.png" alt="abt" class="side-img" />
+    <div class="text-content">
+      <div class="glitch-wrapper">
+        <div class="glitch small-glitch" data-text="Endless creation" aria-hidden="true">Endless creation</div>
+      </div>
+      <p style="font-family: Overpass Mono, sans-serif; font-size: 19px;">Hey there! I'm a maker and WIP (work in progress).</p>
+    </div>
+  </div>
+
+  <!-- Right Block: Video -->
+  <div class="right-block">
+    <a href="https://rh3niumriya.itch.io/shadows-on-the-sands" target="_blank">
+      <video autoplay muted loop playsinline class="responsive-video">
+        <source src="videos/SOTS.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>
+    <p style="margin-top: 6px; font-size: 19px;"><span style="color: red; font-family: Overpass Mono, monospace;">Shadows On The Sands</span> <span style="color: white; font-family: Titillium Web, sans-serif;"><i>game</i></span></p>
+  </div>
+</div>
+
+  
+</div>
 <!-- Triangle Script 1 -->
 <script>
   const canvas = document.getElementById('canvasred');
@@ -133,8 +185,8 @@
     const tri = document.createElement('div');
     tri.className = 'trianglered';
 
-    const base = Math.floor(Math.random() * 33) + 12;
-    const height = Math.floor(Math.random() * 36) + 16;
+    const base = Math.floor(Math.random() * 30) + 10;
+    const height = Math.floor(Math.random() * 34) + 14;
 
     tri.style.borderLeft = `${base / 2}px solid transparent`;
     tri.style.borderRight = `${base / 2}px solid transparent`;
@@ -205,8 +257,8 @@
     const tri3 = document.createElement('div');
     tri3.className = 'trianglewhite';
 
-    const base3 = Math.floor(Math.random() * 36) + 12;
-    const height3 = Math.floor(Math.random() * 33) + 16;
+    const base3 = Math.floor(Math.random() * 34) + 10;
+    const height3 = Math.floor(Math.random() * 30) + 14;
 
     tri3.style.borderLeft = `${base3 / 2}px solid transparent`;
     tri3.style.borderRight = `${base3 / 2}px solid transparent`;
@@ -266,5 +318,28 @@
   }
 </script>
 
+<script>
+  const trailContainer = document.getElementById('cursor-trail-container');
+
+  document.addEventListener('mousemove', (e) => {
+    const triangle = document.createElement('div');
+    triangle.className = 'trianglewhite2';
+    triangle.style.left = `${e.clientX}px`;
+    triangle.style.top = `${e.clientY}px`;
+
+    trailContainer.appendChild(triangle);
+
+    // Fade out and remove after a short time
+    setTimeout(() => {
+      triangle.style.opacity = '0';
+    }, 100);
+
+    setTimeout(() => {
+      triangle.remove();
+    }, 1000);
+  });
+</script>
+
 </body>
 </html>
+
