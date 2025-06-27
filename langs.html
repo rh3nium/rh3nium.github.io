@@ -16,6 +16,26 @@
   <link rel="icon" href="/favicon1.png" type="image/png">
 
   <style>
+#cursor-trail-container3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.trianglewhite3 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+  filter: drop-shadow(0 0 2px red);
+  animation: pulse2 2s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
     .folder-list ul {
       list-style: none;
       padding: 0;
@@ -46,6 +66,8 @@
 </head>
 
 <body>
+
+<div id="cursor-trail-container3"></div>
 
 <div class="topbar">
   <div class="header">
@@ -171,6 +193,28 @@
     </div>
 
   </div>
+
+<script>
+  const trailContainer3 = document.getElementById('cursor-trail-container3');
+
+  document.addEventListener('mousemove', (e) => {
+    const triangle3 = document.createElement('div');
+    triangle3.className = 'trianglewhite3';
+    triangle3.style.left = `${e.clientX}px`;
+    triangle3.style.top = `${e.clientY}px`;
+
+    trailContainer3.appendChild(triangle3);
+
+    // Fade out and remove after a short time
+    setTimeout(() => {
+      triangle3.style.opacity = '0';
+    }, 100);
+
+    setTimeout(() => {
+      triangle3.remove();
+    }, 1000);
+  });
+</script>
 
 </body>
 </html>
