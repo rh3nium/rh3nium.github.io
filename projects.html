@@ -17,7 +17,28 @@
   <link rel="icon" href="/icon1.png" type="image/png">
 
   <style>
-    
+
+#cursor-trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.trianglewhite2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+  filter: drop-shadow(0 0 2px red);
+  animation: pulse2 2s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -154,6 +175,28 @@ a {
     <p>Cyberpunk-themed animated portfolio site featuring triangle effects, glitch fonts, and embedded game previews.</p>
   </div>
 </div>
+
+<script>
+  const trailContainer = document.getElementById('cursor-trail-container');
+
+  document.addEventListener('mousemove', (e) => {
+    const triangle = document.createElement('div');
+    triangle.className = 'trianglewhite2';
+    triangle.style.left = `${e.clientX}px`;
+    triangle.style.top = `${e.clientY}px`;
+
+    trailContainer.appendChild(triangle);
+
+    // Fade out and remove after a short time
+    setTimeout(() => {
+      triangle.style.opacity = '0';
+    }, 100);
+
+    setTimeout(() => {
+      triangle.remove();
+    }, 1000);
+  });
+</script>
 
 </body>
 </html>
