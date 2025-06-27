@@ -94,8 +94,8 @@ h2 {
   font-family: 'Overpass Mono', monospace;
   font-size: 33px;
   letter-spacing: 2px;
-  color: red;
-  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  color: white;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
   z-index: 2;
   margin-top: 10px;
