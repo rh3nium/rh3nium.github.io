@@ -135,6 +135,21 @@ h2 {
   80% { clip-path: inset(5% 0 60% 0); }
   100% { clip-path: inset(0% 0 100% 0); }
 }
+.glitch-wrapperhead {
+  position: relative;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.glitchhead {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 33px;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
 .scanline {
   position: absolute;
   top: 0;
