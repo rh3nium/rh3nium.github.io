@@ -43,7 +43,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 10px;
   gap: 20px;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   background-attachment: fixed;
   font-family: 'Overpass Mono', monospace;
@@ -52,7 +52,7 @@ h2 {
   text-decoration: none;
   color: #fff;
   font-weight: 400;
-  font-size: 19px;
+  font-size: 18px;
   background-attachment: fixed;
   transition: color 0.3s ease;
 }
@@ -92,7 +92,7 @@ h2 {
 }
 .glitch {
   font-family: 'Overpass Mono', monospace;
-  font-size: 33px;
+  font-size: 31px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -244,7 +244,7 @@ h2 {
   color: white;
 }
 .repo-card p {
-  font-size: 19px;
+  font-size: 18px;
   color: #ccc;
   font-family: 'Titillium Web', sans-serif;
   margin-bottom: 25px;
@@ -282,7 +282,7 @@ h2 {
   margin-right: 20px;
 }
 .center-box p {
-  font-size: 20px;
+  font-size: 18px;
   flex: 1;
   max-width: 380px;
   color: white;
