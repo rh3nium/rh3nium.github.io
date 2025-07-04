@@ -50,7 +50,7 @@ h2 {
 }
 .menu a {
   text-decoration: none;
-  color: #fff;
+  color: #2bff00;
   font-weight: 400;
   font-size: 18px;
   background-attachment: fixed;
@@ -77,7 +77,7 @@ h2 {
 }
 .social-icons a {
   font-size: 35px;
-  color: white;
+  color: #2bff00;
   text-decoration: none;
   background-color: rgb(39, 39, 39);
   border-radius: 10px;
@@ -144,7 +144,7 @@ h2 {
   font-family: 'Saira Condensed', sans-serif;
   font-size: 29px;
   letter-spacing: 2px;
-  color: #00ff00;
+  color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
   z-index: 2;
