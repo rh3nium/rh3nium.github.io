@@ -41,7 +41,7 @@ h2 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 8px;
   gap: 20px;
   font-size: 18px;
   font-weight: 700;
@@ -92,7 +92,7 @@ h2 {
 }
 .glitch {
   font-family: 'Overpass Mono', monospace;
-  font-size: 31px;
+  font-size: 30px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
