@@ -219,7 +219,6 @@ h2 {
   max-width: 1800px;
   margin: 15px;
 }
-
 .repo-card {
   background-color: #111;
   color: #fff;
@@ -241,11 +240,11 @@ h2 {
   font-size: 25px;
   font-weight: 600;
   font-family: 'Overpass Mono', monospace;
-  color: white;
+  color: aqua;
 }
 .repo-card p {
   font-size: 18px;
-  color: #ccc;
+  color: white;
   font-family: 'Titillium Web', sans-serif;
   margin-bottom: 25px;
 }
@@ -258,6 +257,7 @@ h2 {
 .repo-card a {
   text-decoration: none;
 }
+
 .center-box {
   display: flex;
   justify-content: flex-start;
