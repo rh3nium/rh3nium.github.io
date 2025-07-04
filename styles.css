@@ -41,7 +41,7 @@ h2 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 7px;
   gap: 20px;
   font-size: 18px;
   font-weight: 700;
@@ -142,7 +142,7 @@ h2 {
 }
 .glitchhead {
   font-family: 'Saira Condensed', sans-serif;
-  font-size: 31px;
+  font-size: 29px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
