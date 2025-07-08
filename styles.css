@@ -149,6 +149,7 @@ h2 {
   position: relative;
   z-index: 2;
   margin-top: 10px;
+  font-weight: bold;
 }
 .scanline {
   position: absolute;
