@@ -43,7 +43,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 4px;
   gap: 20px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   background-attachment: fixed;
   font-family: 'Overpass Mono', monospace;
@@ -52,7 +52,7 @@ h2 {
   text-decoration: none;
   color: white;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
   background-attachment: fixed;
   transition: color 0.3s ease;
 }
@@ -142,7 +142,7 @@ h2 {
 }
 .glitchhead {
   font-family: 'Saira Condensed', sans-serif;
-  font-size: 29px;
+  font-size: 27px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -283,7 +283,7 @@ h2 {
   margin-right: 20px;
 }
 .center-box p {
-  font-size: 19px;
+  font-size: 18px;
   flex: 1;
   max-width: 380px;
   color: white;
