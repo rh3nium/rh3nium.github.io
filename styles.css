@@ -237,13 +237,13 @@ h2 {
 .repo-card h3 {
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 600;
   font-family: 'Overpass Mono', monospace;
   color: aqua;
 }
 .repo-card p {
-  font-size: 18px;
+  font-size: 17px;
   color: white;
   font-family: 'Titillium Web', sans-serif;
   margin-bottom: 25px;
@@ -283,7 +283,7 @@ h2 {
   margin-right: 20px;
 }
 .center-box p {
-  font-size: 18px;
+  font-size: 17px;
   flex: 1;
   max-width: 380px;
   color: white;
