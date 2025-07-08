@@ -91,8 +91,8 @@ h2 {
   text-align: center;
 }
 .glitch {
-  font-family: 'Overpass Mono', monospace;
-  font-size: 28px;
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: 29px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
@@ -142,13 +142,14 @@ h2 {
 }
 .glitchhead {
   font-family: "UnifrakturMaguntia", cursive;
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
   position: relative;
   z-index: 2;
-  margin-top: 10px;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 .scanline {
   position: absolute;
@@ -308,7 +309,8 @@ p {
   font-family: 'Titillium Web', sans-serif;
 }
 .small-glitch {
-  font-size: 22px;
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: 23px;
   text-align: left;
 }
 
