@@ -20,6 +20,14 @@
   <link rel="icon" href="/icon1.png" type="image/png">
 
   <style>
+    
+#cursor-trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
 
   .topbar {
     display: flex;
@@ -39,14 +47,7 @@
     align-items: right;
     margin-right: 70px;
   }
-    
-#cursor-trail-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
-}
+
 .trianglewhite2 {
   position: absolute;
   width: 0;
