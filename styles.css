@@ -9,6 +9,9 @@ body {
   padding-top: 80px;
 }
 .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +21,6 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid red;
 }
-
 h1 {
   font-family: 'Syne Mono', monospace;
   font-size: 80px;
