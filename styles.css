@@ -16,7 +16,7 @@ body {
   background: black;
   z-index: 9999;
   padding-bottom: 10px;
-  border-bottom: 1px solid aqua;
+  border-bottom: 1px solid red;
 }
 
 h1 {
