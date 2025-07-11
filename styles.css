@@ -243,7 +243,7 @@ h2 {
   font-size: 24px;
   font-weight: 600;
   font-family: 'Overpass Mono', monospace;
-  color: aqua;
+  color: #de9cf0;
 }
 .repo-card p {
   font-size: 17px;
@@ -255,7 +255,7 @@ h2 {
   border-color: #ff0000;
 }
 .repo-card:hover h3 {
-  color: #de9cf0;
+  color: aqua;
 }
 .repo-card a {
   text-decoration: none;
