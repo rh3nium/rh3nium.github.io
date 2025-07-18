@@ -84,7 +84,22 @@
     .folder-list li.break-before {
       margin-top: 2rem;
     }
-    
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff0055;
+  color: white;
+  font-family: 'Overpass Mono', monospace;
+  font-size: 18px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.download-btn:hover {
+  background-color: #ff3366;
+}
   </style>
 </head>
 
@@ -216,6 +231,22 @@
     </div>
 
   </div>
+
+<div class="project-card">
+  <h3>Microcontroller Pins Cheat Sheet</h3>
+  <p>Content</p>
+  <div style="margin-top: auto; text-align: center; padding: 10px;">
+    <a href="docs/Microcontroller Pins - Cheat Sheet.pdf" download class="download-btn">Download</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <h3>Content</h3>
+  <p>Content</p>
+  <div style="margin-top: auto; text-align: center; padding: 10px;">
+    <a href="docs/cheatsheet.pdf" download class="download-btn">Download</a>
+  </div>
+</div>
 
 <script>
   const trailContainer3 = document.getElementById('cursor-trail-container3');
