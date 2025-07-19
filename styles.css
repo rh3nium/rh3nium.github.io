@@ -218,10 +218,10 @@ h2 {
 .repo-grid {
   column-count: 4;
   column-gap: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottomt: 30px;
-  padding-top: 15px;
+  padding-left: 27px;
+  padding-right: 27px;
+  padding-bottomt: 15px;
+  padding-top: 30px;
   max-width: 1800px;
   margin: 15px;
 }
