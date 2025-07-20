@@ -85,6 +85,7 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 10px;
 }
 .project-card {
   background-color: #111;
@@ -154,12 +155,21 @@ h1 {
   font-weight: 400;
   font-style: normal;
   margin-left: 50px;
+  margin-top: 50px;
   font-size: 30px;
 }
   </style>
 </head>
-
 <body>
+<div style="display: flex;">
+  <div style="min-width: 200px; padding: 20px; background-color: #111; color: white; font-family: 'Overpass Mono', monospace;">
+    <h3><b>Filter by Category</b></h3>
+    <label><input type="checkbox" class="category-filter" data-target="Tech Fundamentals"> Tech Fundamentals</label><br>
+    <label><input type="checkbox" class="category-filter" data-target="Microcontrollers"> Microcontrollers</label><br>
+    <label><input type="checkbox" class="category-filter" data-target="Programming Languages"> Programming Languages</label>
+  </div>
+
+  <div id="main-content" style="flex: 1;">
 
 <div id="cursor-trail-container3"></div>
 
@@ -183,8 +193,6 @@ h1 {
   </div>
 </div>
 
-  <br>
-
 <h1>Tech Fundamentals</h1><br>
   
 <div class="project-grid">
@@ -192,7 +200,7 @@ h1 {
 <div class="project-card">
   <img src="img/learn/crypto.png" alt="What is Cryptocurrency?">
   <h3>What is Cryptocurrency?</h3>
-  <p>A cryptocurrency is a digital form of money that doesn’t need a central authority like a bank or government to run or manage it.</p>
+  <p>A cryptocurrency is a digital form of money that doesn't need a central authority like a bank or government to run or manage it.</p>
   <div style="margin-top: auto; text-align: center; padding: 10px;">
     <a href="https://raw.githubusercontent.com/rh3nium/rh3nium.github.io/main/docs/What%20is%20Cryptocurrency.pdf" 
        target="_blank"
@@ -202,9 +210,7 @@ h1 {
 
 </div>
 
-<br><br>
-
-<h1>Electronics</h1><br>
+<h1>Microcontrollers</h1><br>
   
 <div class="project-grid">
 
@@ -242,10 +248,9 @@ h1 {
 </div>
 
 </div>
-  
-<br><br>
+ 
 
-<h1>Languages</h1>
+<h1>Programming Languages</h1>
   
   <!-- Repo Grid -->
   <div class="repo-grid">
@@ -350,29 +355,58 @@ h1 {
     </div>
 
   </div>
+  </div>
 
   <br>
 
+  </div> 
+</div>
+
 <script>
   const trailContainer3 = document.getElementById('cursor-trail-container3');
-
   document.addEventListener('mousemove', (e) => {
     const triangle3 = document.createElement('div');
     triangle3.className = 'trianglewhite4';
     triangle3.style.left = `${e.clientX}px`;
     triangle3.style.top = `${e.clientY}px`;
-
     trailContainer3.appendChild(triangle3);
-
-    // Fade out and remove after a short time
-    setTimeout(() => {
-      triangle3.style.opacity = '0';
-    }, 100);
-
-    setTimeout(() => {
-      triangle3.remove();
-    }, 1000);
+    setTimeout(() => { triangle3.style.opacity = '0'; }, 100);
+    setTimeout(() => { triangle3.remove(); }, 1000);
   });
+</script>
+
+<script>
+  function updateVisibility() {
+    const checkboxes = document.querySelectorAll('.category-filter');
+    const checked = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.dataset.target);
+    
+    // If nothing is checked, show everything
+    const showAll = checked.length === 0;
+
+    document.querySelectorAll('h1').forEach(header => {
+      const section = header.textContent.trim();
+      const shouldShow = showAll || checked.includes(section);
+
+      header.style.display = shouldShow ? '' : 'none';
+
+      // Find next project/repo grid and show/hide it
+      let next = header.nextElementSibling;
+      while (next && !next.matches('h1')) {
+        if (next.classList.contains('project-grid') || next.classList.contains('repo-grid')) {
+          next.style.display = shouldShow ? '' : 'none';
+          break;
+        }
+        next = next.nextElementSibling;
+      }
+    });
+  }
+
+  document.querySelectorAll('.category-filter').forEach(cb => {
+    cb.addEventListener('change', updateVisibility);
+  });
+
+  // Initial call to show everything (since all are unchecked)
+  updateVisibility();
 </script>
 
 </body>
