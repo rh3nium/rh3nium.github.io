@@ -80,7 +80,7 @@
     .div2 {
       width: 100%;
       height: 900px;
-      background-color: white;
+      background-color: black;
       background-size: cover;
       background-position: center;
       position: relative;
@@ -94,52 +94,6 @@
       padding: 40px 50px;
       z-index: 10;
     }
-
-.trianglewhite2 {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 10px solid white;
-  filter: drop-shadow(0 0 2px red);
-  animation: pulse2 2s ease-in-out infinite;
-  opacity: 1;
-  transition: opacity 0.3s ease-out;
-}
-.content-layout {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  flex-wrap: wrap;
-}
-.left-block {
-  max-width: 350px;
-  padding-left: 0.5rem;
-}
-.side-img {
-  width: 70%;
-  height: auto;
-  justify-content: center;
-}
-.text-content {
-  font-size: 14px;
-  margin-top: 0.5rem;
-  font-family: 'Overpass Mono', monospace;
-}
-.right-block {
-  max-width: 1000px;
-  margin-right: 5px;
-}
-.responsive-video {
-  width: 100%;
-  max-width: 1000px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
 
   </style>
 </head>
@@ -166,6 +120,7 @@
   </div>
 </div>
 
+
 <!-- Div 1 -->
 <div class="div1">
   <div class="div1-heading">THE CODE<br>IS<br>YOUR CANVAS</div>
@@ -173,11 +128,12 @@
 
 <!-- Div 2 -->
 <div class="div2">
-<!-- SECOND CENTER BOX (unchanged) -->
-<div class="hero-flex-container"> 
-  <div class="canvasred" id="canvasred"></div>
-  <center>
-    <div class="center-box">
+  <div class="hero-flex-container">
+
+    <div class="canvasred" id="canvasred"></div>
+
+    <center>
+      <div class="center-box">
         <div class="text-content">
           <div class="glitch-wrapper">
             <div class="glitch small-glitch" data-text="" aria-hidden="true">Hey there</div>
@@ -187,31 +143,29 @@
           <p>On this site, you will also find <span style="color: aqua;">learning materials</span> to boost your knowledge and skills.</p><br>
           <p>If you can read this line without blinking for 5 seconds, you've come to the right place.</p>
         </div>
-      <div class="right-section">
-        <img src="50072fd4-1e54-4d95-a2d5-cdb6c98f2a2f.png" alt="abt" />
+        <div class="right-section">
+          <img src="50072fd4-1e54-4d95-a2d5-cdb6c98f2a2f.png" alt="abt" />
+        </div>
       </div>
+    </center>
+  
+    <div class="canvaswhite" id="canvaswhite"></div>
+
+    <!-- ✅ Marquee under center-box -->
+    <div style="background-color: white; height: 170px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
+      <marquee style="color: black; margin: 10px 0;">
+        <p style="font-family: Overpass Mono, monospace; font-size: 21px; color: red; margin: 0; text-align: center;">
+          ಕಷ್ಟಕರವಾದ ಏರಿಕೆಯ ನಂತರವೇ ಒಂದು ಸುಂದರ ನೋಟ ಕಾಣುವುದು.
+        </p>
+      </marquee>
+      <p style="color: black; font-family: Overpass Mono, monospace; font-size: 19px; margin: 0; text-align: center;">
+        The harder the climb, the better the view.
+      </p>
     </div>
-  </center>
-  <div class="canvaswhite" id="canvaswhite"></div>
+
+  </div>
 </div>
 
-<br>
-
-<div style="background-color: white; height: 170px; display: flex; flex-direction: column; justify-content: space-around;">
-  <marquee style="color: black; margin: 25px;">
-    <p style="font-family: Overpass Mono, monospace; font-size: 21px; color: red; margin: 0; text-align: center;">
-      ಕಷ್ಟಕರವಾದ ಏರಿಕೆಯ ನಂತರವೇ ಒಂದು ಸುಂದರ ನೋಟ ಕಾಣುವುದು.
-    </p>
-  </marquee>
-  <p style="color: black; font-family: Overpass Mono, monospace; font-size: 19px; margin: 0; text-align: center;">
-    The harder the climb, the better the view.
-  </p>
-</div>
-
-<br>
-
-</div>
-</div>
 
 <!-- Triangle Script 1 -->
 <script>
