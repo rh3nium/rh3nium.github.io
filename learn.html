@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
   
@@ -160,11 +159,12 @@ h1 {
 }
   </style>
 </head>
+
 <body>
 <div style="display: flex;">
   <div style="min-width: 200px; padding: 20px; background-color: #111; color: white; font-family: 'Overpass Mono', monospace;">
     <h3><b>Filter by Category</b></h3>
-    <label><input type="checkbox" class="category-filter" data-target="Tech Fundamentals"> Tech Fundamentals</label><br>
+    <label><input type="checkbox" class="category-filter" data-target="Tech Fundamentals"> General</label><br>
     <label><input type="checkbox" class="category-filter" data-target="Microcontrollers"> Microcontrollers</label><br>
     <label><input type="checkbox" class="category-filter" data-target="Programming Languages"> Programming Languages</label>
   </div>
@@ -193,7 +193,8 @@ h1 {
   </div>
 </div>
 
-<h1>Tech Fundamentals</h1><br>
+    
+<h1>General</h1><br>
   
 <div class="project-grid">
 
@@ -219,8 +220,18 @@ h1 {
   </div>
 </div>
 
+<div class="project-card">
+  <img src="img/learn/deepweb.png" alt="The Deep Web: What's Beneath the Surface">
+  <h3>The Deep Web: What's Beneath the Surface</h3>
+  <p>The Deep Web, or the ‘hidden web’, is the part of the World Wide Web whose contents are not indexed by standard web search engine programs.</p>
+  <div style="margin-top: auto; text-align: center; padding: 10px;">
+    <a href="deepweb.html" class="download-btn">Go</a>
+  </div>
+</div>
+  
 </div>
 
+    
 <h1>Microcontrollers</h1><br>
   
 <div class="project-grid">
@@ -263,7 +274,6 @@ h1 {
 
 <h1>Programming Languages</h1>
   
-  <!-- Repo Grid -->
   <div class="repo-grid">
 
     <!-- C Repo -->
