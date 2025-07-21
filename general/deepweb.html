@@ -25,24 +25,46 @@
   pointer-events: none;
   z-index: 10000;
 }
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: black;
-  }
-  .topbar .header {
-    align-items: left;
-    margin-left: 35px;
-  }
-  .topbar .menu {
-    display: flex;
-    gap: 10px;
-    font-family: 'Overpass Mono', monospace;
-    align-items: right;
-    margin-right: 70px;
-  }
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: black;
+    }
+
+    .topbar .header {
+      align-items: left;
+      margin-left: 35px;
+    }
+
+    .topbar .menu {
+      display: flex;
+      gap: 10px;
+      font-family: 'Overpass Mono', monospace;
+      margin-right: 70px;
+    }
+
+    .topbar .menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .topbar .menu span {
+      color: red;
+    }
+
+    .social-icons a {
+      color: white;
+      margin-left: 10px;
+      text-decoration: none;
+    }
 
 .download-btn {
   display: inline-block;
