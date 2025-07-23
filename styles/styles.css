@@ -21,6 +21,7 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid red;
 }
+
 h1 {
   font-size: 80px;
   letter-spacing: 2px;
@@ -33,6 +34,7 @@ h2 {
   font-size: 60px;
   color: white;
 }
+
 .header a {
   text-decoration: none;
 }
@@ -64,6 +66,7 @@ h2 {
   font-weight: 300;
   background-attachment: fixed;
 }
+
 .social-icons {
   position: fixed;
   bottom: 20px;
@@ -84,6 +87,7 @@ h2 {
 .social-icons a:hover {
   color: #ff0000;
 }
+
 .glitch-wrapper {
   position: relative;
   margin-bottom: 15px;
@@ -236,7 +240,6 @@ h2 {
   box-shadow: 0 0 10px red;
   box-sizing: border-box;
 }
-
 .repo-card h3 {
   margin-top: 0;
   margin-bottom: 8px;
@@ -310,6 +313,7 @@ p {
   color: white;
   font-family: 'Titillium Web', sans-serif;
 }
+
 .small-glitch {
   font-family: 'Rubik Mono One', monospace;
   font-size: 26px;
