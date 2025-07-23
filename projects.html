@@ -24,22 +24,28 @@
   pointer-events: none;
   z-index: 10000;
 }
+
 .trianglewhite5 {
+  position: absolute;
+  width: 0;
+  height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
   border-bottom: 24px solid white;
   filter: drop-shadow(0 0 4px red);
-  animation: pulse2 5s ease-in-out infinite;
+  animation: pulse5 5s ease-in-out infinite;
+  transition: opacity 0.3s ease;
 }
+
 @keyframes pulse5 {
   0%, 100% {
-    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
+    transform: scale(1);
   }
   50% {
-    transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
+    transform: scale(1.1);
   }
 }
-    
+ 
   .topbar {
     display: flex;
     justify-content: space-between;
@@ -159,27 +165,26 @@ a {
 </div>
 
 <script>
-  const trailContainer2 = document.getElementById('cursor-trail-container2');
+const trailContainer2 = document.getElementById('cursor-trail-container2');
 
-  document.addEventListener('mousemove', (e) => {
-    const triangle2 = document.createElement('div');
-    triangle2.className = 'trianglewhite5';
-    triangle2.style.left = `${e.clientX}px`;
-    triangle2.style.top = `${e.clientY}px`;
+document.addEventListener('mousemove', (e) => {
+  const triangle2 = document.createElement('div');
+  triangle2.className = 'trianglewhite5';
+  triangle2.style.left = `${e.clientX}px`;
+  triangle2.style.top = `${e.clientY}px`;
 
-    trailContainer2.appendChild(triangle2);
+  trailContainer2.appendChild(triangle2);
 
-    // Fade out and remove after a short time
-    setTimeout(() => {
-      triangle2.style.opacity = '0';
-    }, 100);
+  setTimeout(() => {
+    triangle2.style.opacity = '0';
+  }, 100);
 
-    setTimeout(() => {
-      triangle2.remove();
-    }, 1000);
-  });
+  setTimeout(() => {
+    triangle2.remove();
+  }, 1000);
+});
+
 </script>
 
-  
 </body>
 </html>
