@@ -428,5 +428,28 @@ h1 {
   updateVisibility();
 </script>
 
+<!-- Cursor Trail -->
+<script>
+  const trailContainer = document.getElementById('cursor-trail-container');
+
+  document.addEventListener('mousemove', (e) => {
+    const triangle = document.createElement('div');
+    triangle.className = 'trianglewhite';
+    triangle.style.left = `${e.clientX}px`;
+    triangle.style.top = `${e.clientY}px`;
+    triangle.style.position = 'absolute';
+
+    trailContainer.appendChild(triangle);
+
+    setTimeout(() => {
+      triangle.style.opacity = '0';
+    }, 100);
+
+    setTimeout(() => {
+      triangle.remove();
+    }, 1000);
+  });
+</script>
+
 </body>
 </html>
