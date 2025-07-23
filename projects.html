@@ -24,7 +24,22 @@
   pointer-events: none;
   z-index: 10000;
 }
-
+.trianglewhite2 {
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 24px solid white;
+  filter: drop-shadow(0 0 4px red);
+  animation: pulse2 5s ease-in-out infinite;
+}
+@keyframes pulse2 {
+  0%, 100% {
+    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
+  }
+}
+    
   .topbar {
     display: flex;
     justify-content: space-between;
@@ -178,28 +193,29 @@ a {
   });
 </script>
 
-<!-- Cursor Trail -->
+  
 <script>
-  const trailContainer = document.getElementById('cursor-trail-container');
+  const trailContainer2 = document.getElementById('cursor-trail-container2');
 
   document.addEventListener('mousemove', (e) => {
-    const triangle = document.createElement('div');
-    triangle.className = 'trianglewhite';
-    triangle.style.left = `${e.clientX}px`;
-    triangle.style.top = `${e.clientY}px`;
-    triangle.style.position = 'absolute';
+    const triangle2 = document.createElement('div');
+    triangle2.className = 'trianglewhite2';
+    triangle2.style.left = `${e.clientX}px`;
+    triangle2.style.top = `${e.clientY}px`;
+    triangle2.style.position = 'absolute';
 
-    trailContainer.appendChild(triangle);
+    trailContainer2.appendChild(triangle2);
 
     setTimeout(() => {
-      triangle.style.opacity = '0';
+      triangle2.style.opacity = '0';
     }, 100);
 
     setTimeout(() => {
-      triangle.remove();
+      triangle2.remove();
     }, 1000);
   });
 </script>
 
+  
 </body>
 </html>
