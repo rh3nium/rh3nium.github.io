@@ -325,8 +325,6 @@ p {
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
   flex-wrap: wrap;
   gap: 25px;
 }
