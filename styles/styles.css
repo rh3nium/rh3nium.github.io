@@ -44,7 +44,7 @@ h2 {
   flex-wrap: wrap;
   margin-top: 4px;
   gap: 20px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   background-attachment: fixed;
   font-family: 'Overpass Mono', monospace;
@@ -53,7 +53,7 @@ h2 {
   text-decoration: none;
   color: white;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 17px;
   background-attachment: fixed;
   transition: color 0.3s ease;
 }
@@ -290,7 +290,7 @@ h2 {
   margin-right: 15px;
 }
 .center-box p {
-  font-size: 17px;
+  font-size: 18px;
   flex: 1;
   max-width: 380px;
   color: white;
