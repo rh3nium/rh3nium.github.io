@@ -6,6 +6,7 @@ body {
   background-attachment: fixed; 
   color: white;
   margin: 0;
+  padding-top: 80px;
 }
 .topbar {
   display: flex;
