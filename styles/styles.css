@@ -8,7 +8,6 @@ body {
   margin: 0;
   padding-top: 80px;
 }
-
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -34,7 +33,6 @@ h2 {
   font-size: 60px;
   color: white;
 }
-
 .header a {
   text-decoration: none;
 }
@@ -66,7 +64,6 @@ h2 {
   font-weight: 300;
   background-attachment: fixed;
 }
-
 .social-icons {
   position: fixed;
   bottom: 20px;
@@ -87,7 +84,6 @@ h2 {
 .social-icons a:hover {
   color: #ff0000;
 }
-
 .glitch-wrapper {
   position: relative;
   margin-bottom: 15px;
@@ -153,6 +149,11 @@ h2 {
   z-index: 2;
   margin-top: 13px;
   margin-bottom: 13px;
+}
+.small-glitch {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 .scanline {
   position: absolute;
@@ -314,12 +315,6 @@ p {
   font-family: 'Titillium Web', sans-serif;
 }
 
-.small-glitch {
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 .hero-flex-container {
   display: flex;
   justify-content: center;
@@ -394,7 +389,6 @@ p {
     transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
   }
 }
-
 @keyframes pulse2 {
   0%, 100% {
     transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
