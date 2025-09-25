@@ -304,21 +304,6 @@ h1 {
   font-family: 'Overpass Mono', monospace;
   text-align: left;
 }
-.text-content h2 {
-  margin: 0 0 8px 0;
-  font-size: 26px;
-  color: white;
-}
-.text-contentblack {
-  margin: 0 0 8px 0;
-  color: white;
-}
-p {
-  margin: 0;
-  font-size: 20px;
-  color: white;
-  font-family: 'Titillium Web', sans-serif;
-}
 
 .hero-flex-container {
   display: flex;
