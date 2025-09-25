@@ -22,12 +22,15 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid red;
 }
+
 h1 {
-  font-size: 80px;
-  letter-spacing: 2px;
-  color: white;
-  position: relative;
-  z-index: 2;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 28px;
+  text-shadow: 2px solid black;
 }
 h2 {
   font-weight: 700;
