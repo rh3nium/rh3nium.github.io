@@ -274,7 +274,7 @@ h2 {
 .center-box {
   display: flex;
   justify-content: flex-start;
-  background-color: #111;
+  background-color: black;
   border-radius: 15px;
   padding: 20px 30px;
   max-width: 565px;
