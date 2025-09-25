@@ -32,11 +32,6 @@ h1 {
   font-size: 28px;
   text-shadow: 2px solid black;
 }
-h2 {
-  font-weight: 700;
-  font-size: 60px;
-  color: white;
-}
 
 .header a {
   text-decoration: none;
