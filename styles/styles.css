@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   color: white;
   margin: 0;
   padding-top: 80px;
@@ -93,8 +93,12 @@ h2 {
   margin-bottom: 15px;
   text-align: center;
 }
-.glitch {
-  font-family: 'Rubik Mono One', monospace;
+
+.small-glitch {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
   font-size: 29px;
   letter-spacing: 2px;
   color: white;
@@ -103,8 +107,8 @@ h2 {
   z-index: 2;
   margin-top: 10px;
 }
-.glitch::before,
-.glitch::after {
+.small-glitch::before,
+.small-glitch::after {
   content: attr(data-text);
   position: absolute;
   left: 0;
@@ -113,14 +117,15 @@ h2 {
   opacity: 0.8;
   clip-path: inset(0 0 100% 0);
 }
-.glitch::before {
+.small-glitch::before {
   color: white;
   animation: glitchTop 2s infinite linear alternate-reverse;
 }
-.glitch::after {
+.small-glitch::after {
   color: aqua;
   animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
+
 @keyframes glitchTop {
   0% { clip-path: inset(0 0 100% 0); }
   10% { clip-path: inset(0 0 75% 0); }
@@ -154,17 +159,14 @@ h2 {
   margin-top: 13px;
   margin-bottom: 13px;
 }
-.small-glitch {
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+
 .scanline {
-  position: absolute;
+  position: relative;
+  display: block;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 80%;
+  height: auto;
+  width: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -174,7 +176,7 @@ h2 {
   position: absolute;
   top: -100%;
   left: 0;
-  width: 80%;
+  width: 100%;
   height: 200%;
   background: repeating-linear-gradient(
     to bottom,
@@ -226,7 +228,7 @@ h2 {
   column-gap: 15px;
   padding-left: 27px;
   padding-right: 27px;
-  padding-bottomt: 10px;
+  padding-bottom: 10px;
   padding-top: 24px;
   max-width: 1800px;
   margin: 15px;
