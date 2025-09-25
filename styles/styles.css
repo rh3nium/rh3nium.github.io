@@ -296,7 +296,7 @@ h2 {
   max-width: 380px;
   color: white;
   word-wrap: break-word;
-  font-family: "Titillium Web", sans-serif;
+  font-family: 'Overpass Mono', monospace;
   text-align: left;
 }
 .text-content h2 {
