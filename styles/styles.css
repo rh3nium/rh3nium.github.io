@@ -287,7 +287,7 @@ h2 {
   border-radius: 15px;
   padding: 30px 40px;
   max-width: 880px;
-  max-height: 510px;
+  max-height: 525px;
   margin-top: 40px;
   margin-bottom: 20px;
   box-shadow: 0 0 15px white;
@@ -299,7 +299,7 @@ h2 {
   box-shadow: 0 0 25px white;
 }
 .center-box img {
-  height: 440px;
+  height: 445px;
   width: auto;
   padding-left: 20px;
   border-radius: 10px;
