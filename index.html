@@ -63,7 +63,6 @@
       position: relative;
       background-color: transparent;
     }
-
     .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
       position: absolute;
       width: 0;
@@ -71,11 +70,9 @@
       animation: pulse1 5s ease-in-out infinite;
       transition: color 0.4s ease;
     }
-
     .trianglered {
       filter: drop-shadow(0 0 1px black);
     }
-
     .triangleblack {
       filter: drop-shadow(0 0 1px white);
       animation: pulse2 5s ease-in-out infinite;
@@ -83,7 +80,6 @@
       border-right: 12px solid transparent;
       border-bottom: 24px solid black;
     }
-
     .trianglewhite {
       border-left: 12px solid transparent;
       border-right: 12px solid transparent;
@@ -96,17 +92,14 @@
       filter: drop-shadow(0 0 1px white);
       animation: pulse2 5s ease-in-out infinite;
     }
-
     @keyframes pulse1 {
       0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
       50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
     }
-
     @keyframes pulse2 {
       0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
       50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
     }
-
   </style>
 </head>
 
@@ -128,12 +121,9 @@
     <a href="https://instagram.com/r13ya_" target="_blank" class="fab fa-instagram"></a>
   </div>
 </div>
-
 <br><br>
-
 <div class="hero-flex-container">
     <div class="canvasred2" id="canvasred2"></div>
-
     <div class="center-box">
       <div class="text-content">
         <div class="glitch-wrapper">
@@ -149,10 +139,8 @@
         <img src="styles/99.png" alt="abt" />
       </div>
     </div>
-
     <div class="canvaswhite" id="canvaswhite"></div>
-
-    </div>
+</div>
 
 <script>
   function spawnTriangles(canvasId, className, color) {
@@ -193,7 +181,6 @@
   spawnTriangles('canvasred2', 'trianglered', 'red');
   spawnTriangles('canvaswhite', 'trianglewhite', 'white');
 </script>
-
 
 <script>
   const trailContainer = document.getElementById('cursor-trail-container');
