@@ -1,127 +1,121 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Riya h</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="icon" href="styles/rh.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Projects | Riya h</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="styles/rh.png" type="image/png">
 
-  <style>
-#cursor-trail-container2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
-}
-.trianglewhite5 {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 24px solid white;
-  filter: drop-shadow(0 0 4px red);
-  animation: pulse5 5s ease-in-out infinite;
-  transition: opacity 0.3s ease;
-}
-@keyframes pulse5 {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: black;
-  }
-  .topbar .header {
-    align-items: left;
-    margin-left: 35px;
-  }
-  .topbar .menu {
-    display: flex;
-    gap: 10px;
-    font-family: 'Overpass Mono', monospace;
-    align-items: right;
-    margin-right: 70px;
-  }
-    .topbar .menu a {
-      color: white;
-      text-decoration: none;
-    }
-    .topbar .menu span {
-      color: red;
-    }
-    .social-icons a {
-      color: white;
-      margin-left: 10px;
-      text-decoration: none;
-    }
+    <style>
+        #cursor-trail-container2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10000;
+        }
+        .trianglewhite5 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid white;
+            filter: drop-shadow(0 0 4px red);
+            animation: pulse5 5s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+        @keyframes pulse5 {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: black;
+        }
+        .topbar .header {
+            align-items: left;
+            margin-left: 35px;
+        }
+        .topbar .menu {
+            display: flex;
+            gap: 10px;
+            font-family: 'Overpass Mono', monospace;
+            align-items: right;
+            margin-right: 70px;
+        }
+        .topbar .menu a {
+            color: white;
+            text-decoration: none;
+        }
+        .topbar .menu span {
+            color: red;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.project-card {
-  background-color: #111;
-  border: 1px solid #333;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-bottom: 10px;
-}
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
-}
-.project-card a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  height: 100%;
-}
-a {
-  text-decoration: none;
-}
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.project-card h3 {
-  margin: 1rem 1rem 0.5rem;
-  font-size: 25px;
-  font-weight: 600;
-  font-family: 'Overpass Mono', monospace;
-  color: aqua;
-  transition: color 0.3s ease;
-  text-align: left;
-}
-.project-card:hover h3 {
-  color: #de9cf0;
-}
-.project-card p {
-  margin: 0 1rem 1.5rem;
-  font-size: 19px;
-  font-family: 'Titillium Web', sans-serif;
-  color: white;
-}
-  </style>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .project-card {
+            background-color: #111;
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-bottom: 10px;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+        }
+        a {
+            text-decoration: none;
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .project-card h3 {
+            margin: 1rem 1rem 0.5rem;
+            font-size: 25px;
+            font-weight: 600;
+            font-family: 'Overpass Mono', monospace;
+            color: aqua;
+            transition: color 0.3s ease;
+            text-align: left;
+        }
+        .project-card:hover h3 {
+            color: #de9cf0;
+        }
+        .project-card p {
+            margin: 0 1rem 1.5rem;
+            font-size: 19px;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -129,65 +123,70 @@ a {
 <div id="cursor-trail-container2"></div>
 
 <div class="topbar">
-<div class="header" style="display: flex; align-items: center;">
-  <a href="index.html">
-    <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-  </a>
-</div>
-  <div class="menu">
-    <a href="index.html">Home</a><span style="color: red">|</span>
-    <a href="projects.html"><span style="color: red";>Projects</span></a><span style="color: red">|</span>
-    <a href="learn.html">Learn</a>
-  </div>
-  <div class="social-icons">
-    <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
-    <a href="https://instagram.com/r13ya_" target="_blank" class="fab fa-instagram"></a>
-  </div>
+    <div class="header" style="display: flex; align-items: center;">
+        <a href="index.html">
+            <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+        </a>
+    </div>
+    <div class="menu">
+        <a href="index.html">Home</a><span style="color: red">|</span>
+        <a href="projects.html"><span style="color: red";>Projects</span></a><span style="color: red">|</span>
+        <a href="learn.html">Learn</a>
+    </div>
+    <div class="social-icons">
+        <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+        <a href="https://instagram.com/r13ya_" target="_blank" class="fab fa-instagram"></a>
+    </div>
 </div>
 
 <br>
 
 <div class="project-grid">
 
+<a href="https://huggingface.co/spaces/r13ya/Legal-Document-Simplifier-AI" target="_blank">
     <div class="project-card">
         <img src="https://github.com/rh3nium/Legal-Document-Simplifier-AI/blob/main/homepage.png?raw=true" alt="Legal Doc Simplifier">
         <h3>Legal Document Simplifier AI 🪄🧾</h3>
         <p>Python script that uses a T5 transformer model to simplify complex legal documents, and store the original and simplified texts in a MongoDB database. The tool is designed to make legal jargon more accessible and provide a clear, concise summary of key document details.</p>
-        
-        <div style="margin: 0 1rem 1rem; display: flex; gap: 15px; font-size: 18px; font-family: Overpass Mono, monospace;">
-            <a href="https://huggingface.co/spaces/r13ya/Legal-Document-Simplifier-AI" target="_blank" title="View on Hugging Face"> 
-                <img src="img/hf.png" alt="Hugging Face Icon" style="height: 50px; width: auto; filter: drop-shadow(0 0 2px white);">
+          
+        <div style="margin: 0 1rem 1rem; display: flex; gap: 15px; ">
+            <a href="https://huggingface.co/spaces/r13ya/Legal-Document-Simplifier-AI" target="_blank" title="View on Hugging Face"> 
+                <img src="img/hf.png" alt="Hugging Face Icon" style="height: 100px; width: auto;">
             </a>
-            <a href="https://github.com/rh3nium/Legal-Document-Simplifier-AI" target="_blank" title="View Code on GitHub" style="height: 50px; width: auto; filter: drop-shadow(0 0 2px white);"> 
-                <i class="fab fa-github"></i>
+            
+            <a href="https://github.com/rh3nium/Legal-Document-Simplifier-AI" target="_blank" title="View Code on GitHub" style="color: white;"> 
+                <i class="fab fa-github" style="font-size: 100px;"></i>
             </a>
         </div>
     </div>
-
-  <div class="project-card">
-    <img src="img/crowd.png" alt="Crowd Monitoring System">
-    <h3>Crowd/Cluster Monitoring System with Heatmap</h3>
-    <p>Used OpenCV, Python, numpy, and DBSCAN - Density-based people clustering algorithm from scikit-learn.</p>
-    
-        <div style="margin: 0 1rem 1rem; display: flex; gap: 15px; font-size: 18px; font-family: Overpass Mono, monospace;">
-            <a href="https://github.com/rh3nium/Crowd-monitoring-system" target="_blank" title="View Code on GitHub" style="height: 50px; width: auto; filter: drop-shadow(0 0 2px white);"> 
-                <i class="fab fa-github"></i>
+</a>
+  
+<a href="https://github.com/rh3nium/Crowd-monitoring-system" target="_blank">
+    <div class="project-card">
+        <img src="img/crowd.png" alt="Crowd Monitoring System">
+        <h3>Crowd/Cluster Monitoring System with Heatmap</h3>
+        <p>Used OpenCV, Python, numpy, and DBSCAN - Density-based people clustering algorithm from scikit-learn.</p>
+        
+        <div style="margin: 0 1rem 1rem; display: flex; gap: 15px;">
+            <a href="https://github.com/rh3nium/Crowd-monitoring-system" target="_blank" title="View Code on GitHub" style="color: white; filter: drop-shadow(0 0 2px white);"> 
+                <i class="fab fa-github" style="font-size: 50px;"></i>
             </a>
         </div>
-  </div>
+    </div>
+</a>
 
 </div>
 
-<br>
+<br><br>
 
 <div class="project-grid">
 
 <a href="sotsgame.html">
-  <div class="project-card">
-    <img src="img/sots111.png" alt="sots">
-    <h3>Shadows On The Sands (Game)</h3>
-    <p>Mystery/Thriller single-player narrative game set in a beachside restaurant in Panaji, Goa, India.</p>
-  </div>
+    <div class="project-card">
+        <img src="img/sots111.png" alt="sots">
+        <h3>Shadows On The Sands (Game)</h3>
+        <p>Mystery/Thriller single-player narrative game set in a beachside restaurant in Panaji, Goa, India.</p>
+    </div>
 </a>
 
 </div>
@@ -196,20 +195,20 @@ a {
 const trailContainer2 = document.getElementById('cursor-trail-container2');
 
 document.addEventListener('mousemove', (e) => {
-  const triangle2 = document.createElement('div');
-  triangle2.className = 'trianglewhite5';
-  triangle2.style.left = `${e.clientX}px`;
-  triangle2.style.top = `${e.clientY}px`;
+    const triangle2 = document.createElement('div');
+    triangle2.className = 'trianglewhite5';
+    triangle2.style.left = `${e.clientX}px`;
+    triangle2.style.top = `${e.clientY}px`;
 
-  trailContainer2.appendChild(triangle2);
+    trailContainer2.appendChild(triangle2);
 
-  setTimeout(() => {
-    triangle2.style.opacity = '0';
-  }, 100);
+    setTimeout(() => {
+        triangle2.style.opacity = '0';
+    }, 100);
 
-  setTimeout(() => {
-    triangle2.remove();
-  }, 1000);
+    setTimeout(() => {
+        triangle2.remove();
+    }, 1000);
 });
 
 </script>
