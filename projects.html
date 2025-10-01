@@ -143,7 +143,6 @@
 
 <div class="project-grid">
 
-<a href="https://huggingface.co/spaces/r13ya/Legal-Document-Simplifier-AI" target="_blank">
     <div class="project-card">
         <img src="https://github.com/rh3nium/Legal-Document-Simplifier-AI/blob/main/homepage.png?raw=true" alt="Legal Doc Simplifier">
         <h3>Legal Document Simplifier AI 🪄🧾</h3>
@@ -155,21 +154,17 @@
             <a href="https://github.com/rh3nium/Legal-Document-Simplifier-AI" target="_blank" title="View Code on GitHub" style="color: white;"> 
                 <i class="fab fa-github" style="font-size: 75px;"></i>
             </a>
-        </div>
     </div>
-</a>
   
-<a href="https://github.com/rh3nium/Crowd-monitoring-system" target="_blank">
     <div class="project-card">
         <img src="img/crowd.png" alt="Crowd Monitoring System">
         <h3>Crowd/Cluster Monitoring System with Heatmap</h3>
         <p>Used OpenCV, Python, numpy, and DBSCAN - Density-based people clustering algorithm from scikit-learn.</p>
+        <br>
             <a href="https://github.com/rh3nium/Crowd-monitoring-system" target="_blank" title="View Code on GitHub" style="color: white;"> 
                 <i class="fab fa-github" style="font-size: 75px;"></i>
             </a>
-        </div>
     </div>
-</a>
 
 </div>
 
@@ -189,24 +184,19 @@
 
 <script>
 const trailContainer2 = document.getElementById('cursor-trail-container2');
-
 document.addEventListener('mousemove', (e) => {
     const triangle2 = document.createElement('div');
     triangle2.className = 'trianglewhite5';
     triangle2.style.left = `${e.clientX}px`;
     triangle2.style.top = `${e.clientY}px`;
-
     trailContainer2.appendChild(triangle2);
-
     setTimeout(() => {
         triangle2.style.opacity = '0';
     }, 100);
-
     setTimeout(() => {
         triangle2.remove();
     }, 1000);
 });
-
 </script>
 
 </body>
