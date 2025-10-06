@@ -1,207 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Riya Halbhavi's site | ">
-  <title>Riya h | Dev x design</title>
-  <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
-  <meta name="msvalidate.01" content="3E5A7800F766EAC5F9D06BF8523C2061" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="icon" href="styles/rh.png" type="image/png">
-  <style> 
-    body {
-      margin: 0;
-      color: white;
-    }
-    #cursor-trail-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 10000;
-    }
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: black;
-    }
-    .topbar .header {
-      align-items: left;
-      margin-left: 35px;
-    }
-    .topbar .menu {
-      display: flex;
-      gap: 10px;
-      font-family: 'Overpass Mono', monospace;
-      margin-right: 70px;
-    }
-    .topbar .menu a {
-      color: white;
-      text-decoration: none;
-    }
-    .topbar .menu span {
-      color: red;
-    }
-    .social-icons a {
-      color: white;
-      margin-left: 10px;
-      text-decoration: none;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Riya Halbhavi's site | ">
+    <title>Riya h | Dev x design</title>
+    <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
+    <meta name="msvalidate.01" content="3E5A7800F766EAC5F9D06BF8523C2061" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="styles/rh.png" type="image/png">
+    
+    <style> 
+        body {
+            margin: 0;
+            color: white;
+            overflow-x: hidden; 
+        }
 
-    .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
-      width: 240px;
-      height: 240px;
-      position: relative;
-      background-color: transparent;
-    }
-    .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
-      position: absolute;
-      width: 0;
-      height: 0;
-      animation: pulse1 5s ease-in-out infinite;
-      transition: color 0.4s ease;
-    }
-    .trianglered {
-      filter: drop-shadow(0 0 1px black);
-    }
-    .triangleblack {
-      filter: drop-shadow(0 0 1px white);
-      animation: pulse2 5s ease-in-out infinite;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 24px solid black;
-    }
-    .trianglewhite {
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 24px solid white;
-      filter: drop-shadow(0 0 4px red);
-      animation: pulse2 5s ease-in-out infinite;
-    }
+        /* Canvas for the WebGL Background */
+        #webgl-background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            pointer-events: auto; /* Allows mouse events to be captured */
+        }
+        
+        /* Ensure all content is visible and above the canvas */
+        body > :not(#webgl-background-canvas) {
+            position: relative;
+            z-index: 1; 
+        }
+        
+        /* General content styling for readability over the animated background */
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-    .trianglered2 {
-      filter: drop-shadow(0 0 1px white);
-      animation: pulse2 5s ease-in-out infinite;
-    }
-    @keyframes pulse1 {
-      0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
-      50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
-    }
-    @keyframes pulse2 {
-      0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
-      50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
-    }
-  </style>
+        #cursor-trail-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10000;
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: black;
+            z-index: 2;
+        }
+        .topbar .header {
+            align-items: left;
+            margin-left: 35px;
+        }
+        .topbar .menu {
+            display: flex;
+            gap: 10px;
+            font-family: 'Overpass Mono', monospace;
+            margin-right: 70px;
+        }
+        .topbar .menu a {
+            color: white;
+            text-decoration: none;
+        }
+        .topbar .menu span {
+            color: red;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
+            width: 240px;
+            height: 240px;
+            position: relative;
+            background-color: transparent;
+        }
+        .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            animation: pulse1 5s ease-in-out infinite;
+            transition: color 0.4s ease;
+        }
+        .trianglered {
+            filter: drop-shadow(0 0 1px black);
+        }
+        .triangleblack {
+            filter: drop-shadow(0 0 1px white);
+            animation: pulse2 5s ease-in-out infinite;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid black;
+        }
+        .trianglewhite {
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid white;
+            filter: drop-shadow(0 0 4px red);
+            animation: pulse2 5s ease-in-out infinite;
+        }
+
+        .trianglered2 {
+            filter: drop-shadow(0 0 1px white);
+            animation: pulse2 5s ease-in-out infinite;
+        }
+        @keyframes pulse1 {
+            0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
+            50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
+        }
+        @keyframes pulse2 {
+            0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
+            50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
+        }
+        
+        .hero-flex-container {
+            padding-top: 50px;
+        }
+    </style>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        void main() {
+            gl_Position = vec4(position, 1.0);
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        uniform sampler2D u_texture;
+        uniform vec2 u_ripple_center;
+        uniform float u_ripple_size;
+        uniform float u_ripple_start;
+
+        void main() {
+            // Normalize screen coordinates (0 to 1)
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+
+            // Convert the uniform center to screen coordinates (0 to 1)
+            // u_ripple_center is from -1 to 1, we convert it to 0 to 1 for UV mapping
+            vec2 ripple_center_uv = (u_ripple_center + 1.0) / 2.0;
+
+            // Calculate distance from ripple center
+            float dist = distance(uv, ripple_center_uv);
+
+            // Calculate the time elapsed since the ripple started
+            float time_elapsed = u_time - u_ripple_start;
+
+            // Create the ripple wave effect (sin wave)
+            float wave = sin(time_elapsed * 25.0 - dist * 150.0);
+
+            // Create a mask to fade the ripple as it expands
+            float ripple_mask = smoothstep(0.0, 0.5, dist / (time_elapsed * 0.1 + 0.001)); // Added small offset
+
+            // Calculate the distortion amount
+            float distortion = wave * u_ripple_size * (1.0 - ripple_mask);
+
+            // Apply distortion to the UV coordinates
+            vec2 distorted_uv = uv + normalize(uv - ripple_center_uv) * distortion;
+
+            // Sample the texture at the distorted coordinates
+            vec4 color = texture2D(u_texture, distorted_uv);
+
+            // Output the final color (can add effects like darkening/coloring here)
+            gl_FragColor = color;
+        }
+    </script>
 </head>
 
 <body>
-<div id="cursor-trail-container"></div>
-<div class="topbar">
-  <div class="header" style="display: flex; align-items: center;">
-    <a href="index.html">
-      <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-    </a>
-  </div>
-  <div class="menu">
-    <a href="index.html"><span style="color: cyan";>Home</span></a><span>|</span>
-    <a href="projects.html">Projects</a><span>|</span>
-    <a href="learn.html">Learn</a>
-  </div>
-  <div class="social-icons">
-    <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
-  </div>
-</div>
-<br><br>
-<div class="hero-flex-container">
-    <div class="canvasred2" id="canvasred2"></div>
-    <div class="center-box">
-      <div class="text-content">
-        <div class="glitch-wrapper">
-          <div class="scanline">
-            <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">The Code is Your Canvas</div>
-          </div>
-          </div>
-        <p>Hi there! I'm Riya Halbhavi, a maker and a rough sketch.</p><br>
-        <p>I'm interested in how software and hardware can be blended together to create meaningful solutions.</p><br>
-        <p>Here, you will find <span style="color: aqua;">learning resources</span> and <span style="color: aqua;">insights</span> into my work.</p>
-      </div>
-      <div class="right-section">
-        <img src="styles/99.png" alt="abt" />
-      </div>
+    <canvas id="webgl-background-canvas"></canvas>
+
+    <div id="cursor-trail-container"></div>
+    <div class="topbar">
+        <div class="header" style="display: flex; align-items: center;">
+            <a href="index.html">
+                <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+            </a>
+        </div>
+        <div class="menu">
+            <a href="index.html"><span style="color: cyan";>Home</span></a><span>|</span>
+            <a href="projects.html">Projects</a><span>|</span>
+            <a href="learn.html">Learn</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+        </div>
     </div>
-    <div class="canvaswhite" id="canvaswhite"></div>
-</div>
+    <br><br>
+    <div class="hero-flex-container">
+        <div class="canvasred2" id="canvasred2"></div>
+        
+        <div class="center-box"> 
+            <div class="text-content">
+                <div class="glitch-wrapper">
+                    <div class="scanline">
+                        <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">The Code is Your Canvas</div>
+                    </div>
+                </div>
+                <p>Hi there! I'm Riya Halbhavi, a maker and a rough sketch.</p><br>
+                <p>I'm interested in how software and hardware can be blended together to create meaningful solutions.</p><br>
+                <p>Here, you will find <span style="color: aqua;">learning resources</span> and <span style="color: aqua;">insights</span> into my work.</p>
+            </div>
+            <div class="right-section">
+                <img src="styles/99.png" alt="abt" />
+            </div>
+        </div>
+        
+        <div class="canvaswhite" id="canvaswhite"></div>
+    </div>
 
-<script>
-  function spawnTriangles(canvasId, className, color) {
-    const canvas = document.getElementById(canvasId);
-    const canvasSize = 200;
-    const center = canvasSize / 2;
-    const scaleFactor = 1.1;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script> 
+    
+    <script>
+        function spawnTriangles(canvasId, className, color) {
+            const canvas = document.getElementById(canvasId);
+            const canvasSize = 240; 
+            const center = canvasSize / 2;
+            const scaleFactor = 1.1;
 
-    for (let i = 0; i < 25; i++) {
-      const tri = document.createElement('div');
-      tri.className = className;
+            for (let i = 0; i < 25; i++) {
+                const tri = document.createElement('div');
+                tri.className = className;
 
-      const base = Math.floor(Math.random() * 32) + 10;
-      const height = Math.floor(Math.random() * 33) + 12;
+                let triColor = color;
+                tri.style.borderLeft = `${12}px solid transparent`;
+                tri.style.borderRight = `${12}px solid transparent`;
+                tri.style.borderBottom = `${24}px solid ${triColor}`;
+                
+                const maxOffsetX = center - (12) * scaleFactor;
+                const maxOffsetY = center - 24 * scaleFactor;
 
-      tri.style.borderLeft = `${base / 2}px solid transparent`;
-      tri.style.borderRight = `${base / 2}px solid transparent`;
-      tri.style.borderBottom = `${height}px solid ${color}`;
+                const offsetX = Math.random() * (maxOffsetX * 2) - maxOffsetX;
+                const offsetY = Math.random() * (maxOffsetY * 2) - maxOffsetY;
+                const rotation = Math.floor(Math.random() * 360);
 
-      const maxOffsetX = center - (base / 2) * scaleFactor;
-      const maxOffsetY = center - height * scaleFactor;
+                tri.style.setProperty('--x', `${offsetX}px`);
+                tri.style.setProperty('--y', `${offsetY}px`);
+                tri.style.setProperty('--r', `${rotation}deg`);
 
-      const offsetX = Math.random() * (maxOffsetX * 2) - maxOffsetX;
-      const offsetY = Math.random() * (maxOffsetY * 2) - maxOffsetY;
-      const rotation = Math.floor(Math.random() * 360);
+                tri.style.left = '50%';
+                tri.style.top = '50%';
 
-      tri.style.setProperty('--x', `${offsetX}px`);
-      tri.style.setProperty('--y', `${offsetY}px`);
-      tri.style.setProperty('--r', `${rotation}deg`);
+                canvas.appendChild(tri);
+            }
+        }
 
-      tri.style.left = '50%';
-      tri.style.top = '50%';
+        spawnTriangles('canvasred2', 'trianglered2', 'red');
+        spawnTriangles('canvaswhite', 'trianglewhite', 'white');
+    </script>
 
-      canvas.appendChild(tri);
-    }
-  }
+    <script>
+        const trailContainer = document.getElementById('cursor-trail-container');
 
-  spawnTriangles('canvasred2', 'trianglered', 'red');
-  spawnTriangles('canvaswhite', 'trianglewhite', 'white');
-</script>
+        document.addEventListener('mousemove', (e) => {
+            const triangle = document.createElement('div');
+            triangle.className = 'trianglewhite';
+            triangle.style.left = `${e.clientX}px`;
+            triangle.style.top = `${e.clientY}px`;
+            triangle.style.position = 'absolute';
 
-<script>
-  const trailContainer = document.getElementById('cursor-trail-container');
+            trailContainer.appendChild(triangle);
 
-  document.addEventListener('mousemove', (e) => {
-    const triangle = document.createElement('div');
-    triangle.className = 'trianglewhite';
-    triangle.style.left = `${e.clientX}px`;
-    triangle.style.top = `${e.clientY}px`;
-    triangle.style.position = 'absolute';
+            setTimeout(() => {
+                triangle.style.opacity = '0';
+            }, 100);
 
-    trailContainer.appendChild(triangle);
-
-    setTimeout(() => {
-      triangle.style.opacity = '0';
-    }, 100);
-
-    setTimeout(() => {
-      triangle.remove();
-    }, 1000);
-  });
-</script>
-
+            setTimeout(() => {
+                triangle.remove();
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
