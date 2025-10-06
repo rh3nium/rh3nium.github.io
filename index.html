@@ -22,34 +22,27 @@
             color: white;
             overflow-x: hidden; 
         }
-
-        /* Canvas for the WebGL Background */
-        #webgl-background-canvas {
+        /* Background Element for Smudge/Blur Effect */
+        #smudge-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -10;
-            pointer-events: auto; /* Allows mouse events to be captured */
+            background-image: url('styles/1010.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Set the default state (normal, no blur) */
+            filter: blur(0px) brightness(1); 
+            /* Smoothly transition the filter change over 0.3 seconds */
+            transition: filter 0.3s ease-out;
         }
-        
-        /* Ensure all content is visible and above the canvas */
-        body > :not(#webgl-background-canvas) {
+        /* Ensure content is visible and above the background */
+        .hero-flex-container, .topbar {
             position: relative;
             z-index: 1; 
-        }
-        
-        /* General content styling for readability over the animated background */
-        .center-box {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
         }
 
         #cursor-trail-container {
@@ -134,62 +127,21 @@
             50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
         }
         
-        .hero-flex-container {
-            padding-top: 50px;
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
-
-    <script id="vertex-shader" type="x-shader/x-vertex">
-        void main() {
-            gl_Position = vec4(position, 1.0);
-        }
-    </script>
-
-    <script id="fragment-shader" type="x-shader/x-fragment">
-        uniform float u_time;
-        uniform vec2 u_resolution;
-        uniform sampler2D u_texture;
-        uniform vec2 u_ripple_center;
-        uniform float u_ripple_size;
-        uniform float u_ripple_start;
-
-        void main() {
-            // Normalize screen coordinates (0 to 1)
-            vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-
-            // Convert the uniform center to screen coordinates (0 to 1)
-            // u_ripple_center is from -1 to 1, we convert it to 0 to 1 for UV mapping
-            vec2 ripple_center_uv = (u_ripple_center + 1.0) / 2.0;
-
-            // Calculate distance from ripple center
-            float dist = distance(uv, ripple_center_uv);
-
-            // Calculate the time elapsed since the ripple started
-            float time_elapsed = u_time - u_ripple_start;
-
-            // Create the ripple wave effect (sin wave)
-            float wave = sin(time_elapsed * 25.0 - dist * 150.0);
-
-            // Create a mask to fade the ripple as it expands
-            float ripple_mask = smoothstep(0.0, 0.5, dist / (time_elapsed * 0.1 + 0.001)); // Added small offset
-
-            // Calculate the distortion amount
-            float distortion = wave * u_ripple_size * (1.0 - ripple_mask);
-
-            // Apply distortion to the UV coordinates
-            vec2 distorted_uv = uv + normalize(uv - ripple_center_uv) * distortion;
-
-            // Sample the texture at the distorted coordinates
-            vec4 color = texture2D(u_texture, distorted_uv);
-
-            // Output the final color (can add effects like darkening/coloring here)
-            gl_FragColor = color;
-        }
-    </script>
 </head>
 
 <body>
-    <canvas id="webgl-background-canvas"></canvas>
+    <div id="smudge-background"></div>
 
     <div id="cursor-trail-container"></div>
     <div class="topbar">
@@ -210,7 +162,6 @@
     <br><br>
     <div class="hero-flex-container">
         <div class="canvasred2" id="canvasred2"></div>
-        
         <div class="center-box"> 
             <div class="text-content">
                 <div class="glitch-wrapper">
@@ -226,12 +177,25 @@
                 <img src="styles/99.png" alt="abt" />
             </div>
         </div>
-        
         <div class="canvaswhite" id="canvaswhite"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="main.js"></script> 
+    <script>
+        const backgroundElement = document.getElementById('smudge-background');
+        let blurTimeout;
+
+        document.addEventListener('mousemove', (e) => {
+            // 1. Apply the Blur Effect immediately on mouse move
+            backgroundElement.style.filter = 'blur(5px) brightness(0.8)';
+            // 2. Clear any existing pending fade-out timer
+            clearTimeout(blurTimeout);
+            // 3. Set a new fade-out timer (3000 milliseconds = 3 seconds)
+            blurTimeout = setTimeout(() => {
+                // Revert the filter back to the normal state (smoothly due to CSS transition)
+                backgroundElement.style.filter = 'blur(0px) brightness(1)';
+            }, 3000); 
+        });
+    </script>
     
     <script>
         function spawnTriangles(canvasId, className, color) {
