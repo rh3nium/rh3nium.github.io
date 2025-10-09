@@ -286,8 +286,8 @@ h2 {
   background-color: black;
   border-radius: 15px;
   padding: 30px 40px;
-  max-width: 880px;
-  max-height: 525px;
+  max-width: 895px;
+  max-height: 540px;
   margin-top: 40px;
   margin-bottom: 20px;
   box-shadow: 0 0 15px white;
@@ -299,7 +299,7 @@ h2 {
   box-shadow: 0 0 25px white;
 }
 .center-box img {
-  height: 465px;
+  height: 480px;
   width: auto;
   padding-left: 20px;
   border-radius: 10px;
@@ -309,7 +309,7 @@ h2 {
 .center-box p {
   font-size: 20px;
   flex: 1;
-  max-width: 500px;
+  max-width: 515px;
   color: white;
   word-wrap: break-word;
   font-family: 'Overpass Mono', monospace;
