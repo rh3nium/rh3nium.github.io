@@ -101,7 +101,6 @@ h2 {
   margin-bottom: 15px;
   text-align: center;
 }
-
 .small-glitch {
   font-family: "Silkscreen", sans-serif;
   font-weight: 700;
@@ -396,7 +395,6 @@ p {
   animation: pulse2 5s ease-in-out infinite;
   transition: color 0.4s ease;
 }
-
 @keyframes pulse1 {
   0%, 100% {
     transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
