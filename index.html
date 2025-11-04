@@ -119,6 +119,29 @@
             font-family: 'Titillium Web', sans-serif;
             color: white;
         }
+
+        .cyan-cursor {
+            display: inline-block;
+            width: 12px;
+            height: 30px;
+            background-color: cyan;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blinkCyan 1s steps(2, start) infinite;
+            border-radius: 2px;
+        }
+        @keyframes blinkCyan {
+            0%, 50% { opacity: 1; }
+            50.01%, 100% { opacity: 0; }
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            font-size: 28px;
+            color: white;
+            margin-top: 40px;
+        }
     </style>
 </head>
 
@@ -141,7 +164,7 @@
 </div>
 <br>
 
-<h1>Projects at the intersection of software and hardware</h1>
+<h1>Projects at the intersection of software and hardware<span class="cyan-cursor"></span></h1>
 
 <div class="project-grid">
 
@@ -159,7 +182,7 @@
         <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
         <div style="margin: 0 1rem 1rem; display: flex; gap: 15px; ">
             <br>
-            <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" target="_blank" title="View Code on GitHub" style="color: white;"> 
+            <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" target="_blank" title="View Code on GitHub" style="color: white;"> 
                 <i class="fab fa-github" style="font-size: 40px; margin-top: 15px;"></i>
             </a>
         </div>
