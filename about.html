@@ -95,6 +95,41 @@
       0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
       50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
     }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  margin: 60px auto;
+  width: 85%;
+  max-width: 1200px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive grid */
+@media (max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
   </style>
 </head>
   
@@ -137,7 +172,16 @@
     </div>
     <div class="canvaswhite" id="canvaswhite"></div>
 </div>
-  
+
+<!-- Photo Grid Section -->
+<div class="photo-grid">
+  <img src="img/pic1.jpg" alt="Photo 1">
+  <img src="img/pic2.jpg" alt="Photo 2">
+  <img src="img/pic3.jpg" alt="Photo 3">
+  <img src="img/pic4.jpg" alt="Photo 4">
+  <img src="img/pic5.jpg" alt="Photo 5">
+</div>
+
 <script>
   function spawnTriangles(canvasId, className, color) {
     const canvas = document.getElementById(canvasId);
