@@ -8,7 +8,6 @@ body {
   margin: 0;
   padding-top: 80px;
 }
-
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -21,6 +20,9 @@ body {
   z-index: 9999;
   padding-bottom: 10px;
   border-bottom: 1px solid red;
+}
+.header a {
+  text-decoration: none;
 }
 
 h1 {
@@ -43,9 +45,6 @@ h2 {
   color: white;
 }
 
-.header a {
-  text-decoration: none;
-}
 .menu {
   display: flex;
   justify-content: center;
