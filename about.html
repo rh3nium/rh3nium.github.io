@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Riya halbhavi</title>
+  <title>About | Riya Halbhavi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="icon" href="styles/rh.png" type="image/png">
-  <style> 
+  <style>
     body {
       margin: 0;
       color: white;
+      font-family: 'Titillium Web', sans-serif;
     }
+
     #cursor-trail-container {
       position: fixed;
       top: 0;
@@ -24,22 +26,25 @@
       pointer-events: none;
       z-index: 10000;
     }
+
     .topbar {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 10px 5%;
       background: black;
     }
-    .topbar .header {
-      align-items: left;
-      margin-left: 35px;
+    .topbar .header img {
+      max-height: 80px;
+      height: auto;
+      display: block;
     }
     .topbar .menu {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       font-family: 'Overpass Mono', monospace;
-      margin-right: 70px;
     }
     .topbar .menu a {
       color: white;
@@ -52,112 +57,131 @@
       color: white;
       margin-left: 10px;
       text-decoration: none;
+      font-size: 1.2rem;
     }
-    .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
-      width: 240px;
-      height: 240px;
+
+    .hero-flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 5%;
+    }
+
+    .canvasred2, .canvaswhite {
+      flex: 0 0 200px;
+      width: 200px;
+      height: 200px;
       position: relative;
-      background-color: transparent;
     }
-    .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
+
+    .center-box {
+      flex: 1 1 300px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .center-box .text-content {
+      font-size: clamp(14px, 1.2vw, 18px);
+    }
+
+    .center-box .right-section img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+    }
+
+    /* Triangle animations */
+    .trianglered, .trianglewhite {
       position: absolute;
       width: 0;
       height: 0;
-      animation: pulse1 5s ease-in-out infinite;
-      transition: color 0.4s ease;
+      animation: pulse 5s ease-in-out infinite;
     }
-    .trianglered {
-      filter: drop-shadow(0 0 1px black);
-    }
-    .triangleblack {
-      filter: drop-shadow(0 0 1px white);
-      animation: pulse2 5s ease-in-out infinite;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 24px solid black;
-    }
-    .trianglewhite {
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 24px solid white;
-      filter: drop-shadow(0 0 4px red);
-      animation: pulse2 5s ease-in-out infinite;
-    }
-    .trianglered2 {
-      filter: drop-shadow(0 0 1px white);
-      animation: pulse2 5s ease-in-out infinite;
-    }
-    @keyframes pulse1 {
-      0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
-      50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
-    }
-    @keyframes pulse2 {
+    @keyframes pulse {
       0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
       50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
     }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 35px;
-  justify-items: center;
-  align-items: center;
-  margin: 60px 0;
-  width: 90%;
-}
-.photo-grid img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.photo-grid img:hover {
-  transform: scale(1.05);
-}
+    /* Photo grid responsive */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+      padding: 40px 5%;
+    }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .photo-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Media Queries for smaller screens */
+    @media (max-width: 768px) {
+      .hero-flex-container {
+        flex-direction: column;
+      }
+      .topbar .menu {
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .social-icons {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+      }
+    }
 
   </style>
 </head>
 
 <body>
-
 <div id="cursor-trail-container"></div>
+
 <div class="topbar">
-  <div class="header" style="display: flex; align-items: center;">
-    <a href="index.html">
-      <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-    </a>
+  <div class="header">
+    <a href="index.html"><img src="styles/banner.png" alt="Logo" /></a>
   </div>
   <div class="menu">
-    <a href="index.html">Projects</a><span style="color: red">|</span>
-    <a href="repos.html">Repositories</a><span style="color: red">|</span>
+    <a href="index.html">Projects</a><span>|</span>
+    <a href="repos.html">Repositories</a><span>|</span>
     <a href="about.html"><span style="color: cyan;">About</span></a>
   </div>
   <div class="social-icons">
     <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
   </div>
 </div>
-<br><br>
 
 <div class="hero-flex-container">
-    <div class="canvasred2" id="canvasred2"></div>
-    <div class="center-box">
-      <div class="text-content">
-        <div class="glitch-wrapper">
-          <div class="scanline">
-            <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">The Code is Your Canvas</div>
-          </div>
-          </div>
-        <p>Hi there!</p><br>
-        <p>I'm interested in how software and hardware can be blended together to create meaningful solutions.</p><br>
-        <p>Here, you will find <span style="color: aqua;">my projects</span> and <span style="color: aqua;">documentations</span> for reference.</p>
+  <div class="canvasred2" id="canvasred2"></div>
+  <div class="center-box">
+    <div class="text-content">
+      <div class="glitch-wrapper">
+        <div class="scanline">
+          <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">The Code is Your Canvas</div>
+        </div>
       </div>
-      <div class="right-section">
-        <img src="styles/8897.png" alt="abt" />
-      </div>
+      <p>Hi there!</p>
+      <p>I'm interested in how software and hardware can be blended together to create meaningful solutions.</p>
+      <p>Here, you will find <span style="color: aqua;">my projects</span> and <span style="color: aqua;">documentations</span> for reference.</p>
     </div>
-    <div class="canvaswhite" id="canvaswhite"></div>
+    <div class="right-section">
+      <img src="styles/8897.png" alt="abt" />
+    </div>
+  </div>
+  <div class="canvaswhite" id="canvaswhite"></div>
 </div>
-<!-- Photo Grid -->
+
 <div class="photo-grid">
   <img src="img/pic1.jpeg" alt="Photo 1">
   <img src="img/pic2.jpeg" alt="Photo 2">
@@ -169,7 +193,7 @@
 <script>
   function spawnTriangles(canvasId, className, color) {
     const canvas = document.getElementById(canvasId);
-    const canvasSize = 200;
+    const canvasSize = canvas.offsetWidth;
     const center = canvasSize / 2;
     const scaleFactor = 1.1;
     for (let i = 0; i < 25; i++) {
@@ -195,8 +219,7 @@
   }
   spawnTriangles('canvasred2', 'trianglered', 'red');
   spawnTriangles('canvaswhite', 'trianglewhite', 'white');
-</script>
-<script>
+
   const trailContainer = document.getElementById('cursor-trail-container');
   document.addEventListener('mousemove', (e) => {
     const triangle = document.createElement('div');
@@ -205,12 +228,8 @@
     triangle.style.top = `${e.clientY}px`;
     triangle.style.position = 'absolute';
     trailContainer.appendChild(triangle);
-    setTimeout(() => {
-      triangle.style.opacity = '0';
-    }, 100);
-    setTimeout(() => {
-      triangle.remove();
-    }, 1000);
+    setTimeout(() => { triangle.style.opacity = '0'; }, 100);
+    setTimeout(() => { triangle.remove(); }, 1000);
   });
 </script>
 </body>
