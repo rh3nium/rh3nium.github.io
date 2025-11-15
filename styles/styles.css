@@ -8,6 +8,44 @@ body {
   margin: 0;
   padding-top: 80px;
 }
+
+/* Text */
+h1 {
+  font-size: 80px;
+  letter-spacing: 2px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 450;
+  font-style: normal;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 28px;
+  text-shadow: 2px solid black;
+}
+h2 {
+  font-weight: 700;
+  font-size: 60px;
+  color: white;
+}
+.text-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  color: white;
+}
+.text-contentblack {
+  margin: 0 0 8px 0;
+  color: white;
+}
+p {
+  margin: 0;
+  font-size: 20px;
+  color: white;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -43,26 +81,7 @@ body {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 80px;
-  letter-spacing: 2px;
-  color: white;
-  position: relative;
-  z-index: 2;
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 450;
-  font-style: normal;
-  margin-left: 50px;
-  margin-top: 50px;
-  font-size: 28px;
-  text-shadow: 2px solid black;
-}
-h2 {
-  font-weight: 700;
-  font-size: 60px;
-  color: white;
-}
-
+/* Menu */
 .menu {
   display: flex;
   justify-content: center;
@@ -95,6 +114,7 @@ h2 {
   background-attachment: fixed;
 }
 
+/* Social icons */
 .social-icons {
   position: fixed;
   bottom: 20px;
@@ -116,6 +136,7 @@ h2 {
   color: #fc7c7c;
 }
 
+/* Glitch animation */
 .glitch-wrapper {
   position: relative;
   margin-bottom: 15px;
@@ -153,7 +174,6 @@ h2 {
   color: aqua;
   animation: glitchBottom 1.5s infinite linear alternate-reverse;
 }
-
 @keyframes glitchTop {
   0% { clip-path: inset(0 0 100% 0); }
   10% { clip-path: inset(0 0 75% 0); }
@@ -250,6 +270,7 @@ h2 {
   border: 0;
 }
 
+/* Center box */
 .center-box {
   display: flex;
   justify-content: flex-start;
@@ -306,22 +327,6 @@ h2 {
             transform: scale(1.05);
         }
 
-.text-content h2 {
-  margin: 0 0 8px 0;
-  font-size: 26px;
-  color: white;
-}
-.text-contentblack {
-  margin: 0 0 8px 0;
-  color: white;
-}
-p {
-  margin: 0;
-  font-size: 20px;
-  color: white;
-  font-family: 'Titillium Web', sans-serif;
-}
-
 .hero-flex-container {
   display: flex;
   justify-content: center;
@@ -331,6 +336,7 @@ p {
   gap: 30px;
 }
 
+/* Triangles */
 .canvasred {
   width: 280px;
   height: 280px;
