@@ -21,6 +21,24 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid red;
 }
+        .topbar .header {
+            align-items: left;
+            margin-left: 35px;
+        }
+        .topbar .menu {
+            display: flex;
+            gap: 10px;
+            font-family: 'Overpass Mono', monospace;
+            align-items: right;
+            margin-right: 70px;
+        }
+        .topbar .menu a {
+            color: white;
+            text-decoration: none;
+        }
+        .topbar .menu span {
+            color: red;
+        }
 .header a {
   text-decoration: none;
 }
