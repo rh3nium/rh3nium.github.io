@@ -73,7 +73,7 @@ h1 {
   </div>
 </div>
 
-<h1>Languages</h1>
+<h1 id="typewriter"></h1>
 
   <div class="repo-grid">
     <a href="https://rh3nium.github.io/C/" target="_blank">
@@ -146,18 +146,33 @@ document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     }
 });
-
 /* Disable dragging of images */
 document.addEventListener("dragstart", function (e) {
     if (e.target.tagName === "IMG") {
         e.preventDefault();
     }
 });
-
 /* Disable long-press saving on mobile */
 document.querySelectorAll("img").forEach(img => {
     img.setAttribute("oncontextmenu", "return false;");
 });
+
+// Typing effect
+const text = "Languages";
+const speed = 55;
+let index = 0;
+
+function typeEffect() {
+    const heading = document.getElementById("typewriter");
+    heading.innerHTML = text.substring(0, index) + '<span class="red-cursor"></span>';
+
+    if (index < text.length) {
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
+// Start immediately when HTML is parsed
+document.addEventListener("DOMContentLoaded", typeEffect);
 </script>
 </body>
 </html>
