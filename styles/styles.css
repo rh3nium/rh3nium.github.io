@@ -65,7 +65,7 @@ h2 {
   transition: color 0.3s ease;
 }
 .menu a:hover {
-  color: #EE4443;
+  color: #fc7c7c;
   background-attachment: fixed;
 }
 .menu span {
@@ -92,7 +92,7 @@ h2 {
   border-radius: 10px;
 }
 .social-icons a:hover {
-  color: #EE4443;
+  color: #fc7c7c;
 }
 
 .glitch-wrapper {
