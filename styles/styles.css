@@ -65,8 +65,12 @@ h2 {
   transition: color 0.3s ease;
 }
 .menu a:hover {
-  color: #fc7c7c;
+  color: #fc7c7c !important;
   background-attachment: fixed;
+}
+.menu a.active {
+  color: #fc7c7c !important;
+  font-weight: 700;
 }
 .menu span {
   color: #fff;
