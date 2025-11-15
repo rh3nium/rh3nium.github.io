@@ -481,3 +481,14 @@ p {
     transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
   }
 }
+
+/* Disable dragging and saving of images */
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
+img::selection {
+    background: transparent;
+}
+
