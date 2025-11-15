@@ -350,7 +350,7 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 .repo-card:hover {
   transform: translateY(-5px);
