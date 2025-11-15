@@ -185,6 +185,26 @@ document.addEventListener('mousemove', (e) => {
         triangle2.remove();
     }, 1000);
 });
+
+/* Disable right-click save on images */
+document.addEventListener("contextmenu", function (e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
+});
+
+/* Disable dragging of images */
+document.addEventListener("dragstart", function (e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
+});
+
+/* Disable long-press saving on mobile */
+document.querySelectorAll("img").forEach(img => {
+    img.setAttribute("oncontextmenu", "return false;");
+});
 </script>
+    
 </body>
 </html>
