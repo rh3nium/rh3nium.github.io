@@ -15,52 +15,12 @@
     <link rel="icon" href="styles/rh.png" type="image/png">
 
     <style>
-        body {
-            margin: 0;
-            color: white;
-        }
-
         #cursor-trail-container {
             position: fixed;
             top: 0;
             left: 0;
             pointer-events: none;
             z-index: 10000;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: black;
-        }
-
-        .topbar .header {
-            align-items: left;
-            margin-left: 35px;
-        }
-
-        .topbar .menu {
-            display: flex;
-            gap: 10px;
-            font-family: 'Overpass Mono', monospace;
-            margin-right: 70px;
-        }
-
-        .topbar .menu a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .topbar .menu span {
-            color: red;
-        }
-
-        .social-icons a {
-            color: white;
-            margin-left: 10px;
-            text-decoration: none;
         }
 
         .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
@@ -121,26 +81,6 @@
             }
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 35px;
-            justify-items: center;
-            align-items: center;
-            margin: 60px 0;
-            width: 90%;
-        }
-
-        .photo-grid img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .photo-grid img:hover {
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
