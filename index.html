@@ -133,7 +133,8 @@
 </div>
 <br>
 
-<h1>Projects at the intersection of software and hardware<span class="red-cursor"></span></h1>
+<!-- Typing effect  -->
+<h1 id="typewriter"></h1>
 
 <div class="project-grid">
 
@@ -171,6 +172,7 @@
 </div>
 
 <script>
+// Cursor trail
 const trailContainer2 = document.getElementById('cursor-trail-container2');
 document.addEventListener('mousemove', (e) => {
     const triangle2 = document.createElement('div');
@@ -192,19 +194,34 @@ document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     }
 });
-
 /* Disable dragging of images */
 document.addEventListener("dragstart", function (e) {
     if (e.target.tagName === "IMG") {
         e.preventDefault();
     }
 });
-
 /* Disable long-press saving on mobile */
 document.querySelectorAll("img").forEach(img => {
     img.setAttribute("oncontextmenu", "return false;");
 });
+
+// Typing effect
+const text = "Projects at the intersection of software and hardware";
+const speed = 40;
+let index = 0;
+
+function typeEffect() {
+    const heading = document.getElementById("typewriter");
+    heading.innerHTML = text.substring(0, index) + '<span class="red-cursor"></span>';
+
+    if (index < text.length) {
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
+// Start immediately when HTML is parsed
+document.addEventListener("DOMContentLoaded", typeEffect);
 </script>
-    
+
 </body>
 </html>
