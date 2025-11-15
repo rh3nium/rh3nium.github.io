@@ -15,11 +15,6 @@
     <link rel="icon" href="styles/rh.png" type="image/png">
 
     <style>
-        body {
-            margin: 0;
-            color: white;
-        }
-
         #cursor-trail-container {
             position: fixed;
             top: 0;
@@ -28,48 +23,12 @@
             z-index: 10000;
         }
 
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: black;
-        }
-
-        .topbar .header {
-            align-items: left;
-            margin-left: 35px;
-        }
-
-        .topbar .menu {
-            display: flex;
-            gap: 10px;
-            font-family: 'Overpass Mono', monospace;
-            margin-right: 70px;
-        }
-
-        .topbar .menu a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .topbar .menu span {
-            color: red;
-        }
-
-        .social-icons a {
-            color: white;
-            margin-left: 10px;
-            text-decoration: none;
-        }
-
         .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
             width: 240px;
             height: 240px;
             position: relative;
             background-color: transparent;
         }
-
         .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
             position: absolute;
             width: 0;
@@ -77,11 +36,10 @@
             animation: pulse1 5s ease-in-out infinite;
             transition: color 0.4s ease;
         }
-
+        
         .trianglered {
             filter: drop-shadow(0 0 1px black);
         }
-
         .triangleblack {
             filter: drop-shadow(0 0 1px white);
             animation: pulse2 5s ease-in-out infinite;
@@ -89,7 +47,6 @@
             border-right: 12px solid transparent;
             border-bottom: 24px solid black;
         }
-
         .trianglewhite {
             border-left: 12px solid transparent;
             border-right: 12px solid transparent;
@@ -97,7 +54,6 @@
             filter: drop-shadow(0 0 4px red);
             animation: pulse2 5s ease-in-out infinite;
         }
-
         .trianglered2 {
             filter: drop-shadow(0 0 1px white);
             animation: pulse2 5s ease-in-out infinite;
