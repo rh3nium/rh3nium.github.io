@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | Riya halbhavi</title>
+    <title>About | Riya Halbhavi</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,8 +47,7 @@
         .photo-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; transition: transform 0.3s ease; }
         .photo-grid img:hover { transform: scale(1.05); }
 
-        /* Initially hide lines for typing */
-        .type-line { visibility: hidden; }
+        .type-line { visibility: hidden; } /* hidden until typed */
     </style>
 </head>
 <body>
@@ -84,7 +83,7 @@
                     </div>
                 </div>
 
-                <!-- Lines for typing effect -->
+                <!-- Lines to be typed dynamically -->
                 <p class="type-line" data-text="Hi there!"></p>
                 <p class="type-line" data-text="I'm interested in how software and hardware blend to create meaningful solutions."></p>
                 <p class="type-line" data-text='Here, you will find <span style="color: #fc7c7c;">projects</span>, <span style="color: #fc7c7c;">repositories</span>, and <span style="color: #fc7c7c;">documentations</span> for reference.'></p>
@@ -159,35 +158,26 @@
             triangle.style.position = 'absolute';
 
             trailContainer.appendChild(triangle);
-
-            setTimeout(() => { triangle.style.opacity = '0'; }, 100);
-            setTimeout(() => { triangle.remove(); }, 1000);
+            setTimeout(() => triangle.style.opacity = '0', 100);
+            setTimeout(() => triangle.remove(), 1000);
         });
 
-        document.addEventListener("contextmenu", function (e) {
-            if (e.target.tagName === "IMG") e.preventDefault();
-        });
-
-        document.addEventListener("dragstart", function (e) {
-            if (e.target.tagName === "IMG") e.preventDefault();
-        });
-
+        document.addEventListener("contextmenu", e => { if (e.target.tagName === "IMG") e.preventDefault(); });
+        document.addEventListener("dragstart", e => { if (e.target.tagName === "IMG") e.preventDefault(); });
         document.querySelectorAll("img").forEach(img => img.setAttribute("oncontextmenu", "return false;"));
     </script>
 
     <script>
-        // Typing effect that preserves HTML
+        // Typing effect preserving HTML, starts immediately
         function typeHTML(element, speed = 60, callback) {
-            const html = element.getAttribute('data-text'); // Get content from data-text
+            const html = element.getAttribute('data-text'); // content from data-text
             element.style.visibility = 'visible';
             element.innerHTML = '';
             let i = 0;
 
             function write() {
                 if (i < html.length) {
-                    const char = html[i];
-
-                    if (char === '<') {
+                    if (html[i] === '<') {
                         let tag = '';
                         while (i < html.length && html[i] !== '>') {
                             tag += html[i];
@@ -196,7 +186,7 @@
                         tag += '>'; i++;
                         element.innerHTML += tag;
                     } else {
-                        element.innerHTML += char;
+                        element.innerHTML += html[i];
                         i++;
                     }
                     setTimeout(write, speed);
@@ -207,7 +197,6 @@
             write();
         }
 
-        // Sequential typing for all lines
         window.addEventListener('load', () => {
             const lines = document.querySelectorAll('.type-line');
             let index = 0;
@@ -221,7 +210,7 @@
                 }
             }
 
-            nextLine();
+            nextLine(); // Start immediately
         });
     </script>
 
