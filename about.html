@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="styles/rh.png" type="image/png">
 
     <style>
+        /* --- Cursor Trail Canvas --- */
         #cursor-trail-container {
             position: fixed;
             top: 0;
@@ -23,12 +24,14 @@
             z-index: 10000;
         }
 
+        /* --- Triangle Canvas --- */
         .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
             width: 240px;
             height: 240px;
             position: relative;
             background-color: transparent;
         }
+
         .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
             position: absolute;
             width: 0;
@@ -36,7 +39,7 @@
             animation: pulse1 5s ease-in-out infinite;
             transition: color 0.4s ease;
         }
-        
+
         .trianglered {
             filter: drop-shadow(0 0 1px black);
         }
@@ -60,23 +63,15 @@
         }
 
         @keyframes pulse1 {
-            0%, 100% {
-                transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-            }
-            50% {
-                transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
-            }
+            0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
+            50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
         }
-
         @keyframes pulse2 {
-            0%, 100% {
-                transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-            }
-            50% {
-                transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
-            }
+            0%, 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1); }
+            50% { transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1); }
         }
 
+        /* --- Photo Grid --- */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -93,9 +88,19 @@
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-
         .photo-grid img:hover {
             transform: scale(1.05);
+        }
+
+        /* --- Typing Line --- */
+        .typing-text {
+            font-size: 1.1rem;
+            color: #fc7c7c;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            min-height: 22px;
+            font-family: "Inter", sans-serif;
         }
     </style>
 </head>
@@ -103,6 +108,7 @@
 
     <div id="cursor-trail-container"></div>
 
+    <!-- Top Bar -->
     <div class="topbar">
         <div class="header" style="display: flex; align-items: center;">
             <a href="index.html">
@@ -121,11 +127,13 @@
 
     <br><br>
 
+    <!-- HERO -->
     <div class="hero-flex-container">
         <div class="canvasred2" id="canvasred2"></div>
 
         <div class="center-box">
             <div class="text-content">
+                <!-- Glitch Title -->
                 <div class="glitch-wrapper">
                     <div class="scanline">
                         <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">
@@ -133,12 +141,12 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Typing Line -->
+                <p id="typing-line" class="typing-text"></p>
                 <p>Hi there!</p><br>
                 <p>I'm interested in how software and hardware blend to create meaningful solutions.</p><br>
                 <p>Here, you will find <span style="color: #fc7c7c;">projects</span>, <span style="color: #fc7c7c;">repositories</span>, and <span style="color: #fc7c7c;">documentations</span> for reference.</p><br>
             </div>
-
             <div class="right-section">
                 <img src="styles/8897.png" alt="abt" />
             </div>
@@ -148,17 +156,19 @@
     </div>
 
     <br>
-    <!-- Photo Grid -->
+
+    <!-- PHOTO GRID -->
     <center>
-    <div class="photo-grid">
-        <img src="img/pic1.jpeg" alt="Photo 1">
-        <img src="img/pic2.jpeg" alt="Photo 2">
-        <img src="img/pic3.jpeg" alt="Photo 3">
-        <img src="img/pic4.jpeg" alt="Photo 4">
-        <img src="img/pic5.jpeg" alt="Photo 5">
-    </div>
+        <div class="photo-grid">
+            <img src="img/pic1.jpeg" alt="Photo 1">
+            <img src="img/pic2.jpeg" alt="Photo 2">
+            <img src="img/pic3.jpeg" alt="Photo 3">
+            <img src="img/pic4.jpeg" alt="Photo 4">
+            <img src="img/pic5.jpeg" alt="Photo 5">
+        </div>
     </center>
 
+    <!-- TRIANGLE SPAWNING -->
     <script>
         function spawnTriangles(canvasId, className, color) {
             const canvas = document.getElementById(canvasId);
@@ -179,6 +189,7 @@
 
                 const maxOffsetX = center - (base / 2) * scaleFactor;
                 const maxOffsetY = center - height * scaleFactor;
+
                 const offsetX = Math.random() * (maxOffsetX * 2) - maxOffsetX;
                 const offsetY = Math.random() * (maxOffsetY * 2) - maxOffsetY;
                 const rotation = Math.floor(Math.random() * 360);
@@ -186,7 +197,6 @@
                 tri.style.setProperty('--x', `${offsetX}px`);
                 tri.style.setProperty('--y', `${offsetY}px`);
                 tri.style.setProperty('--r', `${rotation}deg`);
-
                 tri.style.left = '50%';
                 tri.style.top = '50%';
 
@@ -198,6 +208,7 @@
         spawnTriangles('canvaswhite', 'trianglewhite', 'white');
     </script>
 
+    <!-- CURSOR TRAILS + IMAGE PROTECTION -->
     <script>
         const trailContainer = document.getElementById('cursor-trail-container');
         document.addEventListener('mousemove', (e) => {
@@ -206,37 +217,44 @@
             triangle.style.left = `${e.clientX}px`;
             triangle.style.top = `${e.clientY}px`;
             triangle.style.position = 'absolute';
-
             trailContainer.appendChild(triangle);
 
-            setTimeout(() => {
-                triangle.style.opacity = '0';
-            }, 100);
-
-            setTimeout(() => {
-                triangle.remove();
-            }, 1000);
+            setTimeout(() => { triangle.style.opacity = '0'; }, 100);
+            setTimeout(() => { triangle.remove(); }, 1000);
         });
-        
-/* Disable right-click save on images */
-document.addEventListener("contextmenu", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
-});
 
-/* Disable dragging of images */
-document.addEventListener("dragstart", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
-});
+        /* Disable right-click save on images */
+        document.addEventListener("contextmenu", function (e) {
+            if (e.target.tagName === "IMG") e.preventDefault();
+        });
 
-/* Disable long-press saving on mobile */
-document.querySelectorAll("img").forEach(img => {
-    img.setAttribute("oncontextmenu", "return false;");
-});
-</script>
+        /* Disable dragging of images */
+        document.addEventListener("dragstart", function (e) {
+            if (e.target.tagName === "IMG") e.preventDefault();
+        });
+
+        /* Disable long-press save on mobile */
+        document.querySelectorAll("img").forEach(img => {
+            img.setAttribute("oncontextmenu", "return false;");
+        });
+    </script>
+
+    <!-- TYPING EFFECT -->
+    <script>
+        const text = "I explore how software and hardware blend to build systems that matter.";
+        const speed = 60;
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("typing-line").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, speed);
+            }
+        }
+
+        window.onload = typeEffect;
+    </script>
 
 </body>
 </html>
