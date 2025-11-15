@@ -1,111 +1,81 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Riya halbhavi</title>
+    <title>Riya Halbhavi</title>
     <meta name="description" content="I explore how software and hardware blend to create meaningful systems in the domains of safety, security, and social impact.">
-    <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
-    <meta name="msvalidate.01" content="3E5A7800F766EAC5F9D06BF8523C2061" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="styles/rh.png" type="image/png">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="styles/rh.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
 
-    <style>
-        #cursor-trail-container2 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 10000;
-        }
-        h1 {
-            text-align: center;
-            font-family: 'Silkscreen', cursive;
-            font-size: 29px;
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 <div id="cursor-trail-container2"></div>
+
+<!-- TOPBAR -->
 <div class="topbar">
-    <div class="header" style="display: flex; align-items: center;">
+    <div class="header">
         <a href="index.html">
-            <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+            <img src="styles/banner.png" alt="Logo" class="logo">
         </a>
     </div>
+
     <div class="menu">
-        <a href="index.html"><span style="color: cyan;">Projects</span></a><span style="color: red">|</span>
-        <a href="repos.html">Learn</a><span style="color: red">|</span>
+        <a class="active" href="index.html">Projects</a><span>|</span>
+        <a href="repos.html">Learn</a><span>|</span>
         <a href="about.html">About</a>
     </div>
+
     <div class="social-icons">
         <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
     </div>
 </div>
-<br>
 
 <h1>Projects at the intersection of software and hardware<span class="red-cursor"></span></h1>
 
 <div class="project-grid">
 
-<a href="https://rh3nium.github.io/rayvn-site/index.html" target="_blank">
-    <div class="project-card">
-      <img src="img/slide1.png" alt="sots">
-      <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
-        <p>Hybrid IoT/AI-powered rescue network that integrates aerial drones + ground crawler bots with sensors + LoRa mesh + CV human detection into one modular system that detects victims and establishes 2-way communication with rescuers.</p>
-    </div>
-</a>
+    <a href="https://rh3nium.github.io/rayvn-site/index.html" target="_blank">
+        <div class="project-card">
+          <img src="img/slide1.png" alt="Rayvn">
+          <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
+          <p>
+          Hybrid IoT/AI-powered rescue network integrating aerial drones + ground crawler bots with sensors, LoRa mesh, and CV human detection into one system that identifies victims and establishes communication.
+          </p>
+        </div>
+    </a>
 
-<a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" target="_blank">
-    <div class="project-card">
-        <img src="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/Screenshot%20from%202025-10-12%2016-55-41.png?raw=true" alt="Crowd and Cluster Detection/Heatmap System">
-        <h3>Crowd and Cluster Detection/Heatmap System</h3>
-        <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
-        <p>Libraries used:<br>
-            - cv2: OpenCV library for image processing and computer vision<br>
-            - numpy: For array/matrix operations<br>
-            - DBSCAN: Density-based clustering algorithm from scikit-learn</p>
-    </div>
-</a>
-    
+    <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" target="_blank">
+        <div class="project-card">
+            <img src="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/Screenshot%20from%202025-10-12%2016-55-41.png?raw=true" alt="Crowd">
+            <h3>Crowd and Cluster Detection/Heatmap System</h3>
+            <p>
+                Crowd monitoring and cluster detection system using Python & OpenCV.<br><br>
+                Libraries: cv2, numpy, DBSCAN
+            </p>
+        </div>
+    </a>
+
 </div>
 
 <div class="project-grid">
-    
-<a href="https://rii2.itch.io/shadows-on-the-sands" target="_blank">
-    <div class="project-card">
-      <img src="img/emeraldbeach_night.png" alt="sots">
-      <h3>Shadows On The Sands <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span></h3>
-    </div>
-</a>
-    
+
+    <a href="https://rii2.itch.io/shadows-on-the-sands" target="_blank">
+        <div class="project-card">
+            <img src="img/emeraldbeach_night.png" alt="Shadows On The Sands">
+            <h3>Shadows On The Sands <span class="subtle-tag"><i>Game</i></span></h3>
+        </div>
+    </a>
+
 </div>
 
-<script>
-const trailContainer2 = document.getElementById('cursor-trail-container2');
-document.addEventListener('mousemove', (e) => {
-    const triangle2 = document.createElement('div');
-    triangle2.className = 'trianglewhite5';
-    triangle2.style.left = `${e.clientX}px`;
-    triangle2.style.top = `${e.clientY}px`;
-    trailContainer2.appendChild(triangle2);
-    setTimeout(() => {
-        triangle2.style.opacity = '0';
-    }, 100);
-    setTimeout(() => {
-        triangle2.remove();
-    }, 1000);
-});
-</script>
+<script src="styles/trail.js"></script>
 </body>
 </html>
