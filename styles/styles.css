@@ -17,7 +17,6 @@ body {
   left: 0;
   width: 100%;
   background: black;
-  z-index: 9999;
   padding: 10px 20px;
   border-bottom: 1px solid red;
 }
