@@ -1,160 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Learn | Riya halbhavi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="icon" href="styles/rh.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn | Riya halbhavi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="styles/rh.png" type="image/png">
 
-  <style>
+  <style>
 #cursor-trail-container3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
 }
 .trianglewhite3 {
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 24px solid white;
-  filter: drop-shadow(0 0 4px red);
-  animation: pulse3 5s ease-in-out infinite;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 24px solid white;
+  filter: drop-shadow(0 0 4px red);
+  animation: pulse3 5s ease-in-out infinite;
 }
 @keyframes pulse3 {
-  0%, 100% {
-    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
-  }
-  50% {
-    transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
-  }
+  0%, 100% {
+    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
+  }
 }
-    
+    
 a {
-  text-decoration: none;
+  text-decoration: none;
 }
 h1 {
-  font-family: "Silkscreen", sans-serif;
-  font-style: normal;
-  margin-left: 50px;
-  margin-top: 50px;
-  font-size: 28px;
-  color: white;
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 28px;
+  color: white;
 }
-  </style>
+  </style>
 </head>
 
 <body>
 <div id="cursor-trail-container3"></div>
 <div style="display: flex;">
-  <div id="main-content" style="flex: 1;">
+  <div id="main-content" style="flex: 1;">
 
 <div class="topbar">
 <div class="header" style="display: flex; align-items: center;">
-  <a href="index.html">
-    <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-  </a>
+  <a href="index.html">
+    <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+  </a>
 </div>
-  <div class="menu">
-    <a href="index.html">Projects</a><span style="color: red">|</span>
-    <a href="repos.html" class="active">Learn</a><span style="color: red">|</span>
-    <a href="about.html">About</a>
-  </div>
-  <div class="social-icons">
-    <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
-  </div>
+  <div class="menu">
+    <a href="index.html">Projects</a><span style="color: red">|</span>
+    <a href="repos.html" class="active">Learn</a><span style="color: red">|</span>
+    <a href="about.html">About</a>
+  </div>
+  <div class="social-icons">
+    <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+  </div>
 </div>
 
 <h1 id="typewriter"></h1>
 
-  <div class="repo-grid">
-    <a href="https://rh3nium.github.io/C/" target="_blank">
-      <div class="repo-card">
-        <h3>⚙︎ C</h3>
-        <p>General purpose programming language - programs and examples.</p>
-      </div>
-    </a>
-    <a href="https://rh3nium.github.io/Python/" target="_blank">
-      <div class="repo-card">
-        <h3>𓆗 Python</h3>
-        <p>High-level, interpreted, object-oriented programming language programs with examples.</p>
-      </div>
-    </a>
-    <a href="https://rh3nium.github.io/Bash/" target="_blank">
-      <div class="repo-card">
-        <h3>＄ Bash</h3>
-        <p>Essential Bash - Command-line interpreter/UNIX Shell programs you can run.</p>
-      </div>
-    </a>
-    <div class="repo-card">
-      <a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation" target="_blank">
-        <h3>Google Apps Script</h3>
-        <p>GAS program examples for automation of various tasks through Google Sheets, Mail, Drive, Calendar, as well as Simple Web App examples.</p>
-      </a>
-      <div class="folder-list">
-        <ul>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Sheets"><i class="fas fa-folder"></i>Google Sheets</a></li>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Forms</a></li>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Docs"><i class="fas fa-folder"></i>Google Docs</a></li>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Drive"><i class="fas fa-folder"></i>Google Drive</a></li>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Calendar</a></li>
-          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Web%20Applications"><i class="fas fa-folder"></i>Web Applications</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="repo-grid">
+    <div class="repo-card">
+      <a href="https://rh3nium.github.io/C/" target="_blank">
+        <h3>⚙︎ C</h3>
+        <p>C is a powerful, general-purpose programming language that provides a foundation for many modern languages. Known for its efficiency and control, C is commonly used in system programming, embedded development, operating systems, and video games.</p>
+      </a>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Input%20and%20Output%20Functions"><i class="fas fa-folder"></i>Input and Output Functions</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Variables"><i class="fas fa-folder"></i>Variables</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Operators"><i class="fas fa-folder"></i>Operators</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Type%20Conversion"><i class="fas fa-folder"></i>Type Conversion</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Conditional%20Statements"><i class="fas fa-folder"></i>Conditional Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Looping%20Statements"><i class="fas fa-folder"></i>Looping Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Jumping%20Statements"><i class="fas fa-folder"></i>Jumping Statements</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Strings"><i class="fas fa-folder"></i>Strings</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Arrays"><i class="fas fa-folder"></i>Arrays</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Functions"><i class="fas fa-folder"></i>Functions</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Pointers"><i class="fas fa-folder"></i>Pointers</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Memory%20Allocation"><i class="fas fa-folder"></i>Dynamic Memory Allocation</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Structures"><i class="fas fa-folder"></i>Structures</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Unions"><i class="fas fa-folder"></i>Unions</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Linked%20Lists"><i class="fas fa-folder"></i>Linked Lists</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Stacks"><i class="fas fa-folder"></i>Stacks</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Queues"><i class="fas fa-folder"></i>Queues</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Graphs"><i class="fas fa-folder"></i>Graphs</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Searching%20and%20Sorting"><i class="fas fa-folder"></i>Searching and Sorting</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Preprocessor%20Directives%20and%20Macros"><i class="fas fa-folder"></i>Preprocessor Directives and Macros</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/File%20Handling"><i class="fas fa-folder"></i>File Handling</a></li>
+          <li><a href="https://github.com/rh3nium/C/tree/main/Examples"><i class="fas fa-folder"></i>Examples</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="repo-card">
+      <a href="https://rh3nium.github.io/Python/" target="_blank">
+        <h3>🐍 Python</h3>
+        <p>Python is a powerful, versatile, high-level, interpreted, object-oriented programming language, driving innovation across data science, machine learning/deep learning, web development, and automation.</p>
+      </a>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Dictionaries"><i class="fas fa-folder"></i>Dictionaries</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/For%20Loop"><i class="fas fa-folder"></i>For Loop</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Functions"><i class="fas fa-folder"></i>Functions</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/If-Else-Elif%20Statements"><i class="fas fa-folder"></i>If-Else-Elif Statements</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Keywords%20and%20Identifiers"><i class="fas fa-folder"></i>Keywords and Identifiers</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Lists"><i class="fas fa-folder"></i>Lists</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Sets"><i class="fas fa-folder"></i>Sets</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Strings"><i class="fas fa-folder"></i>Strings</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Tkinter"><i class="fas fa-folder"></i>Tkinter</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Try-Except-Finally%20Statements"><i class="fas fa-folder"></i>Try-Except-Finally Statements</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/Tuples"><i class="fas fa-folder"></i>Tuples</a></li>
+          <li><a href="https://github.com/rh3nium/Python/tree/main/While%20Loop"><i class="fas fa-folder"></i>While Loop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="repo-card">
+      <a href="https://rh3nium.github.io/Bash/" target="_blank">
+        <h3>＄ Bash</h3>
+        <p>Bash (short for Bourne Again Shell) is a command-line language and scripting shell used primarily on Unix and Linux systems to interact with the automate tasks. It serves both as an interactive shell—where users can execute commands, manage files, and control processes—and as a scripting language that allows writing programs (called shell scripts) to perform repetitive or complex operations efficiently.</p>
+        <p>- Bash supports features like variables, loops, conditionals, and functions, making it powerful for system administration, automation, and DevOps workflows.</p>
+        <p>- Bash is the default shell in most Linux distributions and is widely used for server management, build scripts, and automation pipelines.</p>
+      </a>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Bash/tree/main/Conditional%20Statements"><i class="fas fa-folder"></i>Conditional Statements</a></li>
+          <li><a href="https://github.com/rh3nium/Bash/tree/main/Task%20Automation"><i class="fas fa-folder"></i>Task Automation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="repo-card">
+      <a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation" target="_blank">
+        <h3>Google Apps Script</h3>
+        <p>Google Apps Script is a powerful cloud-based JavaScript platform that allows users to seamlessly automate, integrate, and extend Google Workspace (Sheets, Docs, Mail, Drive).</p>
+      </a>
+      <div class="folder-list">
+        <ul>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Sheets"><i class="fas fa-folder"></i>Google Sheets</a></li>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Forms</a></li>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Docs"><i class="fas fa-folder"></i>Google Docs</a></li>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Drive"><i class="fas fa-folder"></i>Google Drive</a></li>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Calendar</a></li>
+          <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Web%20Applications"><i class="fas fa-folder"></i>Web Applications</a></li>
+        </ul>
+      </div>
+    </div>
 
-  </div>
-  </div>
+  </div>
+  </div>
 
-  <br>
+  <br>
 
-  </div> 
+  </div> 
 </div>
 
 <script>
-  const trailContainer3 = document.getElementById('cursor-trail-container3');
+  const trailContainer3 = document.getElementById('cursor-trail-container3');
 
-  document.addEventListener('mousemove', (e) => {
-    const triangle3 = document.createElement('div');
-    triangle3.className = 'trianglewhite3';
-    triangle3.style.left = `${e.clientX}px`;
-    triangle3.style.top = `${e.clientY}px`;
-    triangle3.style.position = 'absolute';
+  document.addEventListener('mousemove', (e) => {
+    const triangle3 = document.createElement('div');
+    triangle3.className = 'trianglewhite3';
+    triangle3.style.left = `${e.clientX}px`;
+    triangle3.style.top = `${e.clientY}px`;
+    triangle3.style.position = 'absolute';
 
-    trailContainer3.appendChild(triangle3);
+    trailContainer3.appendChild(triangle3);
 
-    setTimeout(() => {
-      triangle3.style.opacity = '0';
-    }, 100);
+    setTimeout(() => {
+      triangle3.style.opacity = '0';
+    }, 100);
 
-    setTimeout(() => {
-      triangle3.remove();
-    }, 1000);
-  });
+    setTimeout(() => {
+      triangle3.remove();
+    }, 1000);
+  });
 
 /* Disable right-click save on images */
 document.addEventListener("contextmenu", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
 });
 /* Disable dragging of images */
 document.addEventListener("dragstart", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
 });
 /* Disable long-press saving on mobile */
 document.querySelectorAll("img").forEach(img => {
-    img.setAttribute("oncontextmenu", "return false;");
+    img.setAttribute("oncontextmenu", "return false;");
 });
 
 // Typing effect
@@ -163,13 +213,13 @@ const speed = 55;
 let index = 0;
 
 function typeEffect() {
-    const heading = document.getElementById("typewriter");
-    heading.innerHTML = text.substring(0, index) + '<span class="red-cursor"></span>';
+    const heading = document.getElementById("typewriter");
+    heading.innerHTML = text.substring(0, index) + '<span class="red-cursor"></span>';
 
-    if (index < text.length) {
-        index++;
-        setTimeout(typeEffect, speed);
-    }
+    if (index < text.length) {
+        index++;
+        setTimeout(typeEffect, speed);
+    }
 }
 // Start immediately when HTML is parsed
 document.addEventListener("DOMContentLoaded", typeEffect);
