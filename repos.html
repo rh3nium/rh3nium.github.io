@@ -49,6 +49,50 @@ h1 {
   font-size: 28px;
   color: white;
 }
+
+/* --- LAYOUT CSS (Columns) --- */
+.repo-grid {
+    /* Use CSS Columns to create three flowing columns */
+    column-count: 3 !important; 
+    column-gap: 20px !important; 
+    display: block !important; 
+    padding: 20px 50px !important;
+}
+
+.repo-card {
+    /* Make the card stack vertically within the column (Masonry effect) */
+    display: inline-block !important; 
+    width: 100% !important;
+    height: auto !important; 
+    margin: 0 0 20px 0 !important; /* Add vertical margin for spacing between stacked cards */
+    box-sizing: border-box; 
+    min-height: 150px;
+    break-inside: avoid-column;
+}
+
+.folder-list ul {
+    list-style: none; 
+    padding-left: 0; 
+    margin-top: 5px; 
+}
+
+/* Responsive adjustment for clean layout on smaller screens */
+@media (max-width: 1200px) {
+    .repo-grid {
+        column-count: 2 !important; 
+    }
+}
+@media (max-width: 768px) {
+    .repo-grid {
+        column-count: 1 !important; 
+        padding: 20px !important;
+    }
+    .repo-card {
+        margin-bottom: 20px !important;
+    }
+}
+/* --- END LAYOUT FIX CSS --- */
+
   </style>
 </head>
 
@@ -77,7 +121,7 @@ h1 {
 
   <div class="repo-grid">
     <div class="repo-card">
-      <a href="https://rh3nium.github.io/C/" target="_blank">
+      <a href="https://github.com/rh3nium/C" target="_blank">
         <h3>⚙︎ C</h3>
         <p>C is a powerful, general-purpose programming language that provides a foundation for many modern languages. Known for its efficiency and control, C is commonly used in system programming, embedded development, operating systems, and video games.</p>
       </a>
@@ -109,7 +153,7 @@ h1 {
       </div>
     </div>
     <div class="repo-card">
-      <a href="https://rh3nium.github.io/Python/" target="_blank">
+      <a href="https://github.com/rh3nium/Python" target="_blank">
         <h3>🐍 Python</h3>
         <p>Python is a powerful, versatile, high-level, interpreted, object-oriented programming language, driving innovation across data science, machine learning/deep learning, web development, and automation.</p>
       </a>
@@ -131,11 +175,9 @@ h1 {
       </div>
     </div>
     <div class="repo-card">
-      <a href="https://rh3nium.github.io/Bash/" target="_blank">
+      <a href="https://github.com/rh3nium/Bash" target="_blank">
         <h3>＄ Bash</h3>
-        <p>Bash (short for Bourne Again Shell) is a command-line language and scripting shell used primarily on Unix and Linux systems to interact with the automate tasks. It serves both as an interactive shell—where users can execute commands, manage files, and control processes—and as a scripting language that allows writing programs (called shell scripts) to perform repetitive or complex operations efficiently.</p>
-        <p>- Bash supports features like variables, loops, conditionals, and functions, making it powerful for system administration, automation, and DevOps workflows.</p>
-        <p>- Bash is the default shell in most Linux distributions and is widely used for server management, build scripts, and automation pipelines.</p>
+        <p>Bash (short for Bourne Again Shell) is a command-line language and scripting shell used primarily on Unix and Linux systems to interact with the automate tasks. It serves both as an interactive shell—where users can execute commands, manage files, and control processes—and as a scripting language that allows writing programs to perform repetitive or complex operations efficiently.</p>
       </a>
       <div class="folder-list">
         <ul>
