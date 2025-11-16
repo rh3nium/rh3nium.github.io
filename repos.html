@@ -1,64 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Learn | Riya halbhavi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="icon" href="styles/rh.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Learn | Riya halbhavi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="styles/rh.png" type="image/png">
 
-  <style>
+    <style>
+/* ... (Your existing CSS, including the red-cursor fix from before) ... */
+.red-cursor {
+    display: inline-block;
+    width: 12px;
+    height: 29px;
+    background-color: #fc7c7c;
+    margin-left: 5px;
+    vertical-align: middle;
+    animation: blinkRed 1s steps(2, start) infinite;
+}
+@keyframes blinkRed {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
 #cursor-trail-container3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
 }
 .trianglewhite3 {
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 24px solid white;
-  filter: drop-shadow(0 0 4px red);
-  animation: pulse3 5s ease-in-out infinite;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 24px solid white;
+    filter: drop-shadow(0 0 4px red);
+    animation: pulse3 5s ease-in-out infinite;
 }
 @keyframes pulse3 {
-  0%, 100% {
-    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
-  }
-  50% {
-    transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
-  }
+    0%, 100% {
+        transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0)) scale(1);
+    }
+    50% {
+        transform: translate(calc(var(--x, 0) * 0.6), calc(var(--y, 0) * 0.6)) rotate(var(--r, 0)) scale(1.1);
+    }
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 h1 {
-  font-family: "Silkscreen", sans-serif;
-  font-style: normal;
-  margin-left: 50px;
-  margin-top: 50px;
-  font-size: 28px;
-  color: white;
+    font-family: "Silkscreen", sans-serif;
+    font-style: normal;
+    /* Changed to match index.html h1 alignment (centered) or keep as is */
+    text-align: center; /* This is generally better for a main heading */
+    margin-top: 40px; /* Aligned with index.html */
+    font-size: 28px;
+    color: white;
 }
 
 /* --- LAYOUT CSS (Columns) --- */
 .repo-grid {
-    /* Use CSS Columns to create three flowing columns */
-    column-count: 3 !important; 
-    column-gap: 20px !important; 
-    display: block !important; 
+    column-count: 3 !important;
+    column-gap: 20px !important;
+    display: block !important;
     padding: 20px 50px !important;
 }
-
 .repo-card {
     /* Make the card stack vertically within the column (Masonry effect) */
     display: inline-block !important; 
@@ -75,45 +89,27 @@ h1 {
     padding-left: 0; 
 }
 
-/* Responsive adjustment for clean layout on smaller screens */
-@media (max-width: 1200px) {
-    .repo-grid {
-        column-count: 2 !important; 
-    }
-}
-@media (max-width: 768px) {
-    .repo-grid {
-        column-count: 1 !important; 
-        padding: 20px !important;
-    }
-    .repo-card {
-        margin-bottom: 20px !important;
-    }
-}
-/* --- END LAYOUT FIX CSS --- */
-
-  </style>
+    </style>
 </head>
-
 <body>
 <div id="cursor-trail-container3"></div>
 <div style="display: flex;">
   <div id="main-content" style="flex: 1;">
 
 <div class="topbar">
-<div class="header" style="display: flex; align-items: center;">
-  <a href="index.html">
-    <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-  </a>
-</div>
-  <div class="menu">
-    <a href="index.html">Projects</a><span style="color: red">|</span>
-    <a href="repos.html" class="active">Learn</a><span style="color: red">|</span>
-    <a href="about.html">About</a>
-  </div>
-  <div class="social-icons">
-    <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
-  </div>
+    <div class="header" style="display: flex; align-items: center;">
+        <a href="index.html">
+            <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+        </a>
+    </div>
+    <div class="menu">
+        <a href="index.html">Projects</a><span style="color: red">|</span>
+        <a href="repos.html" class="active">Learn</a><span style="color: red">|</span>
+        <a href="about.html">About</a>
+    </div>
+    <div class="social-icons">
+        <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+    </div>
 </div>
 
 <h1 id="typewriter"></h1>
