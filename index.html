@@ -88,15 +88,15 @@
 
         /* Buttons */
         .project-links {
-            margin: 0.5rem 1rem 1.2rem;
+            margin: 0.3rem 1rem 1rem;
             display: flex;
             gap: 12px;
             align-items: center;
         }
 
         .project-btn {
-            padding: 7px 18px;
-            border-radius: 999px; /* pill shape */
+            padding: 5px 18px;   /* reduced by 2px */
+            border-radius: 999px;
             background-color: transparent;
             border: 2px solid #fc7c7c;
             color: #fc7c7c;
@@ -104,16 +104,14 @@
             font-size: 17px;
             transition: 0.3s ease;
         }
-
         .icon-btn {
             border-radius: 999px;
-            padding: 7px 15px;
+            padding: 5px 15px;  /* reduced by 2px */
             border: 2px solid #fc7c7c;
             color: #fc7c7c;
             font-size: 20px;
             transition: 0.3s ease;
         }
-
         .project-card:hover .project-btn,
         .project-card:hover .icon-btn {
             color: cyan;
@@ -173,50 +171,43 @@
     <div class="project-card">
         <img src="img/slide1.png" alt="sots">
         <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
-        <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
 
         <div class="project-links">
             <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
         </div>
+
+        <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
     </div>
 
     <!-- INCIDENT DETECTION CARD -->
-<div class="project-card">
-    <img src="img/r.png" alt="Road Incident Detection System">
-    <h3>Road Incident/Fire Detection and SMS Alert System</h3>
+    <div class="project-card">
+        <img src="img/r.png" alt="Road Incident Detection System">
+        <h3>Road Incident/Fire Detection and SMS Alert System</h3>
 
-    <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
+        <div class="project-links">
+            <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
+                📘 Docs
+            </a>
+        </div>
 
-    <p><b>Libraries used:</b><br>
-        - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
-        - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
-        - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
-        - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
-        - <b>Twilio API</b>: Automated SMS alert notifications
-    </p>
+        <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
 
-    <div class="project-links">
-        <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
-            📘 Docs
-        </a>
+        <p><b>Libraries used:</b><br>
+            - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
+            - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
+            - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
+            - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
+            - <b>Twilio API</b>: Automated SMS alert notifications
+        </p>
     </div>
-</div>
     
     <!-- CROWD DETECTION CARD -->
     <div class="project-card">
         <img src="img/c.png" alt="Crowd and Cluster Detection/Heatmap System">
         <h3>Crowd and Cluster Detection + Heatmap System</h3>
-
-        <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
-
-        <p><b>Libraries used:</b><br>
-            - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
-            - <b>numpy</b>: For array/matrix operations<br>
-            - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
-        </p>
 
         <div class="project-links">
             <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
@@ -226,11 +217,18 @@
                 📘 Docs
             </a>
         </div>
+
+        <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
+
+        <p><b>Libraries used:</b><br>
+            - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
+            - <b>numpy</b>: For array/matrix operations<br>
+            - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
+        </p>
     </div>
 
 </div>
 
-    
 <div class="project-grid">
 
     <!-- SHADOWS ON THE SANDS CARD -->
@@ -242,17 +240,18 @@
                 <i>Game</i>
             </span>
         </h3>
+
         <div class="project-links">
             <a href="https://rii2.itch.io/shadows-on-the-sands" class="icon-btn" target="_blank" style="display:flex; align-items:center; gap:8px; font-size:18px;">
                 <i class="fab fa-itch-io"></i>
                 <span style="font-family:'Titillium Web', sans-serif; font-size:17px;">itch.io</span>
             </a>
         </div>
+
     </div>
 
 </div>
 
-    
 <script>
 const trailContainer2 = document.getElementById('cursor-trail-container2');
 document.addEventListener('mousemove', (e) => {
