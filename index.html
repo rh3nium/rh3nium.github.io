@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
 
     <style>
+        /* Trail */
         #cursor-trail-container2 {
             position: fixed;
             top: 0;
@@ -37,14 +38,11 @@
             transition: opacity 0.3s ease;
         }
         @keyframes pulse5 {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-    
+
+        /* Layout */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -68,7 +66,6 @@
         }
         .project-card img {
             width: 100%;
-            height: auto;
             display: block;
         }
         .project-card h3 {
@@ -78,7 +75,6 @@
             font-weight: 500;
             color: #fc7c7c;
             transition: color 0.3s ease;
-            text-align: left;
         }
         .project-card:hover h3 {
             color: cyan;
@@ -90,6 +86,41 @@
             color: white;
         }
 
+        /* Buttons */
+        .project-links {
+            margin: 0.5rem 1rem 1.2rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .project-btn {
+            padding: 7px 18px;
+            border-radius: 999px; /* pill shape */
+            background-color: transparent;
+            border: 2px solid #fc7c7c;
+            color: #fc7c7c;
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 17px;
+            transition: 0.3s ease;
+        }
+
+        .icon-btn {
+            border-radius: 999px;
+            padding: 7px 15px;
+            border: 2px solid #fc7c7c;
+            color: #fc7c7c;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+
+        .project-card:hover .project-btn,
+        .project-card:hover .icon-btn {
+            color: cyan;
+            border-color: cyan;
+        }
+
+        /* Typing cursor */
         .red-cursor {
             display: inline-block;
             width: 12px;
@@ -116,6 +147,7 @@
 
 <body>
 <div id="cursor-trail-container2"></div>
+
 <div class="topbar">
     <div class="header" style="display: flex; align-items: center;">
         <a href="index.html">
@@ -133,46 +165,56 @@
 </div>
 <br>
 
-<!-- Typing effect  -->
 <h1 id="typewriter"></h1>
 
 <div class="project-grid">
 
-<a href="https://rayvn-labs.github.io/" target="_blank">
+    <!-- RAYVN CARD -->
     <div class="project-card">
-      <img src="img/slide1.png" alt="sots">
-      <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
+        <img src="img/slide1.png" alt="sots">
+        <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
         <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
-    </div>
-</a>
 
-<a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" target="_blank">
+        <div class="project-links">
+            <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
+        </div>
+    </div>
+
+    <!-- CROWD DETECTION CARD -->
     <div class="project-card">
         <img src="img/c.png" alt="Crowd and Cluster Detection/Heatmap System">
         <h3>Crowd and Cluster Detection + Heatmap System</h3>
+
         <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
+
         <p><b>Libraries used:</b><br>
-            - </b>cv2<br>: OpenCV library for image processing and computer vision<br>
-            - </b>numpy<br>: For array/matrix operations<br>
-            - </b>DBSCAN<br>: Density-based clustering algorithm from scikit-learn</p>
+            - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
+            - <b>numpy</b>: For array/matrix operations<br>
+            - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
+        </p>
+
+        <div class="project-links">
+            <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://rh3nium.github.io/Crowd-Monitoring-system-Heatmap" class="project-btn" target="_blank">
+                📘 Docs
+            </a>
+        </div>
     </div>
-</a>
 
 </div>
 
 <div class="project-grid">
-
-<a href="https://rii2.itch.io/shadows-on-the-sands" target="_blank">
-    <div class="project-card">
-      <img src="img/emeraldbeach_night.png" alt="sots">
-      <h3>Shadows On The Sands <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span></h3>
-    </div>
-</a>
-
+    <a href="https://rii2.itch.io/shadows-on-the-sands" target="_blank">
+        <div class="project-card">
+            <img src="img/emeraldbeach_night.png" alt="sots">
+            <h3>Shadows On The Sands <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span></h3>
+        </div>
+    </a>
 </div>
 
 <script>
-// Cursor trail
 const trailContainer2 = document.getElementById('cursor-trail-container2');
 document.addEventListener('mousemove', (e) => {
     const triangle2 = document.createElement('div');
@@ -180,32 +222,22 @@ document.addEventListener('mousemove', (e) => {
     triangle2.style.left = `${e.clientX}px`;
     triangle2.style.top = `${e.clientY}px`;
     trailContainer2.appendChild(triangle2);
-    setTimeout(() => {
-        triangle2.style.opacity = '0';
-    }, 100);
-    setTimeout(() => {
-        triangle2.remove();
-    }, 1000);
+    setTimeout(() => { triangle2.style.opacity = '0'; }, 100);
+    setTimeout(() => { triangle2.remove(); }, 1000);
 });
 
-/* Disable right-click save on images */
-document.addEventListener("contextmenu", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
+/* Disable right-click saving */
+document.addEventListener("contextmenu", e => {
+    if (e.target.tagName === "IMG") e.preventDefault();
 });
-/* Disable dragging of images */
-document.addEventListener("dragstart", function (e) {
-    if (e.target.tagName === "IMG") {
-        e.preventDefault();
-    }
+document.addEventListener("dragstart", e => {
+    if (e.target.tagName === "IMG") e.preventDefault();
 });
-/* Disable long-press saving on mobile */
 document.querySelectorAll("img").forEach(img => {
     img.setAttribute("oncontextmenu", "return false;");
 });
 
-// Typing effect
+/* Typing effect */
 const text = "Projects at the intersection of software and hardware";
 const speed = 55;
 let index = 0;
@@ -219,7 +251,6 @@ function typeEffect() {
         setTimeout(typeEffect, speed);
     }
 }
-// Start immediately when HTML is parsed
 document.addEventListener("DOMContentLoaded", typeEffect);
 </script>
 
