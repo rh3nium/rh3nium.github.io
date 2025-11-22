@@ -8,7 +8,6 @@ body {
   margin: 0;
   padding-top: 80px;
 }
-
 /* Text */
 h1 {
   font-size: 80px;
@@ -44,7 +43,6 @@ p {
   color: white;
   font-family: 'Titillium Web', sans-serif;
 }
-
 /* Topbar */
 .topbar {
   display: flex;
@@ -113,7 +111,6 @@ p {
   font-weight: 300;
   background-attachment: fixed;
 }
-
 /* Social icons */
 .social-icons {
   position: fixed;
@@ -135,7 +132,6 @@ p {
 .social-icons a:hover {
   color: #fc7c7c;
 }
-
 /* Glitch animation */
 .glitch-wrapper {
   position: relative;
@@ -269,7 +265,6 @@ p {
   white-space: nowrap;
   border: 0;
 }
-
 /* Center box */
 .center-box {
   display: flex;
@@ -335,7 +330,6 @@ p {
   flex-wrap: wrap;
   gap: 30px;
 }
-
 /* Repo grid */
 .repo-grid {
   display: grid;
@@ -491,4 +485,3 @@ img {
 img::selection {
     background: transparent;
 }
-
