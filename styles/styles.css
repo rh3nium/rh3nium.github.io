@@ -348,7 +348,7 @@ p {
 }
 .repo-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px #fc7c7c;
+  box-shadow: 0 8px 16px #f5f5dc;
 }
 .repo-card > a {
   color: inherit;
