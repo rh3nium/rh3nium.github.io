@@ -365,7 +365,7 @@ p {
   text-align: left;
 }
 .repo-card:hover h3 {
-  color: cyan;
+  color: #f5f5dc;
 }
 .repo-card p {
   margin-left: 1rem;
@@ -391,7 +391,7 @@ p {
       transition: color 0.3s ease;
     }
     .folder-list a:hover {
-      color: aqua;
+      color: #f5f5dc;
     }
     .folder-list i {
       margin-right: 0.5em;
