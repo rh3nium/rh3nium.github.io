@@ -100,7 +100,7 @@ p {
   transition: color 0.3s ease;
 }
 .menu a:hover {
-  color: cyan !important;
+  color: #f5f5dc !important;
   background-attachment: fixed;
 }
 .menu a.active {
