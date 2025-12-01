@@ -1,297 +1,487 @@
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Riya halbhavi</title>
-    <meta name="description" content="I explore how software and hardware blend to create meaningful systems in the domains of safety, security, and social impact.">
-    <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
-    <meta name="msvalidate.01" content="3E5A7800F766EAC5F9D06BF8523C2061" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="styles/rh.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
-
-    <style>
-        /* Trail */
-        #cursor-trail-container2 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 10000;
+body {
+  background-color: #1f1f1f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  margin: 0;
+  padding-top: 80px;
+}
+/* Text */
+h1 {
+  font-size: 80px;
+  letter-spacing: 2px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 28px;
+  text-shadow: 2px solid black;
+}
+h2 {
+  font-weight: 700;
+  font-size: 60px;
+  color: white;
+}
+.text-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  color: white;
+}
+.text-contentblack {
+  margin: 0 0 8px 0;
+  color: white;
+}
+p {
+  margin: 0;
+  font-size: 20px;
+  color: white;
+  font-family: 'Titillium Web', sans-serif;
+}
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  z-index: 9999;
+  padding-bottom: 10px;
+  border-bottom: 1px solid red;
+}
+        .topbar .header {
+            align-items: left;
+            margin-left: 35px;
         }
-        .trianglewhite5 {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-bottom: 24px solid white;
-            filter: drop-shadow(0 0 4px red);
-            animation: pulse5 5s ease-in-out infinite;
-            transition: opacity 0.3s ease;
-        }
-        @keyframes pulse5 {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Layout */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            margin: 45px;
-        }
-        .project-card {
-            background-color: #111;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .topbar .menu {
             display: flex;
-            flex-direction: column;
-            height: 100%;
-            padding-bottom: 10px;
+            gap: 10px;
+            font-family: 'Overpass Mono', monospace;
+            align-items: right;
+            margin-right: 70px;
         }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px white;
-        }
-        a {
+        .topbar .menu a {
+            color: white;
             text-decoration: none;
         }
-        .project-card img {
-            width: 100%;
-            display: block;
+        .topbar .menu span {
+            color: red;
         }
-        .project-card h3 {
-            margin: 1rem 1rem 0.5rem;
-            font-size: 25px;
-            font-family: "Candal", sans-serif;
-            font-weight: 500;
-            color: #fc7c7c;
-            transition: color 0.3s ease;
-        }
-        .project-card:hover h3 {
-            color: #f5f5dc;
-        }
-        .project-card p {
-            margin: 0 1rem 1.5rem;
-            font-size: 19px;
-            font-family: 'Titillium Web', sans-serif;
-            color: white;
-        }
-
-        /* Buttons */
-        .project-links {
-            margin: 0.4rem 1rem 1rem;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .project-btn {
-            padding: 5px 18px;   /* reduced by 2px */
-            border-radius: 999px;
-            background-color: transparent;
-            border: 1px solid #fc7c7c;
-            color: #fc7c7c;
-            font-family: 'Titillium Web', sans-serif;
-            font-size: 17px;
-            transition: 0.3s ease;
-        }
-        .icon-btn {
-            border-radius: 999px;
-            padding: 5px 15px;  /* reduced by 2px */
-            border: 1px solid #fc7c7c;
-            color: #fc7c7c;
-            font-size: 20px;
-            transition: 0.3s ease;
-        }
-        .project-btn:hover,
-        .icon-btn:hover {
-            color: #f5f5dc;
-            border: 1px solid #f5f5dc;
-        }
-
-        /* Typing cursor */
-        .red-cursor {
-            display: inline-block;
-            width: 12px;
-            height: 29px;
-            background-color: #fc7c7c;
-            margin-left: 5px;
-            vertical-align: middle;
-            animation: blinkRed 1s steps(2, start) infinite;
-        }
-        @keyframes blinkRed {
-            0%, 50% { opacity: 1; }
-            50.01%, 100% { opacity: 0; }
-        }
-
-        h1 {
-            text-align: center;
-            font-family: 'Silkscreen', cursive;
-            font-weight: 400px;
-            font-size: 29px;
-            color: #f5f5dc;
-            margin-top: 40px;
-        }
-    </style>
-</head>
-
-<body>
-<div id="cursor-trail-container2"></div>
-
-<div class="topbar">
-    <div class="header" style="display: flex; align-items: center;">
-        <a href="index.html">
-            <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
-        </a>
-    </div>
-    <div class="menu">
-        <a href="index.html" class="active">Projects</a><span style="color: red">|</span>
-        <a href="repos.html">Learn</a><span style="color: red">|</span>
-        <a href="about.html">About</a>
-    </div>
-    <div class="social-icons">
-        <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
-    </div>
-</div>
-<br>
-
-<h1 id="typewriter"></h1>
-
-<div class="project-grid">
-
-    <!-- RAYVN CARD -->
-    <div class="project-card">
-        <img src="img/rr.png" alt="sots">
-        <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
-
-        <div class="project-links">
-            <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
-        </div>
-
-        <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
-    </div>
-
-    <!-- INCIDENT DETECTION CARD -->
-    <div class="project-card">
-        <img src="img/cc.png" alt="Road Incident Detection System">
-        <h3>Road Incident/Fire Detection and SMS Alert System</h3>
-
-        <div class="project-links">
-            <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
-                📘 Docs
-            </a>
-        </div>
-
-        <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
-
-        <p><b>Libraries used:</b><br>
-            - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
-            - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
-            - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
-            - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
-            - <b>Twilio API</b>: Automated SMS alert notifications
-        </p>
-    </div>
-    
-    <!-- CROWD DETECTION CARD -->
-    <div class="project-card">
-        <img src="img/c.png" alt="Crowd and Cluster Detection/Heatmap System">
-        <h3>Crowd and Cluster Detection + Heatmap System</h3>
-
-        <div class="project-links">
-            <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/README.md" class="project-btn" target="_blank">
-                📘 Docs
-            </a>
-        </div>
-
-        <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
-
-        <p><b>Libraries used:</b><br>
-            - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
-            - <b>numpy</b>: For array/matrix operations<br>
-            - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
-        </p>
-    </div>
-
-</div>
-
-<div class="project-grid">
-
-    <!-- SHADOWS ON THE SANDS CARD -->
-    <div class="project-card">
-        <img src="img/emeraldbeach_night.png" alt="sots">
-        <h3>
-            Shadows On The Sands 
-            <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;">
-                <i>Game</i>
-            </span>
-        </h3>
-
-        <div class="project-links">
-            <a href="https://rii2.itch.io/shadows-on-the-sands" class="icon-btn" target="_blank" style="display:flex; align-items:center; gap:8px; font-size:18px;">
-                <i class="fab fa-itch-io"></i>
-                <span style="font-family:'Titillium Web', sans-serif; font-size:17px;">itch.io</span>
-            </a>
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-const trailContainer2 = document.getElementById('cursor-trail-container2');
-document.addEventListener('mousemove', (e) => {
-    const triangle2 = document.createElement('div');
-    triangle2.className = 'trianglewhite5';
-    triangle2.style.left = `${e.clientX}px`;
-    triangle2.style.top = `${e.clientY}px`;
-    trailContainer2.appendChild(triangle2);
-    setTimeout(() => { triangle2.style.opacity = '0'; }, 100);
-    setTimeout(() => { triangle2.remove(); }, 1000);
-});
-
-/* Disable right-click saving */
-document.addEventListener("contextmenu", e => {
-    if (e.target.tagName === "IMG") e.preventDefault();
-});
-document.addEventListener("dragstart", e => {
-    if (e.target.tagName === "IMG") e.preventDefault();
-});
-document.querySelectorAll("img").forEach(img => {
-    img.setAttribute("oncontextmenu", "return false;");
-});
-
-/* Typing effect */
-const text = "Projects at the intersection of software and hardware";
-const speed = 55;
-let index = 0;
-
-function typeEffect() {
-    const heading = document.getElementById("typewriter");
-    heading.innerHTML = text.substring(0, index) + '<span class="red-cursor"></span>';
-
-    if (index < text.length) {
-        index++;
-        setTimeout(typeEffect, speed);
-    }
+.header a {
+  text-decoration: none;
 }
-document.addEventListener("DOMContentLoaded", typeEffect);
-</script>
 
-</body>
-</html>
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  gap: 20px;
+  font-size: 17px;
+  font-weight: 700;
+  background-attachment: fixed;
+  font-family: 'Overpass Mono', monospace;
+}
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 17px;
+  background-attachment: fixed;
+  transition: color 0.3s ease;
+}
+.menu a:hover {
+  color: #f5f5dc !important;
+  background-attachment: fixed;
+}
+.menu a.active {
+  color: #fc7c7c !important;
+}
+.menu span {
+  color: #fff;
+  font-weight: 300;
+  background-attachment: fixed;
+}
+/* Social icons */
+.social-icons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  z-index: 10;
+}
+.social-icons a {
+  font-size: 34px;
+  color: white;
+  text-decoration: none;
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
+}
+.social-icons a:hover {
+  color: #fc7c7c;
+}
+/* Glitch animation */
+.glitch-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.small-glitch {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+.small-glitch::before,
+.small-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.8;
+  clip-path: inset(0 0 100% 0);
+}
+.small-glitch::before {
+  color: white;
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+.small-glitch::after {
+  color: aqua;
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+}
+@keyframes glitchTop {
+  0% { clip-path: inset(0 0 100% 0); }
+  10% { clip-path: inset(0 0 75% 0); }
+  20% { clip-path: inset(10% 0 65% 0); }
+  40% { clip-path: inset(20% 0 50% 0); }
+  60% { clip-path: inset(30% 0 30% 0); }
+  80% { clip-path: inset(40% 0 20% 0); }
+  100% { clip-path: inset(50% 0 0% 0); }
+}
+@keyframes glitchBottom {
+  0% { clip-path: inset(50% 0 0% 0); }
+  20% { clip-path: inset(30% 0 20% 0); }
+  40% { clip-path: inset(20% 0 30% 0); }
+  60% { clip-path: inset(10% 0 50% 0); }
+  80% { clip-path: inset(5% 0 60% 0); }
+  100% { clip-path: inset(0% 0 100% 0); }
+}
+.glitch-wrapperhead {
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.glitchhead {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: 31px;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+  position: relative;
+  z-index: 2;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+.scanline {
+  position: relative;
+  display: block;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.scanline::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(255, 0, 0, 0.1) 1px,
+    transparent 2px
+  );
+  animation: scan 2s linear infinite;
+}
+@keyframes scan {
+  0% { top: -100%; }
+  100% { top: 0%; }
+}
+.sparkle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: red;
+  opacity: 0;
+  border-radius: 50%;
+  animation: flicker 1s infinite ease-in-out;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* Center box */
+.center-box {
+  display: flex;
+  justify-content: flex-start;
+  background-color: black;
+  border-radius: 15px;
+  padding: 30px 40px;
+  max-width: 895px;
+  max-height: 540px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px black;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.center-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px black;
+}
+.center-box img {
+  height: 480px;
+  width: auto;
+  padding-left: 20px;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+.center-box p {
+  font-size: 20px;
+  flex: 1;
+  max-width: 515px;
+  color: white;
+  word-wrap: break-word;
+  font-family: 'Overpass Mono', monospace;
+  text-align: left;
+}
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 35px;
+            justify-items: center;
+            align-items: center;
+            margin: 60px 0;
+            width: 90%;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-grid img:hover {
+            transform: scale(1.05);
+        }
+
+.hero-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+/* Repo grid */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.repo-card {
+  background-color: #111;
+  border: 1px solid red;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 5px;
+}
+.repo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px red;
+}
+.repo-card > a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.repo-card h3 {
+  margin: 1rem 1rem;
+  font-size: 30px;
+  font-family: "Candal", sans-serif;
+  font-weight: 400;
+  color: #fc7c7c;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+.repo-card:hover h3 {
+  color: #f5f5dc;
+}
+.repo-card p {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 19px;
+  font-family: 'Titillium Web', sans-serif;
+  color: white;
+}
+
+    .folder-list ul {
+      list-style: none;
+      margin-right: 1em;
+      margin-left: 1em;
+    }
+    .folder-list li {
+      font-family: 'Overpass Mono', monospace;
+      font-size: 18px;
+      color: white;
+    }
+    .folder-list a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    .folder-list a:hover {
+      color: #f5f5dc;
+    }
+    .folder-list i {
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+      color: white;
+    }
+    .folder-list li.break-before {
+      margin-top: 2rem;
+    }
+
+/* Triangles */
+.canvasred {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  background-color: transparent;
+}
+.canvasblack {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  background-color: transparent;
+}
+.canvaswhite {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  background-color: transparent;
+}
+.canvasred2 {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  background-color: transparent;
+}
+.trianglered {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px black);
+  animation: pulse1 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+.triangleblack {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px white);
+  animation: pulse2 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+.trianglewhite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px red);
+  animation: pulse2 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+.trianglered2 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: drop-shadow(0 0 1px white);
+  animation: pulse2 5s ease-in-out infinite;
+  transition: color 0.4s ease;
+}
+@keyframes pulse1 {
+  0%, 100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+  }
+}
+@keyframes pulse2 {
+  0%, 100% {
+    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+  }
+  50% {
+    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+  }
+}
+
+/* Disable dragging and saving of images */
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
+img::selection {
+    background: transparent;
+}
