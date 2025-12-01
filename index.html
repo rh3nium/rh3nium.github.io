@@ -23,6 +23,21 @@
             scroll-behavior: smooth;
         }
 
+        /* --- MENU ACTIVE STATE & SCROLL OFFSET FIX --- */
+        
+        /* 1. Style for the Active Link (Red Color) */
+        .menu a.active {
+            color: #fc7c7c !important; 
+        }
+
+        /* 2. Scroll Margin: prevents the fixed header from covering the titles */
+        #about, 
+        #projects, 
+        #languages {
+            scroll-margin-top: 120px; /* Adjust this if your topbar is taller/shorter */
+        }
+
+
         /* Trail */
         #cursor-trail-container2 {
             position: fixed;
@@ -52,7 +67,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             margin: 45px;
-            gap: 20px; /* Added gap for consistency */
+            gap: 20px;
         }
         .project-card {
             background-color: #111;
@@ -69,7 +84,14 @@
         }
         a {
             text-decoration: none;
+            color: white; /* Default color for menu links */
+            transition: color 0.3s ease;
         }
+        /* Hover effect for menu links (non-active) */
+        .menu a:hover {
+            color: #fc7c7c; 
+        }
+
         .project-card img {
             width: 100%;
             display: block;
@@ -112,7 +134,7 @@
         }
         .icon-btn {
             border-radius: 999px;
-            padding: 5px 15px;  /* reduced by 2px */
+            padding: 5px 15px;
             border: 1px solid #fc7c7c;
             color: #fc7c7c;
             font-size: 20px;
@@ -204,13 +226,13 @@
         /* --- LAYOUT CSS (Grid Fix) --- */
         .repo-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr); /* Forces 3 columns */
-            gap: 20px; /* Space between cards */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             padding: 20px 50px !important;
         }
         
         .repo-card {
-            background-color: #111; /* Kept background consistent with theme */
+            background-color: #111;
             display: flex !important;
             flex-direction: column;
             width: 100% !important;
@@ -228,7 +250,7 @@
                 padding: 20px !important;
             }
             .project-grid {
-                grid-template-columns: 1fr; /* Ensures project grid also responds */
+                grid-template-columns: 1fr;
                 margin: 20px;
             }
         }
@@ -240,7 +262,6 @@
             margin-bottom: 30px !important;
         }
         .folder-list ul li {
-            /* Spacing between folder items */
             margin-bottom: 20px;
         }
         .folder-list ul li a {
@@ -252,7 +273,6 @@
         .folder-list ul {
             list-style: none;
             padding-left: 0; 
-            /* Spacing above and below the folder list */
             margin-top: 5px !important;
             margin-bottom: 5px !important;
         }
@@ -268,11 +288,13 @@
                 <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
             </a>
         </div>
+        
         <div class="menu">
-            <a href="#about">About</a><span style="color: red">|</span>
-            <a href="#projects" class="active">Projects</a><span style="color: red">|</span>
-            <a href="#languages">Languages</a>
+            <a href="#about" class="menu-link active">About</a><span style="color: red">|</span>
+            <a href="#projects" class="menu-link">Projects</a><span style="color: red">|</span>
+            <a href="#languages" class="menu-link">Languages</a>
         </div>
+        
         <div class="social-icons">
             <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
         </div>
@@ -481,9 +503,21 @@
     <br><br>
     
     <script>
-        // TYPEWRITER 1: Languages (Renamed functions to avoid conflict)
-        // Note: I moved this down because the original code had it after the HTML. 
-        // I also fixed the ID targeting.
+        // --- NEW: MENU ACTIVE STATE LOGIC ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll('.menu-link');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove 'active' class from all links
+                    links.forEach(l => l.classList.remove('active'));
+                    // Add 'active' class to the clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // --- EXISTING TYPEWRITERS & EFFECTS ---
         
         const textLang = "Languages";
         const speedLang = 55;
@@ -500,7 +534,6 @@
             }
         }
 
-        // TYPEWRITER 2: Projects
         const textProj = "Projects at the intersection of software and hardware";
         const speedProj = 55;
         let indexProj = 0;
@@ -516,22 +549,16 @@
             }
         }
 
-        // Initialize Typewriters
         document.addEventListener("DOMContentLoaded", () => {
             typeEffectLang();
             typeEffectProj();
         });
 
-        // CURSOR TRAILS
-        // Consolidated trail logic to use the container that actually exists (cursor-trail-container2)
-        // or create others if needed.
-        
         const trailContainer2 = document.getElementById('cursor-trail-container2');
-        
         if (trailContainer2) {
             document.addEventListener('mousemove', (e) => {
                 const triangle = document.createElement('div');
-                triangle.className = 'trianglewhite5'; // Using the style defined in CSS
+                triangle.className = 'trianglewhite5'; 
                 triangle.style.left = `${e.clientX}px`;
                 triangle.style.top = `${e.clientY}px`;
                 trailContainer2.appendChild(triangle);
@@ -541,8 +568,6 @@
             });
         }
 
-        // IMAGE PROTECTION
-        // Unified the protection scripts
         function protectImages() {
             document.addEventListener("contextmenu", function (e) {
                 if (e.target.tagName === "IMG") e.preventDefault();
@@ -555,10 +580,7 @@
             });
         }
         protectImages();
-    </script>
 
-    <script>
-        // BACKGROUND TRIANGLES
         function spawnTriangles(canvasId, className, color) {
             const canvas = document.getElementById(canvasId);
             if (!canvas) return;
