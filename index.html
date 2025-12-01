@@ -1,487 +1,603 @@
-body {
-  background-color: #1f1f1f;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  margin: 0;
-  padding-top: 80px;
-}
-/* Text */
-h1 {
-  font-size: 80px;
-  letter-spacing: 2px;
-  color: white;
-  position: relative;
-  z-index: 2;
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  margin-left: 50px;
-  margin-top: 50px;
-  font-size: 28px;
-  text-shadow: 2px solid black;
-}
-h2 {
-  font-weight: 700;
-  font-size: 60px;
-  color: white;
-}
-.text-content h2 {
-  margin: 0 0 8px 0;
-  font-size: 26px;
-  color: white;
-}
-.text-contentblack {
-  margin: 0 0 8px 0;
-  color: white;
-}
-p {
-  margin: 0;
-  font-size: 20px;
-  color: white;
-  font-family: 'Titillium Web', sans-serif;
-}
-/* Topbar */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  z-index: 9999;
-  padding-bottom: 10px;
-  border-bottom: 1px solid red;
-}
-        .topbar .header {
-            align-items: left;
-            margin-left: 35px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Riya halbhavi</title>
+    <meta name="description" content="I explore how software and hardware blend to create meaningful systems in the domains of safety, security, and social impact.">
+    <meta name="google-site-verification" content="j-JDQ1V-xYaWhueZ4_6TTiJwYQkZ6MHaQRtOAptjJJo" />
+    <meta name="msvalidate.01" content="3E5A7800F766EAC5F9D06BF8523C2061" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="styles/rh.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
-        .topbar .menu {
+
+        /* Trail */
+        #cursor-trail-container2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10000;
+        }
+        .trianglewhite5 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid white;
+            filter: drop-shadow(0 0 4px red);
+            animation: pulse5 5s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+        @keyframes pulse5 {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 45px;
+            gap: 20px; /* Added gap for consistency */
+        }
+        .project-card {
+            background-color: #111;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            gap: 10px;
-            font-family: 'Overpass Mono', monospace;
-            align-items: right;
-            margin-right: 70px;
+            flex-direction: column;
+            height: 100%;
+            padding-bottom: 10px;
         }
-        .topbar .menu a {
-            color: white;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px white;
+        }
+        a {
             text-decoration: none;
         }
-        .topbar .menu span {
-            color: red;
-        }
-.header a {
-  text-decoration: none;
-}
-
-/* Menu */
-.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 4px;
-  gap: 20px;
-  font-size: 17px;
-  font-weight: 700;
-  background-attachment: fixed;
-  font-family: 'Overpass Mono', monospace;
-}
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: 400;
-  font-size: 17px;
-  background-attachment: fixed;
-  transition: color 0.3s ease;
-}
-.menu a:hover {
-  color: #f5f5dc !important;
-  background-attachment: fixed;
-}
-.menu a.active {
-  color: #fc7c7c !important;
-}
-.menu span {
-  color: #fff;
-  font-weight: 300;
-  background-attachment: fixed;
-}
-/* Social icons */
-.social-icons {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  z-index: 10;
-}
-.social-icons a {
-  font-size: 34px;
-  color: white;
-  text-decoration: none;
-  background-color: rgb(39, 39, 39);
-  border-radius: 10px;
-}
-.social-icons a:hover {
-  color: #fc7c7c;
-}
-/* Glitch animation */
-.glitch-wrapper {
-  position: relative;
-  margin-bottom: 15px;
-  text-align: center;
-}
-.small-glitch {
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 38px;
-  letter-spacing: 2px;
-  color: white;
-  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  position: relative;
-  z-index: 2;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  text-align: left;
-}
-.small-glitch::before,
-.small-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: 0.8;
-  clip-path: inset(0 0 100% 0);
-}
-.small-glitch::before {
-  color: white;
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-.small-glitch::after {
-  color: aqua;
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-@keyframes glitchTop {
-  0% { clip-path: inset(0 0 100% 0); }
-  10% { clip-path: inset(0 0 75% 0); }
-  20% { clip-path: inset(10% 0 65% 0); }
-  40% { clip-path: inset(20% 0 50% 0); }
-  60% { clip-path: inset(30% 0 30% 0); }
-  80% { clip-path: inset(40% 0 20% 0); }
-  100% { clip-path: inset(50% 0 0% 0); }
-}
-@keyframes glitchBottom {
-  0% { clip-path: inset(50% 0 0% 0); }
-  20% { clip-path: inset(30% 0 20% 0); }
-  40% { clip-path: inset(20% 0 30% 0); }
-  60% { clip-path: inset(10% 0 50% 0); }
-  80% { clip-path: inset(5% 0 60% 0); }
-  100% { clip-path: inset(0% 0 100% 0); }
-}
-.glitch-wrapperhead {
-  position: relative;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.glitchhead {
-  font-family: "UnifrakturMaguntia", cursive;
-  font-size: 31px;
-  letter-spacing: 2px;
-  color: white;
-  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  position: relative;
-  z-index: 2;
-  margin-top: 13px;
-  margin-bottom: 13px;
-}
-.scanline {
-  position: relative;
-  display: block;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-.scanline::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    rgba(255, 0, 0, 0.1) 1px,
-    transparent 2px
-  );
-  animation: scan 2s linear infinite;
-}
-@keyframes scan {
-  0% { top: -100%; }
-  100% { top: 0%; }
-}
-.sparkle-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-.sparkle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: red;
-  opacity: 0;
-  border-radius: 50%;
-  animation: flicker 1s infinite ease-in-out;
-}
-@keyframes flicker {
-  0%, 100% { opacity: 0; }
-  10%, 90% { opacity: 1; }
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-/* Center box */
-.center-box {
-  display: flex;
-  justify-content: flex-start;
-  background-color: black;
-  border-radius: 15px;
-  padding: 30px 40px;
-  max-width: 895px;
-  max-height: 540px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px black;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-.center-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px black;
-}
-.center-box img {
-  height: 480px;
-  width: auto;
-  padding-left: 20px;
-  border-radius: 10px;
-  object-fit: contain;
-  margin-right: 15px;
-}
-.center-box p {
-  font-size: 20px;
-  flex: 1;
-  max-width: 515px;
-  color: white;
-  word-wrap: break-word;
-  font-family: 'Overpass Mono', monospace;
-  text-align: left;
-}
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 35px;
-            justify-items: center;
-            align-items: center;
-            margin: 60px 0;
-            width: 90%;
-        }
-
-        .photo-grid img {
+        .project-card img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            display: block;
+        }
+        .project-card h3 {
+            margin: 1rem 1rem 0.5rem;
+            font-size: 25px;
+            font-family: "Candal", sans-serif;
+            font-weight: 500;
+            color: #fc7c7c;
+            transition: color 0.3s ease;
+        }
+        .project-card:hover h3 {
+            color: #f5f5dc;
+        }
+        .project-card p {
+            margin: 0 1rem 1.5rem;
+            font-size: 19px;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
         }
 
-        .photo-grid img:hover {
-            transform: scale(1.05);
+        /* Buttons */
+        .project-links {
+            margin: 0.4rem 1rem 1rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
         }
 
-.hero-flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-/* Repo grid */
-.repo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.repo-card {
-  background-color: #111;
-  border: 1px solid red;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: 5px;
-}
-.repo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px red;
-}
-.repo-card > a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-.repo-card h3 {
-  margin: 1rem 1rem;
-  font-size: 30px;
-  font-family: "Candal", sans-serif;
-  font-weight: 400;
-  color: #fc7c7c;
-  transition: color 0.3s ease;
-  text-align: left;
-}
-.repo-card:hover h3 {
-  color: #f5f5dc;
-}
-.repo-card p {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  font-size: 19px;
-  font-family: 'Titillium Web', sans-serif;
-  color: white;
-}
+        .project-btn {
+            padding: 5px 18px;
+            border-radius: 999px;
+            background-color: transparent;
+            border: 1px solid #fc7c7c;
+            color: #fc7c7c;
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 17px;
+            transition: 0.3s ease;
+        }
+        .icon-btn {
+            border-radius: 999px;
+            padding: 5px 15px;  /* reduced by 2px */
+            border: 1px solid #fc7c7c;
+            color: #fc7c7c;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+        .project-btn:hover,
+        .icon-btn:hover {
+            color: #f5f5dc;
+            border: 1px solid #f5f5dc;
+        }
 
-    .folder-list ul {
-      list-style: none;
-      margin-right: 1em;
-      margin-left: 1em;
-    }
-    .folder-list li {
-      font-family: 'Overpass Mono', monospace;
-      font-size: 18px;
-      color: white;
-    }
-    .folder-list a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    .folder-list a:hover {
-      color: #f5f5dc;
-    }
-    .folder-list i {
-      margin-right: 0.5em;
-      margin-left: 0.5em;
-      color: white;
-    }
-    .folder-list li.break-before {
-      margin-top: 2rem;
-    }
+        /* Typing cursor */
+        .red-cursor {
+            display: inline-block;
+            width: 12px;
+            height: 29px;
+            background-color: #fc7c7c;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blinkRed 1s steps(2, start) infinite;
+        }
+        @keyframes blinkRed {
+            0%, 50% { opacity: 1; }
+            50.01%, 100% { opacity: 0; }
+        }
 
-/* Triangles */
-.canvasred {
-  width: 280px;
-  height: 280px;
-  position: relative;
-  background-color: transparent;
-}
-.canvasblack {
-  width: 280px;
-  height: 280px;
-  position: relative;
-  background-color: transparent;
-}
-.canvaswhite {
-  width: 280px;
-  height: 280px;
-  position: relative;
-  background-color: transparent;
-}
-.canvasred2 {
-  width: 280px;
-  height: 280px;
-  position: relative;
-  background-color: transparent;
-}
-.trianglered {
-  position: absolute;
-  width: 0;
-  height: 0;
-  filter: drop-shadow(0 0 1px black);
-  animation: pulse1 5s ease-in-out infinite;
-  transition: color 0.4s ease;
-}
-.triangleblack {
-  position: absolute;
-  width: 0;
-  height: 0;
-  filter: drop-shadow(0 0 1px white);
-  animation: pulse2 5s ease-in-out infinite;
-  transition: color 0.4s ease;
-}
-.trianglewhite {
-  position: absolute;
-  width: 0;
-  height: 0;
-  filter: drop-shadow(0 0 1px red);
-  animation: pulse2 5s ease-in-out infinite;
-  transition: color 0.4s ease;
-}
-.trianglered2 {
-  position: absolute;
-  width: 0;
-  height: 0;
-  filter: drop-shadow(0 0 1px white);
-  animation: pulse2 5s ease-in-out infinite;
-  transition: color 0.4s ease;
-}
-@keyframes pulse1 {
-  0%, 100% {
-    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-  }
-  50% {
-    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
-  }
-}
-@keyframes pulse2 {
-  0%, 100% {
-    transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
-  }
-  50% {
-    transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
-  }
-}
+        h1 {
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            font-weight: 400px;
+            font-size: 29px;
+            color: #f5f5dc;
+            margin-top: 40px;
+        }
+        .canvasred, .canvasblack, .canvaswhite, .canvasred2 {
+            width: 240px;
+            height: 240px;
+            position: relative;
+            background-color: transparent;
+        }
+        .trianglered, .triangleblack, .trianglewhite, .trianglered2 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            animation: pulse1 5s ease-in-out infinite;
+            transition: color 0.4s ease;
+        }
 
-/* Disable dragging and saving of images */
-img {
-    -webkit-user-drag: none;
-    user-drag: none;
-    pointer-events: auto;
-}
-img::selection {
-    background: transparent;
-}
+        .trianglered {
+            filter: drop-shadow(0 0 1px black);
+        }
+        .triangleblack {
+            filter: drop-shadow(0 0 1px white);
+            animation: pulse2 5s ease-in-out infinite;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid black;
+        }
+        .trianglewhite {
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid white;
+            filter: drop-shadow(0 0 4px red);
+            animation: pulse2 5s ease-in-out infinite;
+        }
+        .trianglered2 {
+            filter: drop-shadow(0 0 1px white);
+            animation: pulse2 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse1 {
+            0%, 100% {
+                transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+            }
+            50% {
+                transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+            }
+        }
+
+        @keyframes pulse2 {
+            0%, 100% {
+                transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(1);
+            }
+            50% {
+                transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
+            }
+        }
+        
+        /* --- LAYOUT CSS (Grid Fix) --- */
+        .repo-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr); /* Forces 3 columns */
+            gap: 20px; /* Space between cards */
+            padding: 20px 50px !important;
+        }
+        
+        .repo-card {
+            background-color: #111; /* Kept background consistent with theme */
+            display: flex !important;
+            flex-direction: column;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            box-sizing: border-box; 
+            min-height: 150px;
+            padding: 15px !important;
+        }
+        
+        /* Responsive: Switch to 1 column on mobile/small screens */
+        @media (max-width: 900px) {
+            .repo-grid {
+                grid-template-columns: 1fr;
+                padding: 20px !important;
+            }
+            .project-grid {
+                grid-template-columns: 1fr; /* Ensures project grid also responds */
+                margin: 20px;
+            }
+        }
+
+        .repo-card a h3,
+        .repo-card a p,
+        .repo-card a ul {
+            margin-top: 15px !important;
+            margin-bottom: 30px !important;
+        }
+        .folder-list ul li {
+            /* Spacing between folder items */
+            margin-bottom: 20px;
+        }
+        .folder-list ul li a {
+            display: block;        
+            padding: 0;
+            margin: 0 !important;
+            margin-bottom: 10px;
+        }
+        .folder-list ul {
+            list-style: none;
+            padding-left: 0; 
+            /* Spacing above and below the folder list */
+            margin-top: 5px !important;
+            margin-bottom: 5px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cursor-trail-container2"></div>
+
+    <div class="topbar">
+        <div class="header" style="display: flex; align-items: center;">
+            <a href="index.html">
+                <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
+            </a>
+        </div>
+        <div class="menu">
+            <a href="#about">About</a><span style="color: red">|</span>
+            <a href="#projects" class="active">Projects</a><span style="color: red">|</span>
+            <a href="#languages">Languages</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
+        </div>
+    </div>
+    <br>
+
+    <div class="hero-flex-container" id="about">
+        <div class="canvasred2" id="canvasred2"></div>
+
+        <div class="center-box">
+            <div class="text-content">
+                <div class="glitch-wrapper">
+                    <div class="scanline">
+                        <div class="glitch small-glitch" data-text="The Code is Your Canvas" aria-hidden="true">
+                            The Code is Your Canvas
+                        </div>
+                    </div>
+                </div>
+
+                <p>Hi there!</p><br>
+                <p>I'm interested in how software and hardware blend to create meaningful solutions.</p><br>
+                <p>Here, you will find <span style="color: #fc7c7c;">projects</span>, <span style="color: #fc7c7c;">repositories</span>, and <span style="color: #fc7c7c;">documentations</span> for reference.</p><br>
+            </div>
+
+            <div class="right-section">
+                <img src="styles/8897.png" alt="abt" />
+            </div>
+        </div>
+
+        <div class="canvaswhite" id="canvaswhite"></div>
+    </div>
+
+    <br><br>
+
+    <div id="projects"></div>
+    <h1 id="typewriter"></h1>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <img src="img/rr.png" alt="sots">
+            <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
+
+            <div class="project-links">
+                <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
+            </div>
+
+            <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
+        </div>
+
+        <div class="project-card">
+            <img src="img/cc.png" alt="Road Incident Detection System">
+            <h3>Road Incident/Fire Detection and SMS Alert System</h3>
+
+            <div class="project-links">
+                <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
+                    📘 Docs
+                </a>
+            </div>
+
+            <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
+
+            <p><b>Libraries used:</b><br>
+                - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
+                - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
+                - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
+                - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
+                - <b>Twilio API</b>: Automated SMS alert notifications
+            </p>
+        </div>
+        
+        <div class="project-card">
+            <img src="img/c.png" alt="Crowd and Cluster Detection/Heatmap System">
+            <h3>Crowd and Cluster Detection + Heatmap System</h3>
+
+            <div class="project-links">
+                <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/README.md" class="project-btn" target="_blank">
+                    📘 Docs
+                </a>
+            </div>
+
+            <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
+
+            <p><b>Libraries used:</b><br>
+                - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
+                - <b>numpy</b>: For array/matrix operations<br>
+                - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
+            </p>
+        </div>
+
+    </div>
+
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="img/emeraldbeach_night.png" alt="sots">
+            <h3>Shadows On The Sands 
+                <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span>
+            </h3>
+
+            <div class="project-links">
+                <a href="https://rii2.itch.io/shadows-on-the-sands" class="icon-btn" target="_blank" style="display:flex; align-items:center; gap:8px; font-size:18px;">
+                    <i class="fab fa-itch-io"></i>
+                    <span style="font-family:'Titillium Web', sans-serif; font-size:17px;">itch.io</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="languages"></div>
+    <h1 id="typewriter-languages"></h1>
+
+    <div class="repo-grid">
+        <div class="repo-card">
+            <a href="https://github.com/rh3nium/C" target="_blank">
+                <h3>⚙︎ C</h3>
+                <p>C is a powerful, general-purpose programming language that provides a foundation for many modern languages. Known for its efficiency and control, C is commonly used in system programming, embedded development, operating systems, and video games.</p>
+            </a>
+            <div class="folder-list">
+                <ul>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Input%20and%20Output%20Functions"><i class="fas fa-folder"></i>Input and Output Functions</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Variables"><i class="fas fa-folder"></i>Variables</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Operators"><i class="fas fa-folder"></i>Operators</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Type%20Conversion"><i class="fas fa-folder"></i>Type Conversion</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Conditional%20Statements"><i class="fas fa-folder"></i>Conditional Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Looping%20Statements"><i class="fas fa-folder"></i>Looping Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Jumping%20Statements"><i class="fas fa-folder"></i>Jumping Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Strings"><i class="fas fa-folder"></i>Strings</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Arrays"><i class="fas fa-folder"></i>Arrays</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Functions"><i class="fas fa-folder"></i>Functions</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Pointers"><i class="fas fa-folder"></i>Pointers</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Memory%20Allocation"><i class="fas fa-folder"></i>Dynamic Memory Allocation</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Structures"><i class="fas fa-folder"></i>Structures</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Unions"><i class="fas fa-folder"></i>Unions</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Linked%20Lists"><i class="fas fa-folder"></i>Linked Lists</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Stacks"><i class="fas fa-folder"></i>Stacks</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Queues"><i class="fas fa-folder"></i>Queues</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Graphs"><i class="fas fa-folder"></i>Graphs</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Searching%20and%20Sorting"><i class="fas fa-folder"></i>Searching and Sorting</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Preprocessor%20Directives%20and%20Macros"><i class="fas fa-folder"></i>Preprocessor Directives and Macros</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/File%20Handling"><i class="fas fa-folder"></i>File Handling</a></li>
+                    <li><a href="https://github.com/rh3nium/C/tree/main/Examples"><i class="fas fa-folder"></i>Examples</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <a href="https://github.com/rh3nium/Python" target="_blank">
+                <h3>🐍 Python</h3>
+                <p>Python is a powerful, versatile, high-level, interpreted, object-oriented programming language, driving innovation across data science, machine learning/deep learning, web development, and automation.</p>
+            </a>
+            <div class="folder-list">
+                <ul>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Dictionaries"><i class="fas fa-folder"></i>Dictionaries</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/For%20Loop"><i class="fas fa-folder"></i>For Loop</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Functions"><i class="fas fa-folder"></i>Functions</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/If-Else-Elif%20Statements"><i class="fas fa-folder"></i>If-Else-Elif Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Keywords%20and%20Identifiers"><i class="fas fa-folder"></i>Keywords and Identifiers</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Lists"><i class="fas fa-folder"></i>Lists</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Sets"><i class="fas fa-folder"></i>Sets</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Strings"><i class="fas fa-folder"></i>Strings</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Tkinter"><i class="fas fa-folder"></i>Tkinter</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Try-Except-Finally%20Statements"><i class="fas fa-folder"></i>Try-Except-Finally Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/Tuples"><i class="fas fa-folder"></i>Tuples</a></li>
+                    <li><a href="https://github.com/rh3nium/Python/tree/main/While%20Loop"><i class="fas fa-folder"></i>While Loop</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <a href="https://github.com/rh3nium/Bash" target="_blank">
+            <h3>＄ Bash</h3>
+            <p>Bash (short for Bourne Again Shell) is a command-line language and scripting shell used primarily on Unix and Linux systems to interact with the automate tasks. It serves both as an interactive shell—where users can execute commands, manage files, and control processes—and as a scripting language that allows writing programs to perform repetitive or complex operations efficiently.</p>
+            </a>
+            <div class="folder-list">
+                <ul>
+                    <li><a href="https://github.com/rh3nium/Bash/tree/main/Conditional%20Statements"><i class="fas fa-folder"></i>Conditional Statements</a></li>
+                    <li><a href="https://github.com/rh3nium/Bash/tree/main/Task%20Automation"><i class="fas fa-folder"></i>Task Automation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="repo-card">
+            <a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation" target="_blank">
+                <h3>Google Apps Script</h3>
+                <p>Google Apps Script is a powerful cloud-based JavaScript platform that allows users to seamlessly automate, integrate, and extend Google Workspace (Sheets, Docs, Mail, Drive).</p>
+            </a>
+            <div class="folder-list">
+                <ul>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Sheets"><i class="fas fa-folder"></i>Google Sheets</a></li>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Forms</a></li>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Docs"><i class="fas fa-folder"></i>Google Docs</a></li>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Drive"><i class="fas fa-folder"></i>Google Drive</a></li>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Google%20Forms"><i class="fas fa-folder"></i>Google Calendar</a></li>
+                    <li><a href="https://github.com/rh3nium/Google-Apps-Script---Workflow-Automation/tree/main/Web%20Applications"><i class="fas fa-folder"></i>Web Applications</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+    
+    <script>
+        // TYPEWRITER 1: Languages (Renamed functions to avoid conflict)
+        // Note: I moved this down because the original code had it after the HTML. 
+        // I also fixed the ID targeting.
+        
+        const textLang = "Languages";
+        const speedLang = 55;
+        let indexLang = 0;
+
+        function typeEffectLang() {
+            const heading = document.getElementById("typewriter-languages");
+            if(heading) {
+                heading.innerHTML = textLang.substring(0, indexLang) + '<span class="red-cursor"></span>';
+                if (indexLang < textLang.length) {
+                    indexLang++;
+                    setTimeout(typeEffectLang, speedLang);
+                }
+            }
+        }
+
+        // TYPEWRITER 2: Projects
+        const textProj = "Projects at the intersection of software and hardware";
+        const speedProj = 55;
+        let indexProj = 0;
+
+        function typeEffectProj() {
+            const heading = document.getElementById("typewriter");
+            if(heading) {
+                heading.innerHTML = textProj.substring(0, indexProj) + '<span class="red-cursor"></span>';
+                if (indexProj < textProj.length) {
+                    indexProj++;
+                    setTimeout(typeEffectProj, speedProj);
+                }
+            }
+        }
+
+        // Initialize Typewriters
+        document.addEventListener("DOMContentLoaded", () => {
+            typeEffectLang();
+            typeEffectProj();
+        });
+
+        // CURSOR TRAILS
+        // Consolidated trail logic to use the container that actually exists (cursor-trail-container2)
+        // or create others if needed.
+        
+        const trailContainer2 = document.getElementById('cursor-trail-container2');
+        
+        if (trailContainer2) {
+            document.addEventListener('mousemove', (e) => {
+                const triangle = document.createElement('div');
+                triangle.className = 'trianglewhite5'; // Using the style defined in CSS
+                triangle.style.left = `${e.clientX}px`;
+                triangle.style.top = `${e.clientY}px`;
+                trailContainer2.appendChild(triangle);
+
+                setTimeout(() => { triangle.style.opacity = '0'; }, 100);
+                setTimeout(() => { triangle.remove(); }, 1000);
+            });
+        }
+
+        // IMAGE PROTECTION
+        // Unified the protection scripts
+        function protectImages() {
+            document.addEventListener("contextmenu", function (e) {
+                if (e.target.tagName === "IMG") e.preventDefault();
+            });
+            document.addEventListener("dragstart", function (e) {
+                if (e.target.tagName === "IMG") e.preventDefault();
+            });
+            document.querySelectorAll("img").forEach(img => {
+                img.setAttribute("oncontextmenu", "return false;");
+            });
+        }
+        protectImages();
+    </script>
+
+    <script>
+        // BACKGROUND TRIANGLES
+        function spawnTriangles(canvasId, className, color) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            
+            const canvasSize = 200;
+            const center = canvasSize / 2;
+            const scaleFactor = 1.1;
+
+            for (let i = 0; i < 25; i++) {
+                const tri = document.createElement('div');
+                tri.className = className;
+
+                const base = Math.floor(Math.random() * 32) + 10;
+                const height = Math.floor(Math.random() * 33) + 12;
+
+                tri.style.borderLeft = `${base / 2}px solid transparent`;
+                tri.style.borderRight = `${base / 2}px solid transparent`;
+                tri.style.borderBottom = `${height}px solid ${color}`;
+
+                const maxOffsetX = center - (base / 2) * scaleFactor;
+                const maxOffsetY = center - height * scaleFactor;
+                const offsetX = Math.random() * (maxOffsetX * 2) - maxOffsetX;
+                const offsetY = Math.random() * (maxOffsetY * 2) - maxOffsetY;
+                const rotation = Math.floor(Math.random() * 360);
+
+                tri.style.setProperty('--x', `${offsetX}px`);
+                tri.style.setProperty('--y', `${offsetY}px`);
+                tri.style.setProperty('--r', `${rotation}deg`);
+
+                tri.style.left = '50%';
+                tri.style.top = '50%';
+
+                canvas.appendChild(tri);
+            }
+        }
+
+        spawnTriangles('canvasred2', 'trianglered', 'red');
+        spawnTriangles('canvaswhite', 'trianglewhite', 'white');
+    </script>
+
+</body>
+</html>
