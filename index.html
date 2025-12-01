@@ -503,18 +503,40 @@
     <br><br>
     
     <script>
-        // --- NEW: MENU ACTIVE STATE LOGIC ---
+        // --- UPDATED: SCROLL SPY & MENU LOGIC ---
         document.addEventListener("DOMContentLoaded", () => {
-            const links = document.querySelectorAll('.menu-link');
+            const menuLinks = document.querySelectorAll('.menu-link');
+            // Select our target sections
+            // Note: Projects and Languages are empty anchors before their content,
+            // but this selector works because we track their position in the document.
+            const sections = document.querySelectorAll('#about, #projects, #languages');
+
+            // Function to update active state based on scroll
+            function changeLinkState() {
+                let index = sections.length;
+
+                // Loop through sections from bottom to top
+                // + 200 is the offset: it makes the link active BEFORE the section hits the very top.
+                while(--index && window.scrollY + 200 < sections[index].offsetTop) {}
+                
+                menuLinks.forEach((link) => link.classList.remove('active'));
+                
+                // Add active class to the link corresponding to the section in view
+                // This checks if the ID in the href matches the section ID
+                if(sections[index]) {
+                    const id = sections[index].id;
+                    const activeLink = document.querySelector(`.menu a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+
+            // Listen for scroll events
+            window.addEventListener('scroll', changeLinkState);
             
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    // Remove 'active' class from all links
-                    links.forEach(l => l.classList.remove('active'));
-                    // Add 'active' class to the clicked link
-                    this.classList.add('active');
-                });
-            });
+            // Initial check in case user reloads halfway down the page
+            changeLinkState();
         });
 
         // --- EXISTING TYPEWRITERS & EFFECTS ---
