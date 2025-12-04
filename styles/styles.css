@@ -285,10 +285,10 @@ p {
   box-shadow: 0 0 25px black;
 }
 .center-box img {
-  height: 480px;
+  height: 460px;
   width: auto;
   padding-left: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   object-fit: contain;
   margin-right: 15px;
 }
