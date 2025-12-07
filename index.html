@@ -21,16 +21,18 @@
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
+            cursor: none; 
+        }
+        body {
+            cursor: none;
         }
 
-        /* --- MENU ACTIVE STATE & SCROLL OFFSET  --- */
-        /* Style for the Active Link */
+        /* --- MENU ACTIVE STATE & SCROLL OFFSET  --- */
         .menu a.active {
-            color: #fc7c7c !important; 
+            color: #fc7c7c !important; 
         }
-        /* Scroll Margin: prevents the fixed header from covering the titles */
-        #about, 
-        #projects, 
+        #about, 
+        #projects, 
         #languages {
             scroll-margin-top: 121px;
         }
@@ -44,6 +46,25 @@
             pointer-events: none;
             z-index: 10000;
         }
+
+        /* UPDATED CSS FOR STATIC CURSOR 
+           We use transform here ONLY for centering (-50%, -50%), 
+           not for moving it around the screen.
+        */
+        #static-cursor {
+            position: fixed;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 24px solid white;
+            filter: drop-shadow(0 0 4px red);
+            pointer-events: none;
+            z-index: 10001;
+            /* This ensures the center of the triangle is at the mouse coordinates */
+            transform: translate(-50%, -50%);
+        }
+
         .trianglewhite5 {
             position: absolute;
             width: 0;
@@ -54,10 +75,13 @@
             filter: drop-shadow(0 0 4px red);
             animation: pulse5 5s ease-in-out infinite;
             transition: opacity 0.3s ease;
+            /* Matches the static cursor centering */
+            transform: translate(-50%, -50%); 
         }
+
         @keyframes pulse5 {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
         }
 
         /* Layout */
@@ -82,12 +106,11 @@
         }
         a {
             text-decoration: none;
-            color: white; /* Default color for menu links */
+            color: white; 
             transition: color 0.3s ease;
         }
-        /* Hover effect for menu links (non-active) */
         .menu a:hover {
-            color: #fc7c7c; 
+            color: #fc7c7c; 
         }
 
         .project-card img {
@@ -220,7 +243,7 @@
                 transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
             }
         }
-        
+         
         /* --- LAYOUT CSS (Grid Fix) --- */
         .repo-grid {
             display: grid !important;
@@ -228,7 +251,7 @@
             gap: 20px;
             padding: 20px 50px !important;
         }
-        
+         
         .repo-card {
             background-color: #111;
             display: flex !important;
@@ -236,11 +259,11 @@
             width: 100% !important;
             height: 100% !important;
             margin: 0 !important;
-            box-sizing: border-box; 
+            box-sizing: border-box; 
             min-height: 150px;
             padding: 15px !important;
         }
-        
+         
         /* Responsive: Switch to 1 column on mobile/small screens */
         @media (max-width: 900px) {
             .repo-grid {
@@ -263,14 +286,14 @@
             margin-bottom: 20px;
         }
         .folder-list ul li a {
-            display: block;        
+            display: block;        
             padding: 0;
             margin: 0 !important;
             margin-bottom: 10px;
         }
         .folder-list ul {
             list-style: none;
-            padding-left: 0; 
+            padding-left: 0; 
             margin-top: 5px !important;
             margin-bottom: 5px !important;
         }
@@ -278,6 +301,7 @@
 </head>
 
 <body>
+    <div id="static-cursor"></div>
     <div id="cursor-trail-container2"></div>
 
     <div class="topbar">
@@ -286,13 +310,13 @@
                 <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
             </a>
         </div>
-        
+         
         <div class="menu">
             <a href="#about" class="menu-link active">About</a><span style="color: red">|</span>
             <a href="#projects" class="menu-link">Projects</a><span style="color: red">|</span>
             <a href="#languages" class="menu-link">Languages</a>
         </div>
-        
+         
         <div class="social-icons">
             <a href="https://github.com/rh3nium" target="_blank" class="fab fa-github"></a>
         </div>
@@ -366,7 +390,7 @@
                 - <b>Twilio API</b>: Automated SMS alert notifications
             </p>
         </div>
-        
+         
         <div class="project-card">
             <img src="img/rrrrr.png" alt="Crowd and Cluster Detection/Heatmap System">
             <h3>Crowd and Cluster Detection + Heatmap System</h3>
@@ -394,7 +418,7 @@
     <div class="project-grid">
         <div class="project-card">
             <img src="img/emeraldbeach_night.png" alt="sots">
-            <h3>Shadows On The Sands 
+            <h3>Shadows On The Sands 
                 <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span>
             </h3>
 
@@ -482,28 +506,19 @@
 
     </div>
     <br><br>
-    
+     
     <script>
         // --- UPDATED: SCROLL SPY & MENU LOGIC ---
         document.addEventListener("DOMContentLoaded", () => {
             const menuLinks = document.querySelectorAll('.menu-link');
-            // Select our target sections
-            // Note: Projects and Languages are empty anchors before their content,
-            // but this selector works because we track their position in the document.
             const sections = document.querySelectorAll('#about, #projects, #languages');
 
-            // Function to update active state based on scroll
             function changeLinkState() {
                 let index = sections.length;
-
-                // Loop through sections from bottom to top
-                // + 200 is the offset: it makes the link active BEFORE the section hits the very top.
                 while(--index && window.scrollY + 200 < sections[index].offsetTop) {}
-                
+                 
                 menuLinks.forEach((link) => link.classList.remove('active'));
-                
-                // Add active class to the link corresponding to the section in view
-                // This checks if the ID in the href matches the section ID
+                 
                 if(sections[index]) {
                     const id = sections[index].id;
                     const activeLink = document.querySelector(`.menu a[href="#${id}"]`);
@@ -513,15 +528,11 @@
                 }
             }
 
-            // Listen for scroll events
             window.addEventListener('scroll', changeLinkState);
-            
-            // Initial check in case user reloads halfway down the page
             changeLinkState();
         });
 
         // --- EXISTING TYPEWRITERS & EFFECTS ---
-        
         const textLang = "Languages";
         const speedLang = 55;
         let indexLang = 0;
@@ -557,20 +568,33 @@
             typeEffectProj();
         });
 
+        // 👇 UPDATED: Static cursor follow
+        // We use left/top in JS to move it, and CSS transform to center it. 
+        // This ensures identical positioning logic to the trail.
+        const staticCursor = document.getElementById('static-cursor');
+        document.addEventListener('mousemove', (e) => {
+            staticCursor.style.left = `${e.clientX}px`;
+            staticCursor.style.top = `${e.clientY}px`;
+        });
+        
+        // 👇 UPDATED: Trail logic
         const trailContainer2 = document.getElementById('cursor-trail-container2');
         if (trailContainer2) {
             document.addEventListener('mousemove', (e) => {
                 const triangle = document.createElement('div');
-                triangle.className = 'trianglewhite5'; 
+                triangle.className = 'trianglewhite5'; 
+                
+                // Position directly at mouse coordinates (CSS centering ensures alignment with static cursor)
                 triangle.style.left = `${e.clientX}px`;
                 triangle.style.top = `${e.clientY}px`;
+                
                 trailContainer2.appendChild(triangle);
 
                 setTimeout(() => { triangle.style.opacity = '0'; }, 100);
                 setTimeout(() => { triangle.remove(); }, 1000);
             });
         }
-
+        
         function protectImages() {
             document.addEventListener("contextmenu", function (e) {
                 if (e.target.tagName === "IMG") e.preventDefault();
@@ -587,7 +611,7 @@
         function spawnTriangles(canvasId, className, color) {
             const canvas = document.getElementById(canvasId);
             if (!canvas) return;
-            
+             
             const canvasSize = 200;
             const center = canvasSize / 2;
             const scaleFactor = 1.1;
@@ -622,6 +646,7 @@
 
         spawnTriangles('canvasred2', 'trianglered', 'red');
         spawnTriangles('canvaswhite', 'trianglewhite', 'white');
+
     </script>
 
 </body>
