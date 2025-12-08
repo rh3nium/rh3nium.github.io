@@ -50,7 +50,7 @@
             z-index: 10000;
         }
 
-        /* UPDATED CSS FOR STATIC CURSOR */
+        /* STATIC CURSOR */
         #static-cursor {
             position: fixed;
             width: 0;
@@ -61,12 +61,10 @@
             filter: drop-shadow(0 0 4px red);
             pointer-events: none;
             z-index: 10001;
-            
-            /* 👇 FIXED: Start off-screen so it doesn't appear at top-left on load */
+            /* Start off-screen so it doesn't appear at top-left on load */
             top: -100px;
             left: -100px;
-            
-            /* Centers the triangle on the mouse coordinates */
+            /* Centers the triangle on mouse coordinates */
             transform: translate(-50%, -50%);
         }
 
@@ -103,10 +101,11 @@
             flex-direction: column;
             height: 100%;
             padding-bottom: 10px;
+            box-shadow: 0 6px 12px white;
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px white;
+            box-shadow: 0 8px 18px white;
         }
         a {
             text-decoration: none;
@@ -247,15 +246,15 @@
                 transform: translate(calc(var(--x) * 0.6), calc(var(--y) * 0.6)) rotate(var(--r)) scale(1.1);
             }
         }
-         
-        /* --- LAYOUT CSS (Grid Fix) --- */
+          
+        /* --- LAYOUT CSS --- */
         .repo-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             padding: 20px 50px !important;
         }
-         
+          
         .repo-card {
             background-color: #111;
             display: flex !important;
@@ -267,7 +266,7 @@
             min-height: 150px;
             padding: 15px !important;
         }
-         
+          
         /* Responsive: Switch to 1 column on mobile/small screens */
         @media (max-width: 900px) {
             .repo-grid {
@@ -314,6 +313,28 @@
             padding: 10px 40px;
             box-sizing: border-box;
         }
+
+        /* --- BACKGROUND WRAPPER FOR PROJECTS --- */
+        /* 0% and 100% are black (to fade edges). 
+           15% to 85% is completely transparent (rgba(0,0,0,0)) 
+           to show the image underneath at full opacity. */
+        .projects-bg-wrapper {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(to bottom, 
+                #000 0%, 
+                rgba(0,0,0,0) 15%, 
+                rgba(0,0,0,0) 85%, 
+                #000 100%
+            ),
+            url('https://videos.openai.com/az/vg-assets/task_01kbyhnbfhe84vrhgqjb8qbyg0%2F1765183008_img_0.webp?se=2025-12-14T00%3A00%3A00Z&sp=r&sv=2024-08-04&sr=b&skoid=cfbc986b-d2bc-4088-8b71-4f962129715b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-12-08T01%3A09%3A13Z&ske=2025-12-15T01%3A14%3A13Z&sks=b&skv=2024-08-04&sig=w6fGKN5Cv6su3nCMxuYFoo0wmjufbkm/tFlyNsn2dxQ%3D&ac=oaivgprodscus2');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 30px;
+            padding-bottom: 50px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -327,13 +348,13 @@
                 <img src="styles/banner.png" alt="Logo" style="height: 80px; display: block;" />
             </a>
         </div>
-         
+          
         <div class="menu">
             <a href="#about" class="menu-link active">About</a><span style="color: red">|</span>
             <a href="#projects" class="menu-link">Projects</a><span style="color: red">|</span>
             <a href="#languages" class="menu-link">Languages</a>
         </div>
-         
+          
         <div class="social-icons">
             <a href="https://github.com/3riy" target="_blank" class="fab fa-github"></a>
         </div>
@@ -359,7 +380,7 @@
             </div>
 
             <div class="right-section">
-                <img src="styles/20251203_2023_White Outline Portrait_remix_01kbjb347yenfanjbf0qeat8bz.png" alt="abt" />
+                <img src="styles/rhino.png" alt="abt" />
             </div>
         </div>
 
@@ -368,86 +389,87 @@
 
     <br><br>
 
-    <div id="projects"></div>
-    <h1 id="typewriter"></h1>
+    <div class="projects-bg-wrapper">
+        <div id="projects"></div>
+        <h1 id="typewriter"></h1>
 
-    <div class="project-grid">
+        <div class="project-grid">
 
-        <div class="project-card">
-            <img src="img/rr.png" alt="sots">
-            <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
+            <div class="project-card">
+                <img src="img/rr.png" alt="sots">
+                <h3>Rayvn: Autonomous Victim Detection and Communication Mesh Bots</h3>
 
-            <div class="project-links">
-                <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
+                <div class="project-links">
+                    <a href="https://rayvn-labs.github.io/" target="_blank" class="project-btn">🌐 Website</a>
+                </div>
+
+                <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
             </div>
 
-            <p>Hybrid IoT/AI-powered rescue bots for victim detection and communication in crisis zones - integrating aerial drones + ground crawler bots with sensors + LoRa mesh network + CV human detection + path planning logic into one modular system.</p>
-        </div>
+            <div class="project-card">
+                <img src="img/cc.png" alt="Road Incident Detection System">
+                <h3>Road Incident/Fire Detection and SMS Alert System</h3>
 
-        <div class="project-card">
-            <img src="img/cc.png" alt="Road Incident Detection System">
-            <h3>Road Incident/Fire Detection and SMS Alert System</h3>
+                <div class="project-links">
+                    <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
+                        📘 Docs
+                    </a>
+                </div>
 
-            <div class="project-links">
-                <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System" class="icon-btn" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://github.com/rh3nium/Road-Incident-Hazard-Detection-and-SMS-Alert-Notification-System/blob/main/README.md" class="project-btn" target="_blank">
-                    📘 Docs
-                </a>
+                <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
+
+                <p><b>Libraries used:</b><br>
+                    - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
+                    - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
+                    - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
+                    - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
+                    - <b>Twilio API</b>: Automated SMS alert notifications
+                </p>
+            </div>
+            
+            <div class="project-card">
+                <img src="img/rrrrr.png" alt="Crowd and Cluster Detection/Heatmap System">
+                <h3>Crowd and Cluster Detection + Heatmap System</h3>
+
+                <div class="project-links">
+                    <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/README.md" class="project-btn" target="_blank">
+                        📘 Docs
+                    </a>
+                </div>
+
+                <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
+
+                <p><b>Libraries used:</b><br>
+                    - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
+                    - <b>numpy</b>: For array/matrix operations<br>
+                    - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
+                </p>
             </div>
 
-            <p>Real-time road incident and fire detection + SMS alert notification system developed using computer vision models, T5 string generation, and Twilio SMS API.</p>
-
-            <p><b>Libraries used:</b><br>
-                - <b>Flask</b>, <b>Gunicorn</b>: Backend routing + production server<br>
-                - <b>OpenCV</b>, <b>YOLOv8</b>: Frame processing + incident detection<br>
-                - <b>PyTorch</b>, <b>Transformers</b>, <b>scikit-learn</b>: AI inference + clustering logic<br>
-                - <b>MongoDB (pymongo)</b>: Incident logs + alert database<br>
-                - <b>Twilio API</b>: Automated SMS alert notifications
-            </p>
         </div>
-         
-        <div class="project-card">
-            <img src="img/rrrrr.png" alt="Crowd and Cluster Detection/Heatmap System">
-            <h3>Crowd and Cluster Detection + Heatmap System</h3>
 
-            <div class="project-links">
-                <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap" class="icon-btn" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://github.com/rh3nium/Crowd-Monitoring-system-Heatmap/blob/main/README.md" class="project-btn" target="_blank">
-                    📘 Docs
-                </a>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="img/emeraldbeach_night.png" alt="sots">
+                <h3>Shadows On The Sands 
+                    <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span>
+                </h3>
+
+                <div class="project-links">
+                    <a href="https://rii2.itch.io/shadows-on-the-sands" class="icon-btn" target="_blank" style="display:flex; align-items:center; gap:8px; font-size:18px;">
+                        <i class="fab fa-itch-io"></i>
+                        <span style="font-family:'Titillium Web', sans-serif; font-size:17px;">itch.io</span>
+                    </a>
+                </div>
             </div>
-
-            <p>Crowd monitoring and cluster detection system developed using Python & OpenCV.</p>
-
-            <p><b>Libraries used:</b><br>
-                - <b>cv2</b>: OpenCV library for image processing and computer vision<br>
-                - <b>numpy</b>: For array/matrix operations<br>
-                - <b>DBSCAN</b>: Density-based clustering algorithm from scikit-learn
-            </p>
         </div>
-
     </div>
-
-    <div class="project-grid">
-        <div class="project-card">
-            <img src="img/emeraldbeach_night.png" alt="sots">
-            <h3>Shadows On The Sands 
-                <span style="font-size: 25px; font-weight: 400; font-family: 'Titillium Web', sans-serif; color: white;"><i>Game</i></span>
-            </h3>
-
-            <div class="project-links">
-                <a href="https://rii2.itch.io/shadows-on-the-sands" class="icon-btn" target="_blank" style="display:flex; align-items:center; gap:8px; font-size:18px;">
-                    <i class="fab fa-itch-io"></i>
-                    <span style="font-family:'Titillium Web', sans-serif; font-size:17px;">itch.io</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <div id="languages"></div>
     <h1 id="typewriter-languages"></h1>
 
@@ -523,9 +545,9 @@
 
     </div>
     <br><br>
-     
+      
     <script>
-        // --- UPDATED: SCROLL SPY & MENU LOGIC ---
+        // --- SCROLL SPY & MENU LOGIC ---
         document.addEventListener("DOMContentLoaded", () => {
             const menuLinks = document.querySelectorAll('.menu-link');
             const sections = document.querySelectorAll('#about, #projects, #languages');
@@ -533,9 +555,9 @@
             function changeLinkState() {
                 let index = sections.length;
                 while(--index && window.scrollY + 200 < sections[index].offsetTop) {}
-                 
+                  
                 menuLinks.forEach((link) => link.classList.remove('active'));
-                 
+                  
                 if(sections[index]) {
                     const id = sections[index].id;
                     const activeLink = document.querySelector(`.menu a[href="#${id}"]`);
@@ -549,7 +571,7 @@
             changeLinkState();
         });
 
-        // --- EXISTING TYPEWRITERS & EFFECTS ---
+        // --- TYPEWRITERS & EFFECTS ---
         const textLang = "Languages";
         const speedLang = 55;
         let indexLang = 0;
@@ -585,14 +607,14 @@
             typeEffectProj();
         });
 
-        // 👇 UPDATED: Static cursor follow
+        // Static cursor follow
         const staticCursor = document.getElementById('static-cursor');
         document.addEventListener('mousemove', (e) => {
             staticCursor.style.left = `${e.clientX}px`;
             staticCursor.style.top = `${e.clientY}px`;
         });
         
-        // 👇 UPDATED: Trail logic
+        // Trail logic
         const trailContainer2 = document.getElementById('cursor-trail-container2');
         if (trailContainer2) {
             document.addEventListener('mousemove', (e) => {
@@ -625,7 +647,7 @@
         function spawnTriangles(canvasId, className, color) {
             const canvas = document.getElementById(canvasId);
             if (!canvas) return;
-             
+              
             const canvasSize = 200;
             const center = canvasSize / 2;
             const scaleFactor = 1.1;
