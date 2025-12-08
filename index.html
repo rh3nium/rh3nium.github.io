@@ -380,7 +380,7 @@
             </div>
 
             <div class="right-section">
-                <img src="styles/gggguu.png" alt="abt" />
+                <img src="styles/qwerty.png" alt="abt" />
             </div>
         </div>
 
@@ -550,24 +550,41 @@
         // --- SCROLL SPY & MENU LOGIC ---
         document.addEventListener("DOMContentLoaded", () => {
             const menuLinks = document.querySelectorAll('.menu-link');
+            // Ensure these IDs match your HTML exactly
             const sections = document.querySelectorAll('#about, #projects, #languages');
 
             function changeLinkState() {
-                let index = sections.length;
-                while(--index && window.scrollY + 200 < sections[index].offsetTop) {}
-                  
-                menuLinks.forEach((link) => link.classList.remove('active'));
-                  
-                if(sections[index]) {
-                    const id = sections[index].id;
-                    const activeLink = document.querySelector(`.menu a[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
+                let current = "";
+                
+                // Iterate through all sections to find which one is currently in view
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    // If we have scrolled past the top of this section (minus a buffer of 250px)
+                    if (window.scrollY >= (sectionTop - 250)) {
+                        current = section.getAttribute("id");
                     }
+                });
+
+                // Fallback: If we are at the very top of the page, force "about"
+                // This covers page refresh or the "center box" area
+                if (window.scrollY < 100) {
+                    current = "about";
                 }
+
+                // Remove active class from all, add to the current one
+                menuLinks.forEach((link) => {
+                    link.classList.remove('active');
+                    // Check if the link's href includes the current section ID
+                    if (current && link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
             }
 
             window.addEventListener('scroll', changeLinkState);
+            // Run once on load to highlight the correct link immediately
             changeLinkState();
         });
 
